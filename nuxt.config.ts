@@ -48,12 +48,13 @@ export default defineNuxtConfig({
     },
   },
 
-  // @nuxtjs/color-mode 配置
+  // @nuxtjs/color-mode 配置（cookie 存储 → SSR 可读，避免水合不匹配）
   colorMode: {
     classSuffix: '',
     preference: 'system',
     fallback: 'light',
     storageKey: 'tintin-blog-color-mode',
+    storage: 'cookie',
   },
 
   // Tailwind CSS 配置
