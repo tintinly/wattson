@@ -27,6 +27,6 @@ const { posts, allTags } = await usePosts(locale.value)
 const selectedTag = ref<string | null>(null)
 
 useHead({
-  title: `${t('archive.title')} - Wattson's Blog`,
+  title: `${t('archive.title')}`,
 })
 </script>

@@ -4,7 +4,7 @@
       <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
         <!-- 运行时长 -->
         <div class="flex flex-col gap-2">
-          <h3 class="text-sm font-semibold text-foreground">~ Status</h3>
+          <h3 class="text-sm font-semibold text-foreground">Status</h3>
           <UptimeCounter />
         </div>
 

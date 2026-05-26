@@ -44,7 +44,6 @@ const localePath = useLocalePath()
 const { featuredPosts, latestPosts } = await usePosts(locale.value)
 
 useHead({
-  title: "Wattson's Blog",
   meta: [
     { name: 'description', content: '个人技术博客' },
   ],

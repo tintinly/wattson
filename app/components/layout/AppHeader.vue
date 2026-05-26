@@ -3,8 +3,8 @@
     <div class="max-w-wide mx-auto flex h-16 items-center justify-between px-4 sm:px-6 lg:px-8">
       <!-- Logo -->
       <NuxtLink :to="localePath('/')" class="flex items-center gap-2 font-bold text-xl tracking-tight">
-        <span class="text-accent">~</span>
-        <span class="hidden sm:inline">Wattson</span>
+        <span class="text-accent"></span>
+        <span class="hidden sm:inline">Wattson's Blog</span>
       </NuxtLink>
 
       <!-- Desktop Nav -->
