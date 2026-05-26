@@ -1,0 +1,32 @@
+export default defineI18nConfig(() => ({
+  legacy: false,
+  locale: 'zh-CN',
+  messages: {
+    'zh-CN': {
+      header: { nav: { home: '首页', archive: '归档', friends: '友链', projects: '项目', about: '关于' }, search: '搜索', theme: '切换主题', language: 'English' },
+      home: { greeting: '你好，我是 {name}', bio: '全栈开发者 · 热爱开源与技术写作', latestPosts: '最新文章', featuredPosts: '置顶文章', viewAll: '查看全部文章', noPosts: '暂无文章' },
+      archive: { title: '归档', totalPosts: '共 {count} 篇文章', filterByTag: '按标签筛选', allTags: '全部', empty: '暂无归档文章' },
+      post: { readingTime: '阅读时间约 {minute} 分钟', publishedOn: '发布于', tags: '标签', previous: '上一篇', next: '下一篇', backToArchive: '返回归档' },
+      friends: { title: '友情链接', description: '感谢以下朋友们的友情链接', empty: '暂无友链' },
+      projects: { title: '项目展示', description: '以下是我参与或维护的开源项目与作品', empty: '暂无项目', viewProject: '查看项目' },
+      about: { title: '关于我' },
+      search: { placeholder: '搜索文章...', noResults: '没有找到相关文章', results: '搜索结果 ({count})', searchTitle: '搜索博客', shortcut: '按 Ctrl+K 快速搜索' },
+      footer: { uptime: '已稳定运行 {days} 天 {hours} 小时 {minutes} 分钟', techStack: '技术栈', visitors: '访问量 {count}', pageViews: '总浏览量 {count}', poweredBy: '由 {framework} 驱动', copyright: '版权所有', beian: '备案号' },
+      notFound: { title: '页面未找到', description: '抱歉，您访问的页面不存在', backHome: '返回首页', searchHint: '输入关键词搜索文章' },
+      common: { loading: '加载中...', error: '出错了', retry: '重试', readMore: '阅读全文' },
+    },
+    'en-US': {
+      header: { nav: { home: 'Home', archive: 'Archive', friends: 'Friends', projects: 'Projects', about: 'About' }, search: 'Search', theme: 'Toggle Theme', language: '中文' },
+      home: { greeting: "Hello, I'm {name}", bio: 'Full-stack Developer · Open Source Enthusiast', latestPosts: 'Latest Posts', featuredPosts: 'Featured Posts', viewAll: 'View All Posts', noPosts: 'No Posts Yet' },
+      archive: { title: 'Archive', totalPosts: '{count} posts in total', filterByTag: 'Filter by Tag', allTags: 'All', empty: 'No posts in archive' },
+      post: { readingTime: '{minute} min read', publishedOn: 'Published on', tags: 'Tags', previous: 'Previous', next: 'Next', backToArchive: 'Back to Archive' },
+      friends: { title: 'Friends', description: 'Thanks to all my friends for their support', empty: 'No friends yet' },
+      projects: { title: 'Projects', description: "Open source projects and works I've contributed to", empty: 'No projects yet', viewProject: 'View Project' },
+      about: { title: 'About Me' },
+      search: { placeholder: 'Search posts...', noResults: 'No results found', results: 'Search Results ({count})', searchTitle: 'Search Blog', shortcut: 'Press Ctrl+K to search' },
+      footer: { uptime: 'Running for {days}d {hours}h {minutes}m', techStack: 'Tech Stack', visitors: '{count} visitors', pageViews: '{count} page views', poweredBy: 'Powered by {framework}', copyright: 'All rights reserved', beian: 'ICP' },
+      notFound: { title: 'Page Not Found', description: 'Sorry, the page you are looking for does not exist', backHome: 'Back to Home', searchHint: 'Search for posts instead' },
+      common: { loading: 'Loading...', error: 'Something went wrong', retry: 'Retry', readMore: 'Read More' },
+    },
+  },
+}))

@@ -1,0 +1,79 @@
+{
+  "header": {
+    "nav": {
+      "home": "Home",
+      "archive": "Archive",
+      "friends": "Friends",
+      "projects": "Projects",
+      "about": "About"
+    },
+    "search": "Search",
+    "theme": "Toggle Theme",
+    "language": "中文"
+  },
+  "home": {
+    "greeting": "Hello, I'm {name}",
+    "bio": "Full-stack Developer · Open Source Enthusiast",
+    "latestPosts": "Latest Posts",
+    "featuredPosts": "Featured Posts",
+    "viewAll": "View All Posts",
+    "noPosts": "No Posts Yet"
+  },
+  "archive": {
+    "title": "Archive",
+    "totalPosts": "{count} posts in total",
+    "filterByTag": "Filter by Tag",
+    "allTags": "All",
+    "empty": "No posts in archive"
+  },
+  "post": {
+    "readingTime": "{minute} min read",
+    "publishedOn": "Published on",
+    "tags": "Tags",
+    "previous": "Previous",
+    "next": "Next",
+    "backToArchive": "Back to Archive"
+  },
+  "friends": {
+    "title": "Friends",
+    "description": "Thanks to all my friends for their support",
+    "empty": "No friends yet"
+  },
+  "projects": {
+    "title": "Projects",
+    "description": "Open source projects and works I've contributed to",
+    "empty": "No projects yet",
+    "viewProject": "View Project"
+  },
+  "about": {
+    "title": "About Me"
+  },
+  "search": {
+    "placeholder": "Search posts...",
+    "noResults": "No results found",
+    "results": "Search Results ({count})",
+    "searchTitle": "Search Blog",
+    "shortcut": "Press Ctrl+K to search"
+  },
+  "footer": {
+    "uptime": "Running for {days}d {hours}h {minutes}m",
+    "techStack": "Tech Stack",
+    "visitors": "{count} visitors",
+    "pageViews": "{count} page views",
+    "poweredBy": "Powered by {framework}",
+    "copyright": "All rights reserved",
+    "beian": "ICP"
+  },
+  "notFound": {
+    "title": "Page Not Found",
+    "description": "Sorry, the page you are looking for does not exist",
+    "backHome": "Back to Home",
+    "searchHint": "Search for posts instead"
+  },
+  "common": {
+    "loading": "Loading...",
+    "error": "Something went wrong",
+    "retry": "Retry",
+    "readMore": "Read More"
+  }
+}
