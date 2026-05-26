@@ -4,15 +4,13 @@
       <div
         v-if="isSearchOpen"
         class="fixed inset-0 z-50 flex items-start justify-center pt-[15vh]"
-        @click.self="closeSearch"
       >
         <!-- Backdrop -->
-        <div class="absolute inset-0 bg-black/40 backdrop-blur-sm" />
+        <div class="absolute inset-0 bg-black/40 backdrop-blur-sm" @click="closeSearch" />
 
         <!-- Dialog -->
         <div
           class="relative w-full max-w-lg mx-4 rounded-2xl bg-background border border-border shadow-2xl p-4 animate-fade-in"
-          @keydown.escape="closeSearch"
         >
           <!-- Input -->
           <div class="flex items-center gap-3 px-3 py-2 rounded-xl bg-background-secondary border border-border focus-within:border-accent transition-colors">
@@ -143,8 +141,13 @@ watch(query, (val) => {
   results.value = fuse.search(val.trim()).slice(0, 10).map(r => r.item)
 })
 
-// 键盘快捷键 Ctrl+K
+// 全局键盘快捷键
 function onKeydown(e: KeyboardEvent) {
+  if (e.key === 'Escape' && isSearchOpen.value) {
+    e.preventDefault()
+    closeSearch()
+    return
+  }
   if ((e.ctrlKey || e.metaKey) && e.key === 'k') {
     e.preventDefault()
     isSearchOpen.value ? closeSearch() : useSearch().openSearch()

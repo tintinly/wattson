@@ -1,5 +1,5 @@
 <template>
-  <div class="relative" @keydown.escape="isOpen = false">
+  <div ref="containerRef" class="relative">
     <button
       class="px-2 py-1.5 rounded-lg text-sm font-medium text-foreground-secondary hover:text-foreground hover:bg-background-secondary transition-colors"
       @click="isOpen = !isOpen"
@@ -13,7 +13,6 @@
       <div
         v-if="isOpen"
         class="absolute right-0 top-full mt-1 w-32 rounded-xl bg-background border border-border shadow-xl py-1 z-50"
-        @click.self="isOpen = false"
       >
         <button
           v-for="loc in availableLocales"
@@ -33,6 +32,8 @@
 </template>
 
 <script setup lang="ts">
+import { onClickOutside } from '@vueuse/core'
+
 const { locale } = useI18n()
 const switchLocalePath = useSwitchLocalePath()
 
@@ -43,6 +44,21 @@ const availableLocales = [
 
 const currentLocale = computed(() => locale.value)
 const isOpen = ref(false)
+const containerRef = ref<HTMLElement | null>(null)
+
+onClickOutside(containerRef, () => {
+  isOpen.value = false
+})
+
+function onKeydown(e: KeyboardEvent) {
+  if (e.key === 'Escape' && isOpen.value) {
+    e.preventDefault()
+    isOpen.value = false
+  }
+}
+
+onMounted(() => window.addEventListener('keydown', onKeydown))
+onUnmounted(() => window.removeEventListener('keydown', onKeydown))
 
 async function switchTo(code: string) {
   if (code === locale.value) {
