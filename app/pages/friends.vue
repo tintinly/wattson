@@ -16,6 +16,6 @@ import { friends } from '~~/data/friends'
 const { t, locale } = useI18n()
 
 useHead({
-  title: `${t('friends.title')} - Tintin's Blog`,
+  title: `${t('friends.title')} - Wattson's Blog`,
 })
 </script>

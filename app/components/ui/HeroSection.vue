@@ -4,7 +4,7 @@
       <span class="text-4xl">👋</span>
     </div>
     <h1 class="text-3xl sm:text-4xl font-bold mb-4">
-      {{ t('home.greeting', { name: 'Tintin' }) }}
+      {{ t('home.greeting', { name: 'Wattson' }) }}
     </h1>
     <p class="text-lg text-foreground-secondary max-w-md">
       {{ siteConfig.author.bio }}

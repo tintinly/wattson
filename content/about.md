@@ -5,7 +5,7 @@ titleEn: About Me
 
 ## 关于我
 
-你好！我是 Tintin，一名全栈开发者，现居深圳。
+你好！我是 Wattson，一名全栈开发者，现居深圳。
 
 ### 技术方向
 
@@ -19,8 +19,8 @@ titleEn: About Me
 
 ### 联系方式
 
-- GitHub: [github.com/tintin](https://github.com/tintin)
-- Email: tintin@example.com
+- GitHub: [github.com/wattson](https://github.com/wattson)
+- Email: wattson@example.com
 
 ### 关于本博客
 

@@ -102,7 +102,7 @@ const readingTimeText = computed(() => {
 })
 
 useHead(() => ({
-  title: post.value ? `${displayTitle.value} - Tintin's Blog` : "Tintin's Blog",
+  title: post.value ? `${displayTitle.value} - Wattson's Blog` : "Wattson's Blog",
   meta: [
     { name: 'description', content: displayDescription.value },
   ],

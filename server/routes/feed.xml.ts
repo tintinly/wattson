@@ -4,7 +4,7 @@ import matter from 'gray-matter'
 
 export default defineEventHandler(async () => {
   const contentDir = join(process.cwd(), 'content/posts')
-  const siteUrl = 'https://blog.tintin.dev'
+  const siteUrl = 'https://blog.wattson.dev'
 
   const files = existsSync(contentDir)
     ? readdirSync(contentDir).filter(f => f.endsWith('.md'))
@@ -32,7 +32,7 @@ export default defineEventHandler(async () => {
   const feed = `<?xml version="1.0" encoding="UTF-8"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Tintin's Blog</title>
+    <title>Wattson's Blog</title>
     <link>${siteUrl}</link>
     <description>个人技术博客 / Personal Tech Blog</description>
     <language>zh-CN</language>

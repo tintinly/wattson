@@ -4,7 +4,7 @@
       <!-- Logo -->
       <NuxtLink :to="localePath('/')" class="flex items-center gap-2 font-bold text-xl tracking-tight">
         <span class="text-accent">~</span>
-        <span class="hidden sm:inline">Tintin</span>
+        <span class="hidden sm:inline">Wattson</span>
       </NuxtLink>
 
       <!-- Desktop Nav -->

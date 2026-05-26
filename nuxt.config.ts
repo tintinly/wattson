@@ -43,7 +43,7 @@ export default defineNuxtConfig({
     lazy: true,
     detectBrowserLanguage: {
       useCookie: true,
-      cookieKey: 'tintin-blog-locale',
+      cookieKey: 'wattson-locale',
       alwaysRedirect: false,
     },
   },
@@ -53,7 +53,7 @@ export default defineNuxtConfig({
     classSuffix: '',
     preference: 'system',
     fallback: 'light',
-    storageKey: 'tintin-blog-color-mode',
+    storageKey: 'wattson-color-mode',
     storage: 'cookie',
   },
 

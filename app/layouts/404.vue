@@ -26,6 +26,6 @@ const localePath = useLocalePath()
 const { openSearch } = useSearch()
 
 useHead({
-  title: `404 - Tintin's Blog`,
+  title: `404 - Wattson's Blog`,
 })
 </script>
