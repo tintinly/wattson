@@ -6,7 +6,7 @@
     <PostCover v-if="post.coverImage" :src="post.coverImage" :alt="post.coverImageAlt || displayTitle" />
 
     <!-- 文章头部 -->
-    <header class="mb-8">
+    <header class="mb-8 max-w-content mx-auto">
       <h1 class="text-3xl sm:text-4xl font-bold leading-tight mb-4">
         {{ displayTitle }}
       </h1>
