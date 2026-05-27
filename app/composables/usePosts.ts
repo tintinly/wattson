@@ -19,19 +19,17 @@ export async function usePosts(locale: string) {
     }))
   })
 
-  const featured = computed(() =>
+  const featuredPosts = computed(() =>
     localized.value.filter((p: any) => p.featured === true)
   )
 
-  const homePosts = computed(() => {
-    const featuredList = localized.value.filter((p: any) => p.featured === true)
-    const restList = localized.value.filter((p: any) => p.featured !== true)
-    return [...featuredList, ...restList]
-  })
-
-  const latest = computed(() =>
+  const latestPosts = computed(() =>
     localized.value.slice(0, 10)
   )
+
+  const homePosts = computed(() => {
+    return localized.value.sort((a, b) => b.featured - a.featured)
+  })
 
   const allTags = computed(() => {
     const tagMap = new Map<string, number>()
@@ -55,9 +53,9 @@ export async function usePosts(locale: string) {
 
   return {
     posts: localized,
-    featuredPosts: featured,
+    featuredPosts,
     homePosts,
-    latestPosts: latest,
+    latestPosts,
     allTags,
     getPostsByTag: byTag,
     getPostBySlug: bySlug,
