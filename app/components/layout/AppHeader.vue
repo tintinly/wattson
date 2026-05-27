@@ -64,7 +64,7 @@ import { useLocalePath } from '#i18n'
 const { t, locale } = useI18n()
 
 const siteTitle = computed(() =>
-  locale.value === 'zh-CN' ? siteConfig.site.titleZh : siteConfig.site.title
+  locale.value.indexOf('zh') !== -1 ? siteConfig.site.title : siteConfig.site.titleEn
 )
 const localePath = useLocalePath()
 const { openSearch } = useSearch()

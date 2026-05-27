@@ -4,7 +4,7 @@
       <div class="flex flex-col sm:flex-row items-center justify-between gap-2 text-sm text-foreground-secondary">
 
         <!-- Left: Copyright -->
-        <p>Copyright &copy; {{ siteConfig.site.since }} - {{ currentYear }} {{ siteConfig.author.name }}</p>
+        <p>Copyright &copy; {{ siteConfig.site.since }} - {{ currentYear }} {{ authorName }}</p>
 
         <!-- Right: Powered by -->
         <p class="inline-flex gap-1.5">
@@ -40,7 +40,10 @@
 <script setup lang="ts">
 import { siteConfig } from '~~/data/site-config'
 
-const { t } = useI18n()
+const { locale } = useI18n()
+const authorName = computed(() =>
+  locale.value.indexOf('zh') !== -1 ? siteConfig.author.name : siteConfig.author.nameEn
+)
 const currentYear = new Date().getFullYear()
 const icpFilings = computed(() => {
   return siteConfig.filings.filter((filing) => {

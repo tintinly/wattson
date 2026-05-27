@@ -1,14 +1,15 @@
 export const siteConfig = {
   author: {
-    name: 'Wattson',
+    name: '沃特森',
+    nameEn: 'Wattson',
     avatar: '/images/avatar.webp',
     bio: '全栈开发者，热爱开源与技术写作',
     bioEn: 'Full-stack developer, passionate about open source and technical writing',
   },
 
   site: {
-    title: "Wattson's Blog",
-    titleZh: "Wattson's Blog",
+    title: "沃特森的博客",
+    titleEn: "Wattson's Blog",
     description: '个人技术博客',
     descriptionEn: 'Personal Tech Blog',
     url: 'https://blog.wattson.dev',

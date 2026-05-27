@@ -7,7 +7,7 @@
       {{ t('home.greeting', { name: 'Wattson' }) }}
     </h1>
     <p class="text-lg text-foreground-secondary max-w-md">
-      {{ siteConfig.author.bio }}
+      {{ bio }}
     </p>
     <div class="flex gap-3 mt-6">
       <a
@@ -60,8 +60,12 @@
 
 <script setup lang="ts">
 import { siteConfig } from '~~/data/site-config'
-const { t } = useI18n()
+const { t, locale } = useI18n()
 const toast = useToast()
+
+const bio = computed(() =>
+  locale.value.indexOf('zh') !== -1 ? siteConfig.author.bio : siteConfig.author.bioEn
+)
 
 async function copyId(text: string, label: string) {
   try {
