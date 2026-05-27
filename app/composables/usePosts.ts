@@ -23,6 +23,12 @@ export async function usePosts(locale: string) {
     localized.value.filter((p: any) => p.featured === true)
   )
 
+  const homePosts = computed(() => {
+    const featuredList = localized.value.filter((p: any) => p.featured === true)
+    const restList = localized.value.filter((p: any) => p.featured !== true)
+    return [...featuredList, ...restList]
+  })
+
   const latest = computed(() =>
     localized.value.slice(0, 10)
   )
@@ -50,6 +56,7 @@ export async function usePosts(locale: string) {
   return {
     posts: localized,
     featuredPosts: featured,
+    homePosts,
     latestPosts: latest,
     allTags,
     getPostsByTag: byTag,

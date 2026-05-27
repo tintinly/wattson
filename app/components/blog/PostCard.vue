@@ -1,8 +1,15 @@
 <template>
   <NuxtLink
     :to="localePath(`/posts/${postSlug}`)"
-    class="group block p-6 rounded-xl border border-border bg-background hover:border-accent/30 hover:shadow-lg transition-all duration-300"
+    class="group block p-6 rounded-xl border border-border bg-background hover:border-accent/30 hover:shadow-lg transition-all duration-300 relative"
   >
+    <!-- Pin 图标 -->
+    <Icon
+      v-if="post.featured"
+      name="tabler:pin"
+      class="w-4 h-4 text-foreground-secondary absolute top-3 right-3 z-10"
+    />
+
     <!-- 封面图 -->
     <div v-if="post.coverImage" class="aspect-video -mx-6 -mt-6 mb-4 overflow-hidden rounded-t-xl">
       <img
