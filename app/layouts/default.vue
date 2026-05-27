@@ -7,6 +7,7 @@
     <AppFooter />
     <ClientOnly>
       <SearchDialog />
+      <ToastNotification />
     </ClientOnly>
   </div>
 </template>

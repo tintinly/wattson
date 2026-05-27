@@ -31,6 +31,8 @@ export const siteConfig = {
   social: {
     github: 'https://github.com',
     bilibili: 'https://www.bilibili.com',
+    qq: '',
+    wechat: '',
     email: 'mailto:wattson@example.com',
     rss: '/feed.xml',
   },

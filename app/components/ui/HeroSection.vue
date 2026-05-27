@@ -30,6 +30,22 @@
       >
         <Icon name="tabler:brand-bilibili" class="w-5 h-5" />
       </a>
+      <button
+        v-if="siteConfig.social.qq"
+        class="inline-flex items-center justify-center p-2.5 rounded-lg bg-background-secondary border border-border text-foreground-secondary hover:text-foreground hover:border-accent transition-colors"
+        title="QQ"
+        @click="copyId(siteConfig.social.qq, 'QQ')"
+      >
+        <Icon name="ri:qq-line" class="w-5 h-5" />
+      </button>
+      <button
+        v-if="siteConfig.social.wechat"
+        class="inline-flex items-center justify-center p-2.5 rounded-lg bg-background-secondary border border-border text-foreground-secondary hover:text-foreground hover:border-accent transition-colors"
+        title="微信"
+        @click="copyId(siteConfig.social.wechat, '微信')"
+      >
+        <Icon name="tabler:brand-wechat" class="w-5 h-5" />
+      </button>
       <a
         v-if="siteConfig.social.email"
         :href="siteConfig.social.email"
@@ -45,4 +61,21 @@
 <script setup lang="ts">
 import { siteConfig } from '~~/data/site-config'
 const { t } = useI18n()
+const toast = useToast()
+
+async function copyId(text: string, label: string) {
+  try {
+    await navigator.clipboard.writeText(text)
+  } catch {
+    const ta = document.createElement('textarea')
+    ta.value = text
+    ta.style.position = 'fixed'
+    ta.style.opacity = '0'
+    document.body.appendChild(ta)
+    ta.select()
+    document.execCommand('copy')
+    document.body.removeChild(ta)
+  }
+  toast.show(`${label}已复制: ${text}`)
+}
 </script>
