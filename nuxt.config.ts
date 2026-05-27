@@ -12,6 +12,7 @@ export default defineNuxtConfig({
     '@nuxtjs/color-mode',
     '@nuxtjs/tailwindcss',
     '@nuxtjs/sitemap',
+    '@nuxt/icon',
   ],
 
   // @nuxt/content 配置
@@ -61,6 +62,11 @@ export default defineNuxtConfig({
   tailwindcss: {
     cssPath: '~/assets/css/main.css',
     configPath: 'tailwind.config.ts',
+  },
+
+  // @nuxt/icon 配置：CSS 模式避免 SVG 基线偏移
+  icon: {
+    mode: 'svg',
   },
 
   // 组件自动导入配置：取消目录前缀

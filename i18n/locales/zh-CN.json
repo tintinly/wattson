@@ -35,18 +35,18 @@
     "backToArchive": "返回归档"
   },
   "friends": {
-    "title": "友情链接",
-    "description": "感谢以下朋友们的友情链接",
+    "title": "友链",
+    "description": "有趣的灵魂",
     "empty": "暂无友链"
   },
   "projects": {
-    "title": "项目展示",
-    "description": "以下是我参与或维护的开源项目与作品",
+    "title": "项目",
+    "description": "开源项目与工具代码",
     "empty": "暂无项目",
     "viewProject": "查看项目"
   },
   "about": {
-    "title": "关于我"
+    "title": "关于"
   },
   "search": {
     "placeholder": "搜索文章...",

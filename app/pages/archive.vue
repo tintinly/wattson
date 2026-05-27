@@ -1,7 +1,7 @@
 <template>
   <div class="py-12">
-    <h1 class="text-3xl font-bold mb-2">{{ t('archive.title') }}</h1>
-    <p class="text-foreground-secondary mb-8">
+    <h1 class="text-3xl font-bold mb-2 text-center">{{ t('archive.title') }}</h1>
+    <p class="text-foreground-secondary mb-8 text-center">
       {{ t('archive.totalPosts', { count: posts.length }) }}
     </p>
 

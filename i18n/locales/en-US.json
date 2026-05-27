@@ -36,17 +36,17 @@
   },
   "friends": {
     "title": "Friends",
-    "description": "Thanks to all my friends for their support",
+    "description": "Interesting Souls",
     "empty": "No friends yet"
   },
   "projects": {
     "title": "Projects",
-    "description": "Open source projects and works I've contributed to",
+    "description": "Open Source Projects &amp; Tools",
     "empty": "No projects yet",
     "viewProject": "View Project"
   },
   "about": {
-    "title": "About Me"
+    "title": "About"
   },
   "search": {
     "placeholder": "Search posts...",

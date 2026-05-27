@@ -1,6 +1,6 @@
 <template>
   <div class="py-12 max-w-content mx-auto">
-    <h1 class="text-3xl font-bold mb-8">{{ t('about.title') }}</h1>
+    <h1 class="text-3xl font-bold mb-8 text-center">{{ t('about.title') }}</h1>
 
     <div v-if="aboutPage" class="prose prose-lg dark:prose-invert max-w-none">
       <ContentRenderer :value="aboutPage" />

@@ -29,9 +29,9 @@ export const siteConfig = {
   ],
 
   social: {
-    github: 'https://github.com/wattson',
-    twitter: '',
-    email: '',
+    github: 'https://github.com',
+    bilibili: 'https://www.bilibili.com',
+    email: 'mailto:wattson@example.com',
     rss: '/feed.xml',
   },
 }

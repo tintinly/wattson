@@ -1,7 +1,7 @@
 <template>
   <div class="py-12">
-    <h1 class="text-3xl font-bold mb-2">{{ t('projects.title') }}</h1>
-    <p class="text-foreground-secondary mb-8">{{ t('projects.description') }}</p>
+    <h1 class="text-3xl font-bold mb-2 text-center">{{ t('projects.title') }}</h1>
+    <p class="text-foreground-secondary mb-8 text-center">{{ t('projects.description') }}</p>
 
     <div v-if="projects.length" class="grid grid-cols-1 md:grid-cols-2 gap-6">
       <ProjectCard v-for="p in projects" :key="p.name" :project="p" />

@@ -1,44 +1,34 @@
 <template>
   <footer class="border-t border-border bg-background-secondary/50 mt-auto">
-    <div class="max-w-wide mx-auto px-4 sm:px-6 lg:px-8 py-8">
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-        <!-- 运行时长 -->
-        <div class="flex flex-col gap-2">
-          <h3 class="text-sm font-semibold text-foreground">Status</h3>
-          <UptimeCounter />
-        </div>
+    <div class="max-w-wide mx-auto px-4 sm:px-6 lg:px-8 py-4">
+      <div class="flex flex-col sm:flex-row items-center justify-between gap-2 text-sm text-foreground-secondary">
 
-        <!-- 技术栈 -->
-        <div class="flex flex-col gap-2">
-          <h3 class="text-sm font-semibold text-foreground">{{ t('footer.techStack') }}</h3>
-          <div class="flex flex-wrap gap-1.5">
-            <a
-              v-for="tech in siteConfig.techStack"
-              :key="tech.name"
-              :href="tech.url"
-              target="_blank"
-              rel="noopener noreferrer"
-              class="text-xs px-2 py-0.5 rounded-full bg-background border border-border text-foreground-secondary hover:text-accent hover:border-accent transition-colors"
-            >
-              {{ tech.name }}
-            </a>
-          </div>
-        </div>
+        <!-- Left: Copyright -->
+        <p>&copy; {{ siteConfig.site.since }} - {{ currentYear }} {{ siteConfig.author.name }}</p>
 
-        <!-- 统计 & 备案 -->
-        <div class="flex flex-col gap-2 text-sm text-foreground-secondary">
-          <p>&copy; {{ siteConfig.site.since }} - {{ currentYear }} {{ t('footer.copyright') }}</p>
-          <p>{{ t('footer.poweredBy', { framework: 'Nuxt 4' }) }}</p>
-          <a
-            v-if="siteConfig.beian.icp"
-            :href="siteConfig.beian.url"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="hover:text-foreground transition-colors"
-          >
-            {{ siteConfig.beian.icp }}
+        <!-- Center: Uptime -->
+        <UptimeCounter />
+
+        <!-- Right: Powered by -->
+        <p class="inline-flex gap-1.5">
+          Powered by
+          <a href="https://nuxt.com" target="_blank" rel="noopener noreferrer" title="Nuxt" class="rounded hover:bg-background hover:text-[#00DC82] transition-colors">
+            <Icon name="tabler:brand-nuxt" class="w-4 h-4 inline-block"/>
           </a>
-        </div>
+          <a href="https://tailwindcss.com" target="_blank" rel="noopener noreferrer" title="Tailwind CSS" class="rounded hover:bg-background hover:text-[#06B6D4] transition-colors">
+            <Icon name="tabler:brand-tailwind" class="w-4 h-4 inline-block"/>
+          </a>
+          <a href="https://vuejs.org" target="_blank" rel="noopener noreferrer" title="Vue" class="rounded hover:bg-background hover:text-[#4FC08D] transition-colors">
+            <Icon name="tabler:brand-vue" class="w-4 h-4 inline-block"/>
+          </a>
+          <a href="https://www.typescriptlang.org" target="_blank" rel="noopener noreferrer" title="TypeScript" class="rounded hover:bg-background hover:text-[#3178C6] transition-colors">
+            <Icon name="tabler:brand-typescript" class="w-4 h-4 inline-block"/>
+          </a>
+          |
+          <a :href="siteConfig.social.rss" target="_blank" rel="noopener noreferrer" title="RSS" class="rounded hover:bg-background hover:text-[#FF6600] transition-colors">
+            <Icon name="tabler:rss" class="w-4 h-4 inline-block"/>
+          </a>
+        </p>
       </div>
     </div>
   </footer>
@@ -47,6 +37,5 @@
 <script setup lang="ts">
 import { siteConfig } from '~~/data/site-config'
 
-const { t } = useI18n()
 const currentYear = new Date().getFullYear()
 </script>
