@@ -2,9 +2,11 @@ import { readdirSync, readFileSync, existsSync } from 'node:fs'
 import { join } from 'node:path'
 import matter from 'gray-matter'
 
-export default defineEventHandler(async () => {
+export default defineEventHandler(async (event) => {
   const contentDir = join(process.cwd(), 'content/posts')
   const siteUrl = 'https://blog.wattson.dev'
+
+  setHeader(event, 'Content-Type', 'application/rss+xml; charset=utf-8')
 
   const files = existsSync(contentDir)
     ? readdirSync(contentDir).filter(f => f.endsWith('.md'))
@@ -25,7 +27,7 @@ export default defineEventHandler(async () => {
       <link>${siteUrl}/zh-CN/posts/${escapeXml(p.slug)}</link>
       <description>${escapeXml(p.description || '')}</description>
       <pubDate>${new Date(p.date).toUTCString()}</pubDate>
-      <guid>${siteUrl}/posts/${escapeXml(p.slug)}</guid>
+      <guid isPermaLink="true">${siteUrl}/zh-CN/posts/${escapeXml(p.slug)}</guid>
     </item>
   `).join('\n')
 
