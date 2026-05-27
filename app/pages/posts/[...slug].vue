@@ -6,21 +6,21 @@
     <PostCover v-if="post.coverImage" :src="post.coverImage" :alt="post.coverImageAlt || displayTitle" />
 
     <!-- 文章头部 -->
-    <header class="mb-8 max-w-content mx-auto">
+    <header class="mb-8 max-w-content mx-auto text-center">
       <h1 class="text-3xl sm:text-4xl font-bold leading-tight mb-4">
         {{ displayTitle }}
       </h1>
       <p v-if="displayDescription" class="text-lg text-foreground-secondary mb-4">
         {{ displayDescription }}
       </p>
-      <div class="flex flex-wrap items-center gap-3 text-sm text-foreground-secondary">
+      <div class="flex flex-wrap items-center justify-center gap-3 text-sm text-foreground-secondary">
         <time :datetime="post.date">
           {{ t('post.publishedOn') }} {{ formattedDate }}
         </time>
         <span>·</span>
         <span>{{ readingTimeText }}</span>
       </div>
-      <div class="flex flex-wrap gap-1.5 mt-4">
+      <div class="flex flex-wrap justify-center gap-1.5 mt-4">
         <span
           v-for="tag in displayTags"
           :key="tag"
