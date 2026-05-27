@@ -4,7 +4,7 @@
       <!-- Logo -->
       <NuxtLink :to="localePath('/')" class="flex items-center gap-2 font-bold text-xl tracking-tight">
         <span class="text-accent"></span>
-        <span class="hidden sm:inline">Wattson's Blog</span>
+        <span class="hidden sm:inline">{{ siteTitle }}</span>
       </NuxtLink>
 
       <!-- Desktop Nav -->
@@ -58,9 +58,14 @@
 </template>
 
 <script setup lang="ts">
+import { siteConfig } from '~~/data/site-config'
 import { useLocalePath } from '#i18n'
 
-const { t } = useI18n()
+const { t, locale } = useI18n()
+
+const siteTitle = computed(() =>
+  locale.value === 'zh-CN' ? siteConfig.site.titleZh : siteConfig.site.title
+)
 const localePath = useLocalePath()
 const { openSearch } = useSearch()
 

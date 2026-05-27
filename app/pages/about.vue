@@ -19,6 +19,6 @@ const { data: aboutPage } = await useAsyncData('about', () => {
 })
 
 useHead({
-  title: `${t('about.title')} - Wattson's Blog`,
+  title: `${t('about.title')}`,
 })
 </script>
