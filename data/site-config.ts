@@ -16,10 +16,18 @@ export const siteConfig = {
     since: '2026',
   },
 
-  beian: {
-    icp: '',
-    url: 'https://beian.miit.gov.cn/',
-  },
+  filings: [
+    {
+      type : 'beian',
+      icp: '',
+      url: 'https://beian.miit.gov.cn/',
+    },
+    {
+      type : 'moe',
+      icp: '萌ICP备20770000号',
+      url: 'https://icp.gov.moe/?keyword=20770000',
+    }
+  ],
 
   techStack: [
     { name: 'Nuxt 4', url: 'https://nuxt.com' },

@@ -62,7 +62,7 @@
     "pageViews": "总浏览量 {count}",
     "poweredBy": "由 {framework} 驱动",
     "copyright": "版权所有",
-    "beian": "备案号"
+    "filing": "备案号"
   },
   "notFound": {
     "title": "页面未找到",

@@ -4,13 +4,16 @@
       <div class="flex flex-col sm:flex-row items-center justify-between gap-2 text-sm text-foreground-secondary">
 
         <!-- Left: Copyright -->
-        <p>&copy; {{ siteConfig.site.since }} - {{ currentYear }} {{ siteConfig.author.name }}</p>
-
-        <!-- Center: Uptime -->
-        <UptimeCounter />
+        <p>Copyright &copy; {{ siteConfig.site.since }} - {{ currentYear }} {{ siteConfig.author.name }}</p>
 
         <!-- Right: Powered by -->
         <p class="inline-flex gap-1.5">
+          <template v-for="(filing, i) in icpFilings" :key="filing.type">
+            <a :href="filing.url" target="_blank" rel="noopener noreferrer" class="hover:text-foreground transition-colors">
+              {{ filing.icp }}
+            </a>
+            |
+          </template>
           Powered by
           <a href="https://nuxt.com" target="_blank" rel="noopener noreferrer" title="Nuxt" class="rounded hover:bg-background hover:text-[#00DC82] transition-colors">
             <Icon name="tabler:brand-nuxt" class="w-4 h-4 inline-block"/>
@@ -37,5 +40,11 @@
 <script setup lang="ts">
 import { siteConfig } from '~~/data/site-config'
 
+const { t } = useI18n()
 const currentYear = new Date().getFullYear()
+const icpFilings = computed(() => {
+  return siteConfig.filings.filter((filing) => {
+    return filing.icp !== ''
+  })
+})
 </script>

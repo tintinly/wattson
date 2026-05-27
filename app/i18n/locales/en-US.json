@@ -62,7 +62,7 @@
     "pageViews": "{count} page views",
     "poweredBy": "Powered by {framework}",
     "copyright": "All rights reserved",
-    "beian": "ICP"
+    "filing": "ICP"
   },
   "notFound": {
     "title": "Page Not Found",
