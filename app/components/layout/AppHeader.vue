@@ -13,8 +13,8 @@
           v-for="item in navItems"
           :key="item.key"
           :to="localePath(item.path)"
-          class="px-3 py-2 rounded-lg text-sm font-medium text-foreground-secondary hover:text-foreground hover:bg-background-secondary transition-colors"
-          active-class="text-accent bg-accent/10"
+          class="px-3 py-2 rounded-lg text-sm font-medium text-foreground hover:text-foreground hover:bg-background-secondary transition-colors"
+          active-class="bg-background-secondary"
         >
           {{ t(`header.nav.${item.key}`) }}
         </NuxtLink>
@@ -22,29 +22,10 @@
 
       <!-- Actions -->
       <div class="flex items-center gap-1">
-        <!-- Search -->
-        <button
-          class="inline-flex items-center justify-center p-2 rounded-lg text-foreground-secondary hover:text-foreground hover:bg-background-secondary transition-colors"
-          :title="t('header.search')"
-          @click="openSearch"
-        >
-          <Icon name="tabler:search" class="w-5 h-5" />
-        </button>
-
-        <!-- Theme Toggle -->
+        <SearchButton />
         <ThemeToggle />
-
-        <!-- Locale Switch -->
         <LocaleSwitch />
-
-        <!-- Mobile Menu Button -->
-        <button
-          class="md:hidden inline-flex items-center justify-center p-2 rounded-lg text-foreground-secondary hover:text-foreground hover:bg-background-secondary transition-colors"
-          aria-label="Menu"
-          @click="isMobileNavOpen = true"
-        >
-          <Icon name="tabler:menu-2" class="w-5 h-5" />
-        </button>
+        <MobileMenuButton @click="isMobileNavOpen = true" />
       </div>
     </div>
 
@@ -67,7 +48,6 @@ const siteTitle = computed(() =>
   locale.value.indexOf('zh') !== -1 ? siteConfig.site.title : siteConfig.site.titleEn
 )
 const localePath = useLocalePath()
-const { openSearch } = useSearch()
 
 const isMobileNavOpen = ref(false)
 
