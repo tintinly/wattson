@@ -1,10 +1,11 @@
 <template>
   <div class="py-16 flex flex-col items-center justify-center text-center max-w-content mx-auto">
-    <div class="w-24 h-24 rounded-full bg-background-secondary border-2 border-border flex items-center justify-center mb-6">
-      <span class="text-4xl">👋</span>
+    <div class="w-24 h-24 rounded-full border-2 border-border overflow-hidden mb-6 bg-background-secondary flex items-center justify-center relative">
+      <NuxtImg ref="avatarRef" :src="siteConfig.author.avatar" :alt="siteConfig.author.name" class="absolute inset-0 w-full h-full object-cover" :class="imgLoaded ? '' : 'invisible'" @load="imgLoaded = true" />
+      <span v-if="!imgLoaded" class="text-4xl">👋</span>
     </div>
     <h1 class="text-3xl sm:text-4xl font-bold mb-4">
-      {{ t('home.greeting', { name: 'Wattson' }) }}
+      {{ t('home.greeting', { name: siteConfig.author.name }) }}
     </h1>
     <p class="text-lg text-foreground-secondary max-w-md">
       {{ bio }}
@@ -62,6 +63,12 @@
 import { siteConfig } from '~~/data/site-config'
 const { t, locale } = useI18n()
 const toast = useToast()
+const avatarRef = ref<HTMLImageElement>()
+const imgLoaded = ref(false)
+
+onMounted(() => {
+  if (avatarRef.value?.complete) imgLoaded.value = true
+})
 
 const bio = computed(() =>
   locale.value.indexOf('zh') !== -1 ? siteConfig.author.bio : siteConfig.author.bioEn

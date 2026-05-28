@@ -13,6 +13,7 @@ export default defineNuxtConfig({
     '@nuxtjs/tailwindcss',
     '@nuxtjs/sitemap',
     '@nuxt/icon',
+    '@nuxt/image',
   ],
 
   // @nuxt/content 配置
