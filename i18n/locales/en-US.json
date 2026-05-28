@@ -28,6 +28,8 @@
   },
   "post": {
     "readingTime": "{minute} min read",
+    "wordCount": "{count} words",
+    "minRead": "{minute} min",
     "publishedOn": "Published on",
     "tags": "Tags",
     "previous": "Previous",

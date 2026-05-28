@@ -28,6 +28,8 @@
   },
   "post": {
     "readingTime": "阅读时间约 {minute} 分钟",
+    "wordCount": "{count}字",
+    "minRead": "{minute}分",
     "publishedOn": "发布于",
     "tags": "标签",
     "previous": "上一篇",

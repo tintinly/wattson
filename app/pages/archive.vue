@@ -23,8 +23,9 @@
 
 <script setup lang="ts">
 const { t, locale } = useI18n()
+const route = useRoute()
 const { posts, allTags } = await usePosts(locale.value)
-const selectedTag = ref<string | null>(null)
+const selectedTag = ref<string | null>((route.query.tag as string) || null)
 
 useHead({
   title: `${t('archive.title')}`,

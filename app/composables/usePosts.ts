@@ -9,14 +9,25 @@ export async function usePosts(locale: string) {
   // 按 locale 选择对应语言字段
   const localized = computed(() => {
     if (!posts.value) return []
-    return posts.value.map((p: any) => ({
-      ...p,
-      _title: locale === 'en-US' ? p.titleEn : p.title,
-      _description: locale === 'en-US' ? p.descriptionEn : p.description,
-      _tags: (locale === 'en-US' ? p.tagsEn : p.tags) || [],
-      _slug: (p.path || '').replace('/posts/', ''),
-      _date: new Date(p.date),
-    }))
+    return posts.value.map((p: any) => {
+      // 估算字数：中文一个字符一字，英文按空格分词
+      const bodyText = typeof p.body === 'string' ? p.body : ''
+      const wordCount = locale === 'en-US'
+        ? bodyText.split(/\s+/).filter(Boolean).length
+        : bodyText.replace(/\s/g, '').length
+      const readingTime = Math.max(1, Math.ceil(wordCount / (locale === 'en-US' ? 200 : 300)))
+
+      return {
+        ...p,
+        _title: locale === 'en-US' ? p.titleEn : p.title,
+        _description: locale === 'en-US' ? p.descriptionEn : p.description,
+        _tags: (locale === 'en-US' ? p.tagsEn : p.tags) || [],
+        _slug: (p.path || '').replace('/posts/', ''),
+        _date: new Date(p.date),
+        _wordCount: wordCount,
+        _readingTime: readingTime,
+      }
+    })
   })
 
   const featuredPosts = computed(() =>

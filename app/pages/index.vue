@@ -3,7 +3,7 @@
     <HeroSection />
 
     <!-- 文章列表 -->
-    <section class="mt-16">
+    <section class="mt-16 max-w-3xl mx-auto">
       <PostList v-if="homePosts.length" :posts="homePosts" />
       <p v-else class="text-center text-foreground-secondary">{{ t('home.noPosts') }}</p>
     </section>
