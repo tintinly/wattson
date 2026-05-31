@@ -42,22 +42,13 @@
       <TableOfContents :content="post" />
     </div>
 
-    <!-- 上一篇/下一篇 -->
-    <div class="mt-16 pt-8 border-t border-border max-w-content mx-auto">
-      <NuxtLink
-        :to="localePath('/archive')"
-        class="text-sm text-foreground-secondary hover:text-accent transition-colors"
-      >
-        ← {{ t('post.backToArchive') }}
-      </NuxtLink>
-    </div>
   </article>
 
   <!-- 文章未找到 -->
   <div v-else class="py-20 text-center">
     <h2 class="text-2xl font-bold mb-4">{{ t('notFound.title') }}</h2>
-    <NuxtLink :to="localePath('/archive')" class="text-accent hover:underline">
-      {{ t('post.backToArchive') }}
+    <NuxtLink :to="localePath('/')" class="text-accent hover:underline">
+      ← {{ t('notFound.backHome') }}
     </NuxtLink>
   </div>
 </template>
