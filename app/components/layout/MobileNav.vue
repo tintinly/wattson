@@ -4,23 +4,23 @@
       <div
         v-if="isOpen"
         class="fixed inset-0 z-50 md:hidden"
-        @click.self="$emit('close')"
       >
         <!-- Backdrop -->
-        <div class="absolute inset-0 bg-black/40 backdrop-blur-sm" />
+        <div class="absolute inset-0 bg-black/40 backdrop-blur-sm" @click="$emit('close')" />
 
         <!-- Drawer -->
-        <nav class="absolute right-0 top-0 h-full w-64 bg-background border-l border-border shadow-2xl p-6 pt-20">
+        <nav class="absolute right-0 top-0 h-full w-42 bg-background border-l border-border shadow-2xl p-6 pt-20">
           <div class="flex flex-col gap-2">
             <NuxtLink
               v-for="item in navItems"
               :key="item.key"
               :to="localePath(item.path)"
-              class="px-4 py-3 rounded-lg text-base font-medium text-foreground-secondary hover:text-foreground hover:bg-background-secondary transition-colors"
+              class="px-4 py-3 rounded-lg text-base font-medium text-foreground-secondary hover:text-foreground hover:bg-background-secondary transition-colors flex items-center gap-2"
               active-class="text-accent bg-accent/10"
               @click="$emit('close')"
             >
-              {{ t(`header.nav.${item.key}`) }}
+              <Icon :name="item.icon" class="w-6 h-6" />
+              <span>{{ t(`header.nav.${item.key}`) }}</span>
             </NuxtLink>
           </div>
 
@@ -45,7 +45,7 @@ import { useLocalePath } from '#i18n'
 
 defineProps<{
   isOpen: boolean
-  navItems: { key: string; path: string }[]
+  navItems: { key: string; path: string; icon: string }[]
 }>()
 
 defineEmits<{
