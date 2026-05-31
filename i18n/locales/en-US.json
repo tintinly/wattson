@@ -17,7 +17,9 @@
     "latestPosts": "Latest Posts",
     "featuredPosts": "Featured Posts",
     "viewAll": "View All Posts",
-    "noPosts": "No Posts Yet"
+    "noPosts": "No Posts Yet",
+    "prev": "Prev",
+    "next": "Next"
   },
   "archive": {
     "title": "Archive",
