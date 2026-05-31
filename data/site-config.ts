@@ -20,7 +20,7 @@ export const siteConfig = {
   filings: [
     {
       type : 'beian',
-      icp: '',
+      icp: '粤ICP备2077000000号',
       url: 'https://beian.miit.gov.cn/',
     },
     {
@@ -40,8 +40,8 @@ export const siteConfig = {
   social: {
     github: 'https://github.com',
     bilibili: 'https://www.bilibili.com',
-    qq: '',
-    wechat: '',
+    qq: '00000000',
+    wechat: '00000000',
     email: 'mailto:wattson@example.com',
     rss: '/feed.xml',
   },

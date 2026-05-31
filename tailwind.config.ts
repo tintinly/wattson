@@ -24,7 +24,7 @@ export default <Config>{
         border: 'var(--color-border)',
       },
       maxWidth: {
-        content: '720px',
+        content: '840px',
         wide: '1280px',
       },
       animation: {

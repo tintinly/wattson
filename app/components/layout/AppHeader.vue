@@ -1,6 +1,6 @@
 <template>
-  <header class="sticky top-0 z-40 w-full border-b border-border bg-background/80 backdrop-blur-md">
-    <div class="max-w-wide mx-auto flex h-16 items-center justify-between px-4 sm:px-6 lg:px-8">
+  <header class="sticky top-0 z-40 w-full bg-background/80 backdrop-blur-md">
+    <div class="max-w-wide mx-auto flex h-20 items-center justify-between px-4 sm:px-6 lg:px-8">
       <!-- Logo -->
       <NuxtLink :to="localePath('/')" class="flex items-center gap-2 font-bold text-xl tracking-tight">
         <span class="text-accent"></span>
@@ -13,10 +13,11 @@
           v-for="item in navItems"
           :key="item.key"
           :to="localePath(item.path)"
-          class="px-3 py-2 rounded-lg text-sm font-medium text-foreground hover:text-foreground hover:bg-background-secondary transition-colors"
+          class="px-3 py-2 rounded-lg text-sm font-medium text-foreground hover:text-foreground hover:bg-background-secondary transition-colors flex items-center gap-1.5"
           active-class="bg-background-secondary"
         >
-          {{ t(`header.nav.${item.key}`) }}
+          <Icon :name="item.icon" class="w-5 h-5" />
+          <span>{{ t(`header.nav.${item.key}`) }}</span>
         </NuxtLink>
       </nav>
 
@@ -52,10 +53,10 @@ const localePath = useLocalePath()
 const isMobileNavOpen = ref(false)
 
 const navItems = [
-  { key: 'home', path: '/' },
-  { key: 'archive', path: '/archive' },
-  { key: 'projects', path: '/projects' },
-  { key: 'friends', path: '/friends' },
-  { key: 'about', path: '/about' },
+  { key: 'home', path: '/', icon: 'tabler:home' },
+  { key: 'archive', path: '/archive', icon: 'tabler:archive' },
+  { key: 'projects', path: '/projects', icon: 'tabler:code' },
+  { key: 'friends', path: '/friends', icon: 'tabler:users' },
+  { key: 'about', path: '/about', icon: 'tabler:user-circle' },
 ]
 </script>

@@ -1,19 +1,21 @@
 <template>
-  <footer class="border-t border-border bg-background-secondary/50 mt-auto">
+  <footer class="bg-background-secondary/50 mt-auto">
     <div class="max-w-wide mx-auto px-4 sm:px-6 lg:px-8 py-4">
       <div class="flex flex-col sm:flex-row items-center justify-between gap-2 text-sm text-foreground-secondary">
 
-        <!-- Left: Copyright -->
-        <p>Copyright &copy; {{ siteConfig.site.since }} - {{ currentYear }} {{ authorName }}</p>
-
-        <!-- Right: Powered by -->
-        <p class="inline-flex gap-1.5">
-          <template v-for="(filing, i) in icpFilings" :key="filing.type">
+        <!-- Left: Copyright + 备案 -->
+        <p class="inline-flex flex-wrap items-center gap-x-2 gap-y-1 justify-center sm:justify-start">
+          <span>&copy; {{ copyrightYears }} <a href="https://home.wattson.dev" target="_blank" rel="noopener noreferrer" class="border-b border-dashed border-foreground-secondary hover:text-foreground hover:border-foreground transition-colors">{{ authorName }}</a></span>
+          <template v-for="filing in icpFilings" :key="filing.type">
+            <span>·</span>
             <a :href="filing.url" target="_blank" rel="noopener noreferrer" class="hover:text-foreground transition-colors">
               {{ filing.icp }}
             </a>
-            |
           </template>
+        </p>
+
+        <!-- Right: Powered by -->
+        <p class="inline-flex gap-1.5">
           Powered by
           <a href="https://nuxt.com" target="_blank" rel="noopener noreferrer" title="Nuxt" class="rounded hover:bg-background hover:text-[#00DC82] transition-colors">
             <Icon name="tabler:brand-nuxt" class="w-4 h-4 inline-block"/>
@@ -45,6 +47,9 @@ const authorName = computed(() =>
   locale.value.indexOf('zh') !== -1 ? siteConfig.author.name : siteConfig.author.nameEn
 )
 const currentYear = new Date().getFullYear()
+const copyrightYears = computed(() =>
+  Number(siteConfig.site.since) === currentYear ? `${currentYear}` : `${siteConfig.site.since} - ${currentYear}`
+)
 const icpFilings = computed(() => {
   return siteConfig.filings.filter((filing) => {
     return filing.icp !== ''
