@@ -17,6 +17,7 @@ export default <Config>{
       colors: {
         // 使用 CSS 变量，方便暗色模式切换
         background: 'var(--color-bg)',
+        surface: 'var(--color-surface)',
         'background-secondary': 'var(--color-bg-secondary)',
         foreground: 'var(--color-text)',
         'foreground-secondary': 'var(--color-text-secondary)',

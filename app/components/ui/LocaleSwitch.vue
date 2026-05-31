@@ -10,7 +10,7 @@
     <Transition name="fade">
       <div
         v-if="isOpen"
-        class="absolute right-0 top-full w-32 rounded-xl bg-background border border-border shadow-xl p-1 z-50"
+        class="absolute right-0 top-full w-32 rounded-xl bg-surface border border-border shadow-xl p-1 z-50"
       >
         <button
           v-for="loc in availableLocales"

@@ -10,7 +10,7 @@
 
         <!-- Dialog -->
         <div
-          class="relative w-full max-w-lg mx-4 rounded-2xl bg-background border border-border shadow-2xl p-4 animate-fade-in"
+          class="relative w-full max-w-lg mx-4 rounded-2xl bg-surface border border-border shadow-2xl p-4 animate-fade-in"
         >
           <!-- Input -->
           <div class="flex items-center gap-3 px-3 py-2 rounded-xl bg-background-secondary border border-border focus-within:border-accent transition-colors">

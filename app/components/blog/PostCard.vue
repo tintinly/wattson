@@ -1,7 +1,7 @@
 <template>
   <NuxtLink
     :to="localePath(`/posts/${postSlug}`)"
-    class="group block py-7 px-7 rounded-xl border border-border bg-background hover:border-accent/30 hover:shadow-lg hover:-translate-y-0.5 transition-all duration-300 relative"
+    class="group block py-7 px-7 rounded-xl border border-border bg-surface hover:border-accent/30 hover:shadow-lg hover:-translate-y-0.5 transition-all duration-300 relative"
   >
     <!-- 封面图 -->
     <div v-if="post.coverImage" class="aspect-video -mx-7 -mt-7 mb-5 overflow-hidden rounded-t-xl">

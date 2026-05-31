@@ -34,7 +34,7 @@
     <!-- 文章内容 -->
     <div class="flex gap-8 max-w-content mx-auto">
       <!-- 主内容 -->
-      <div class="flex-1 min-w-0 bg-background rounded-2xl shadow-lg ring-1 ring-border p-6 sm:p-10 prose prose-lg dark:prose-invert max-w-none">
+      <div class="flex-1 min-w-0 bg-surface rounded-2xl shadow-lg ring-1 ring-border p-6 sm:p-10 prose prose-lg dark:prose-invert max-w-none">
         <ContentRenderer :value="post" />
       </div>
 

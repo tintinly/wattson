@@ -9,7 +9,7 @@
         <div class="absolute inset-0 bg-black/40 backdrop-blur-sm" @click="$emit('close')" />
 
         <!-- Drawer -->
-        <nav class="absolute right-0 top-0 h-full w-42 bg-background border-l border-border shadow-2xl p-6 pt-20">
+        <nav class="absolute right-0 top-0 h-full w-42 bg-surface border-l border-border shadow-2xl p-6 pt-20">
           <div class="flex flex-col gap-2">
             <NuxtLink
               v-for="item in navItems"

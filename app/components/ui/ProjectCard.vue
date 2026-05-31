@@ -3,7 +3,7 @@
     :href="project.url || project.github"
     target="_blank"
     rel="noopener noreferrer"
-    class="group block p-6 rounded-xl border border-border bg-background hover:border-accent/30 hover:shadow-lg transition-all duration-300 hover:-translate-y-1"
+    class="group block p-6 rounded-xl border border-border bg-surface hover:border-accent/30 hover:shadow-lg transition-all duration-300 hover:-translate-y-1"
   >
     <!-- 截图 -->
     <div v-if="project.image" class="aspect-video -mx-6 -mt-6 mb-4 overflow-hidden rounded-t-xl bg-background-secondary">
