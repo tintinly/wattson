@@ -1,4 +1,6 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
+import tailwindcss from '@tailwindcss/vite'
+
 export default defineNuxtConfig({
   compatibilityDate: '2025-07-15',
   devtools: { enabled: true },
@@ -10,7 +12,6 @@ export default defineNuxtConfig({
     '@nuxt/content',
     '@nuxtjs/i18n',
     '@nuxtjs/color-mode',
-    '@nuxtjs/tailwindcss',
     '@nuxtjs/sitemap',
     '@nuxt/icon',
     '@nuxt/image',
@@ -59,11 +60,12 @@ export default defineNuxtConfig({
     storage: 'cookie',
   },
 
-  // Tailwind CSS 配置
-  tailwindcss: {
-    cssPath: '~/assets/css/main.css',
-    configPath: 'tailwind.config.ts',
+  // Tailwind CSS v4 (Vite 插件)
+  vite: {
+    plugins: [tailwindcss()],
   },
+
+  css: ['~/assets/css/main.css'],
 
   // @nuxt/icon 配置：CSS 模式避免 SVG 基线偏移
   icon: {
