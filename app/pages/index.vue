@@ -28,10 +28,10 @@
           <ol class="flex items-center gap-1">
             <li v-for="page in visiblePages" :key="page">
               <button v-if="typeof page === 'number'"
-                class="w-10 h-10 text-sm transition-colors"
+                class="w-10 h-10 text-sm rounded-lg border border-border transition-colors"
                 :class="page === currentPage
-                  ? 'border-b-3 border-foreground-secondary'
-                  : 'text-foreground-secondary rounded-lg border border-border  bg-surface hover:bg-background-secondary'"
+                  ? 'bg-background-secondary'
+                  : 'text-foreground-secondary bg-surface hover:bg-background-secondary'"
                 @click="currentPage = page"
               >
                 {{ page }}
