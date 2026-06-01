@@ -7,7 +7,7 @@
   >
     <!-- 截图 -->
     <div v-if="project.image" class="aspect-video -mx-6 -mt-6 mb-4 overflow-hidden rounded-t-xl bg-background-secondary">
-      <img :src="project.image" :alt="displayName" class="w-full h-full object-cover" />
+      <NuxtImg :src="project.image" :alt="displayName" class="w-full h-full object-cover" />
     </div>
 
     <h3 class="text-lg font-semibold group-hover:text-accent transition-colors">

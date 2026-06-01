@@ -47,8 +47,8 @@ export interface Friend {
   nameEn: string
   url: string
   avatar: string
-  description: string
-  descriptionEn: string
+  introduction: string
+  introductionEn: string
 }
 
 // 项目

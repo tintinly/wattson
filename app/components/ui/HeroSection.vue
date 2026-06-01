@@ -2,8 +2,10 @@
   <div class="bg-surface rounded-xl border border-border p-6 md:sticky md:top-24 flex flex-col items-center text-center">
     <!-- 头像 -->
     <div class="size-50 rounded-xl border-2 border-border overflow-hidden mb-4 bg-background-secondary flex items-center justify-center relative shrink-0">
-      <NuxtImg ref="avatarRef" :src="siteConfig.author.avatar" :alt="siteConfig.author.name" class="absolute inset-0 w-full h-full object-cover" :class="imgLoaded ? '' : 'invisible'" @load="imgLoaded = true" />
-      <span v-if="!imgLoaded" class="text-3xl">👋</span>
+      <NuxtImg :src="siteConfig.author.avatar" :alt="siteConfig.author.name" class="absolute inset-0 w-full h-full object-cover" :class="imgLoaded ? '' : 'invisible'" @load="imgLoaded = true" />
+      <span v-if="!imgLoaded" class="text-8xl font-bold text-accent/30">
+        {{ siteConfig.author.name.charAt(0) }}
+      </span>
     </div>
 
     <!-- 名字 -->
@@ -70,12 +72,8 @@
 import { siteConfig } from '~~/data/site-config'
 const { locale } = useI18n()
 const toast = useToast()
-const avatarRef = ref<HTMLImageElement>()
 const imgLoaded = ref(false)
 
-onMounted(() => {
-  if (avatarRef.value?.complete) imgLoaded.value = true
-})
 
 const bio = computed(() =>
   locale.value.indexOf('zh') !== -1 ? siteConfig.author.bio : siteConfig.author.bioEn

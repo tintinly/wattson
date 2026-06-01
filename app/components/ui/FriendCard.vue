@@ -3,18 +3,19 @@
     :to="url"
     target="_blank"
     rel="noopener noreferrer"
-    class="group block p-6 rounded-xl border border-border bg-surface hover:border-accent/30 hover:shadow-lg transition-all duration-300 hover:-translate-y-1"
+    class="group block p-4 rounded-xl border border-border bg-surface hover:border-accent/30 hover:shadow-lg transition-all duration-300"
   >
     <div class="flex items-center gap-4">
       <!-- 头像 -->
-      <div class="shrink-0 w-12 h-12 rounded-full bg-background-secondary border border-border flex items-center justify-center overflow-hidden">
-        <img
-          v-if="friend.avatar"
+      <div class="shrink-0 size-16 rounded-lg bg-background-secondary border border-border flex items-center justify-center overflow-hidden">
+        <NuxtImg
           :src="friend.avatar"
           :alt="displayName"
-          class="w-full h-full object-cover"
+          class="absolute w-full h-full object-cover"
+          :class="friend.imgLoaded ? '' : 'invisible'" 
+          @load="friend.imgLoaded = true"
         />
-        <span v-else class="text-xl font-bold text-accent/30">
+        <span v-if="!friend.imgLoaded" class="text-xl font-bold text-accent/30">
           {{ displayName.charAt(0) }}
         </span>
       </div>
@@ -28,10 +29,10 @@
         </p>
       </div>
 
-      <!-- 箭头 -->
-      <svg class="w-5 h-5 text-foreground-secondary group-hover:text-accent group-hover:translate-x-1 transition-all shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
-      </svg>
+      <Icon
+        name="tabler:chevron-right"
+        class="w-6 h-6 text-accent shrink-0 opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300"
+      />    
     </div>
   </NuxtLink>
 </template>
@@ -43,6 +44,6 @@ const props = defineProps<{ friend: Friend }>()
 const { locale } = useI18n()
 
 const displayName = computed(() => locale.value === 'en-US' ? props.friend.nameEn : props.friend.name)
-const displayDescription = computed(() => locale.value === 'en-US' ? props.friend.descriptionEn : props.friend.description)
+const displayDescription = computed(() => locale.value === 'en-US' ? props.friend.introductionEn : props.friend.introduction)
 const url = computed(() => props.friend.url)
 </script>
