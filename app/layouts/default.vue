@@ -1,7 +1,7 @@
 <template>
-  <div class="min-h-screen flex flex-col bg-background text-foreground">
+  <div class="min-h-screen flex flex-col bg-background text-foreground px-4 sm:px-6 lg:px-8 ">
     <AppHeader />
-    <main class="flex-1 w-full max-w-wide mx-auto px-4 sm:px-6 lg:px-8 pb-16">
+    <main class="flex-1 w-full max-w-wide mx-auto pb-8">
       <slot />
     </main>
     <AppFooter />

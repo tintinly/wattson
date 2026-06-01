@@ -1,5 +1,5 @@
 <template>
-  <div class="py-12">
+  <div class="py-12 max-w-content mx-auto">
     <h1 class="text-3xl font-bold mb-2 text-center">{{ t('archive.title') }}</h1>
     <p class="text-foreground-secondary mb-8 text-center">
       {{ t('archive.totalPosts', { count: posts.length }) }}

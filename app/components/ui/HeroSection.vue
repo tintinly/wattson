@@ -1,16 +1,23 @@
 <template>
-  <div class="py-16 flex flex-col items-center justify-center text-center max-w-content mx-auto">
-    <div class="w-24 h-24 rounded-full border-2 border-border overflow-hidden mb-6 bg-background-secondary flex items-center justify-center relative">
+  <div class="bg-surface rounded-xl border border-border p-6 md:sticky md:top-24 flex flex-col items-center text-center">
+    <!-- 头像 -->
+    <div class="size-50 rounded-xl border-2 border-border overflow-hidden mb-4 bg-background-secondary flex items-center justify-center relative shrink-0">
       <NuxtImg ref="avatarRef" :src="siteConfig.author.avatar" :alt="siteConfig.author.name" class="absolute inset-0 w-full h-full object-cover" :class="imgLoaded ? '' : 'invisible'" @load="imgLoaded = true" />
-      <span v-if="!imgLoaded" class="text-4xl">👋</span>
+      <span v-if="!imgLoaded" class="text-3xl">👋</span>
     </div>
-    <h1 class="text-3xl sm:text-4xl font-bold mb-4">
-      {{ t('home.greeting', { name: siteConfig.author.name }) }}
-    </h1>
-    <p class="text-lg text-foreground-secondary max-w-md">
+
+    <!-- 名字 -->
+    <h2 class="text-base font-semibold mb-2">
+      {{ siteConfig.author.name }}
+    </h2>
+
+    <!-- 简介 -->
+    <p class="text-sm text-foreground-secondary mb-4">
       {{ bio }}
     </p>
-    <div class="flex gap-3 mt-6">
+
+    <!-- 社交链接 -->
+    <div class="flex flex-wrap justify-center gap-1.5">
       <a
         v-if="siteConfig.social.github"
         :href="siteConfig.social.github"
@@ -33,7 +40,7 @@
       </a>
       <button
         v-if="siteConfig.social.qq"
-        class="inline-flex items-center justify-center p-2.5 rounded-lg bg-background-secondary border border-border text-foreground-secondary hover:text-foreground hover:border-accent transition-colors"
+        class="p-2.5 rounded-lg bg-background-secondary border border-border text-foreground-secondary hover:text-foreground hover:border-accent transition-colors"
         title="QQ"
         @click="copyId(siteConfig.social.qq, 'QQ')"
       >
@@ -41,7 +48,7 @@
       </button>
       <button
         v-if="siteConfig.social.wechat"
-        class="inline-flex items-center justify-center p-2.5 rounded-lg bg-background-secondary border border-border text-foreground-secondary hover:text-foreground hover:border-accent transition-colors"
+        class="p-2.5 rounded-lg bg-background-secondary border border-border text-foreground-secondary hover:text-foreground hover:border-accent transition-colors"
         title="微信"
         @click="copyId(siteConfig.social.wechat, '微信')"
       >
@@ -61,7 +68,7 @@
 
 <script setup lang="ts">
 import { siteConfig } from '~~/data/site-config'
-const { t, locale } = useI18n()
+const { locale } = useI18n()
 const toast = useToast()
 const avatarRef = ref<HTMLImageElement>()
 const imgLoaded = ref(false)
