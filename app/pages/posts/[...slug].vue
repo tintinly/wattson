@@ -1,7 +1,5 @@
 <template>
   <article v-if="post" class="py-12">
-    <ScrollProgress />
-
     <!-- 封面图 -->
     <PostCover v-if="post.coverImage" :src="post.coverImage" :alt="post.coverImageAlt || displayTitle" />
 
