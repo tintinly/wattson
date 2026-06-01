@@ -4,6 +4,10 @@ import tailwindcss from '@tailwindcss/vite'
 export default defineNuxtConfig({
   compatibilityDate: '2025-07-15',
   devtools: { enabled: true },
+  devServer: {
+    host: '0.0.0.0', // 允许所有 IP 访问
+    port: 3000 // 设置端口号
+  },
 
   // 目标：SSG 静态站点
   ssr: true,
