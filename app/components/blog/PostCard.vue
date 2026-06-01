@@ -15,7 +15,7 @@
     <!-- 置顶图标 -->
     <Icon
       v-if="post.featured"
-      name="tabler:pin-filled"
+      name="tabler:pin"
       class="w-4 h-4 text-foreground-secondary absolute top-3 right-3 z-10"
     />
 

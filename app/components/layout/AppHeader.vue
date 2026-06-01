@@ -1,5 +1,5 @@
 <template>
-  <header class="sticky top-0 z-40 w-full bg-background/80 backdrop-blur-md">
+  <header class="sticky top-0 z-40 w-full bg-surface/80 backdrop-blur-md">
     <div class="max-w-wide mx-auto flex h-20 items-center justify-between px-4 sm:px-6 lg:px-8">
       <!-- Logo -->
       <NuxtLink :to="localePath('/')" class="flex items-center gap-2 font-bold text-xl tracking-tight">

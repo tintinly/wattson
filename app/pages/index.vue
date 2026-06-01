@@ -13,7 +13,7 @@
       <!-- 上一页 -->
       <button
         :disabled="currentPage <= 1"
-        class="px-4 py-2 rounded-lg border border-border hover:bg-background-secondary disabled:opacity-40 disabled:cursor-not-allowed transition-colors text-sm"
+        class="px-4 py-2 rounded-lg border border-border bg-surface hover:bg-background-secondary disabled:opacity-40 disabled:cursor-not-allowed transition-colors text-sm"
         @click="currentPage--"
       >
         ← {{ t('home.prev') }}
@@ -23,7 +23,7 @@
       <ol class="flex items-center gap-1">
         <li v-for="page in visiblePages" :key="page">
           <button v-if="typeof page === 'number'"
-            class="w-10 h-10 rounded-lg text-sm transition-colors"
+            class="w-10 h-10 rounded-lg text-sm transition-colors bg-surface"
             :class="page === currentPage
               ? 'border border-border font-semibold'
               : 'hover:border border-border text-foreground-secondary'"
@@ -31,7 +31,7 @@
           >
             {{ page }}
           </button>
-          <button disabled v-else class="w-10 h-10 rounded-lg text-sm transition-colors">
+          <button disabled v-else class="w-10 h-10 rounded-lg text-sm transition-colors bg-surface">
             {{ page }}
           </button>
         </li>
@@ -40,7 +40,7 @@
       <!-- 下一页 -->
       <button
         :disabled="currentPage >= totalPages"
-        class="px-4 py-2 rounded-lg border border-border hover:bg-background-secondary disabled:opacity-40 disabled:cursor-not-allowed transition-colors text-sm"
+        class="px-4 py-2 rounded-lg border border-border bg-surface hover:bg-background-secondary disabled:opacity-40 disabled:cursor-not-allowed transition-colors text-sm"
         @click="currentPage++"
       >
         {{ t('home.next') }} →
