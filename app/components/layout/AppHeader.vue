@@ -1,6 +1,6 @@
 <template>
   <header class="sticky top-0 z-40 w-full  backdrop-blur-md">
-    <div class="max-w-wide mx-auto flex h-20 bg-surface rounded-b-xl items-center justify-between px-4 sm:px-6 lg:px-8">
+    <div class="max-w-wide mx-auto flex h-20 border border-border bg-surface rounded-b-xl items-center justify-between px-4 sm:px-6 lg:px-8">
       <!-- Logo -->
       <NuxtLink :to="localePath('/')" class="flex items-center gap-2 font-bold text-xl tracking-tight">
         <span class="text-accent"></span>
@@ -13,7 +13,7 @@
           v-for="item in navItems"
           :key="item.key"
           :to="localePath(item.path)"
-          class="px-3 py-2 rounded-lg text-sm font-medium text-foreground hover:text-foreground hover:bg-background-secondary transition-colors flex items-center gap-1.5"
+          class="px-4 py-3 rounded-lg text-sm font-medium text-foreground hover:text-foreground hover:bg-background-secondary transition-colors flex items-center gap-1.5"
           active-class="bg-background-secondary"
         >
           <Icon :name="item.icon" class="w-5 h-5" />
