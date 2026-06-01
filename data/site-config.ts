@@ -3,8 +3,8 @@ export const siteConfig = {
     name: '沃特森',
     nameEn: 'Wattson',
     avatar: '/images/avatar.webp',
-    bio: '全栈开发者，热爱开源与技术写作',
-    bioEn: 'Full-stack developer, passionate about open source and technical writing',
+    bio: '当你知道如何控制光明，就不会害怕黑暗',
+    bioEn: "You can't be afraid of the dark when you know how to control the light",
   },
 
   site: {
