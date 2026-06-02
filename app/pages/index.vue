@@ -18,20 +18,18 @@
           <!-- 上一页 -->
           <button
             :disabled="currentPage <= 1"
-            class="px-4 py-2 rounded-lg border border-border bg-surface hover:bg-background-secondary disabled:opacity-40 disabled:cursor-not-allowed transition-colors text-sm"
+            class="px-3 py-3 sm:px-4 sm:py-2 flex items-center justify-center rounded-lg border border-border bg-surface hover:bg-background-secondary disabled:opacity-40 disabled:cursor-not-allowed transition-colors text-sm"
             @click="currentPage--"
           >
-            ← {{ t('home.prev') }}
+            <icon name="tabler:chevron-left" class="w-4 h-4 md:mr-1.5" ></icon><span class="hidden sm:inline">{{ t('home.prev') }}</span>
           </button>
 
           <!-- 页码列表 -->
           <ol class="flex items-center gap-1">
             <li v-for="page in visiblePages" :key="page">
               <button v-if="typeof page === 'number'"
-                class="w-10 h-10 text-sm rounded-lg border border-border transition-colors"
-                :class="page === currentPage
-                  ? 'bg-background-secondary'
-                  : 'text-foreground-secondary bg-surface hover:bg-background-secondary'"
+                class="w-10 h-10 disabled:opacity-40 text-sm rounded-lg border border-border bg-surface hover:bg-background-secondary transition-colors"
+                :disabled="page === currentPage"
                 @click="currentPage = page"
               >
                 {{ page }}
@@ -45,10 +43,10 @@
           <!-- 下一页 -->
           <button
             :disabled="currentPage >= totalPages"
-            class="px-4 py-2 rounded-lg border border-border bg-surface hover:bg-background-secondary disabled:opacity-40 disabled:cursor-not-allowed text-sm"
+            class="px-3 py-3 sm:px-4 sm:py-2 flex items-center justify-center rounded-lg border border-border bg-surface hover:bg-background-secondary disabled:opacity-40 text-sm"
             @click="currentPage++"
           >
-            {{ t('home.next') }} →
+            <span class="hidden sm:inline">{{ t('home.next') }}</span><icon name="tabler:chevron-right" class="w-4 h-4 md:ml-1.5" ></icon>
           </button>
         </nav>
       </div>
