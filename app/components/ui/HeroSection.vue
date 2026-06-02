@@ -1,11 +1,8 @@
 <template>
   <div class="bg-surface rounded-xl border border-border p-6 md:sticky md:top-24 flex flex-col items-center text-center">
     <!-- 头像 -->
-    <div class="size-50 rounded-xl border-2 border-border overflow-hidden mb-4 bg-background-secondary flex items-center justify-center relative shrink-0">
-      <NuxtImg :src="siteConfig.author.avatar" :alt="siteConfig.author.name" class="absolute inset-0 w-full h-full object-cover" :class="imgLoaded ? '' : 'invisible'" @load="imgLoaded = true" />
-      <span v-if="!imgLoaded" class="text-8xl font-bold text-accent/30">
-        {{ siteConfig.author.name.charAt(0) }}
-      </span>
+    <div class="size-52 rounded-xl overflow-hidden mb-4 border border-border flex items-center justify-center relative shrink-0">
+      <NuxtImg :src="siteConfig.author.avatar" :alt="siteConfig.author.name" class="inset-0 object-cover" />
     </div>
 
     <!-- 名字 -->
@@ -72,7 +69,6 @@
 import { siteConfig } from '~~/data/site-config'
 const { locale } = useI18n()
 const toast = useToast()
-const imgLoaded = ref(false)
 
 
 const bio = computed(() =>

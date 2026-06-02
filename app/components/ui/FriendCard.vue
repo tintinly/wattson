@@ -7,17 +7,12 @@
   >
     <div class="flex items-center gap-4">
       <!-- 头像 -->
-      <div class="shrink-0 size-16 rounded-lg bg-background-secondary border border-border flex items-center justify-center overflow-hidden">
+      <div class="shrink-0 size-16 rounded-lg border border-border flex items-center justify-center overflow-hidden">
         <NuxtImg
           :src="friend.avatar"
           :alt="displayName"
-          class="absolute w-full h-full object-cover"
-          :class="friend.imgLoaded ? '' : 'invisible'" 
-          @load="friend.imgLoaded = true"
+          class="object-cover text-xs"
         />
-        <span v-if="!friend.imgLoaded" class="text-xl font-bold text-accent/30">
-          {{ displayName.charAt(0) }}
-        </span>
       </div>
 
       <div class="flex-1 min-w-0">
