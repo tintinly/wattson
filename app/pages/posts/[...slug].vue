@@ -1,59 +1,83 @@
 <template>
-  <article v-if="post" class="py-12">
-    <!-- 封面图 -->
-    <PostCover v-if="post.coverImage" :src="post.coverImage" :alt="post.coverImageAlt || displayTitle" />
-
-    <!-- 文章头部 -->
-    <header class="mb-8 max-w-content mx-auto text-center">
-      <h1 class="text-3xl sm:text-4xl font-bold leading-tight mb-4">
-        {{ displayTitle }}
-      </h1>
-      <p v-if="displayDescription" class="text-lg text-foreground-secondary mb-4">
-        {{ displayDescription }}
-      </p>
-      <div class="flex flex-wrap items-center justify-center gap-3 text-sm text-foreground-secondary">
-        <time :datetime="post.date">
-          {{ t('post.publishedOn') }} {{ formattedDate }}
-        </time>
-        <span>·</span>
-        <span>{{ readingTimeText }}</span>
-      </div>
-      <div class="flex flex-wrap justify-center gap-1.5 mt-4">
-        <span
-          v-for="tag in displayTags"
-          :key="tag"
-          class="text-xs px-2 py-0.5 rounded-full bg-accent/10 text-accent"
-        >
-          {{ tag }}
-        </span>
-      </div>
-    </header>
-
-    <!-- 文章内容 -->
-    <div class="flex gap-8 max-w-content mx-auto">
-      <!-- 主内容 -->
-      <div class="flex-1 min-w-0 bg-surface rounded-2xl shadow-lg ring-1 ring-border p-6 sm:p-10 prose prose-lg dark:prose-invert max-w-none">
-        <ContentRenderer :value="post" />
-      </div>
-
-      <!-- 侧边栏目录 -->
-      <TableOfContents :content="post" />
-    </div>
-
-  </article>
-
   <!-- 文章未找到 -->
-  <div v-else class="py-20 text-center">
+  <div v-if="!post" class="py-20 text-center">
     <h2 class="text-2xl font-bold mb-4">{{ t('notFound.title') }}</h2>
     <NuxtLink :to="localePath('/')" class="text-accent hover:underline">
       ← {{ t('notFound.backHome') }}
     </NuxtLink>
   </div>
+
+  <!-- 文章卡片 + TOC -->
+  <div v-else class="max-w-wide mx-auto py-4 flex justify-center gap-4">
+    <!-- TOC 侧边栏 -->
+    <TableOfContents :content="post" />
+
+    <!-- 文章卡片：与首页 PostCard 保持一致 -->
+    <article class="w-full min-w-0 bg-surface rounded-xl border border-border py-7 px-7">
+      <!-- 封面图：与 PostCard 完全一致 -->
+      <div v-if="post.coverImage" class="aspect-video -mx-7 -mt-7 mb-5 overflow-hidden rounded-t-xl">
+        <NuxtImg
+          :src="post.coverImage"
+          :alt="post.coverImageAlt || displayTitle"
+          class="w-full h-full object-cover"
+        />
+      </div>
+
+      <!-- 第一行：标题 + 置顶标记 -->
+      <div class="flex items-center gap-2 mb-3">
+        <h1 class="text-xl font-semibold leading-snug">
+          {{ displayTitle }}
+        </h1>
+      </div>
+
+      <!-- 第二行：描述 -->
+      <p class="text-base text-foreground-secondary mb-5">
+        {{ displayDescription }}
+      </p>
+
+      <!-- 第三行：日期 + 字数 + 阅读时间 -->
+      <div class="flex items-center gap-5 text-sm text-foreground-secondary mb-3">
+        <span class="inline-flex items-center gap-1">
+          <Icon name="tabler:calendar-month" class="w-5 h-5" />
+          <time :datetime="post.date">{{ formattedDate }}</time>
+        </span>
+        <span class="inline-flex items-center gap-1">
+          <Icon name="tabler:pencil" class="w-5 h-5" />
+          {{ t('post.wordCount', { count: post._wordCount }) }}
+        </span>
+        <span class="inline-flex items-center gap-1">
+          <Icon name="tabler:clock" class="w-5 h-5" />
+          {{ t('post.minRead', { minute: post._readingTime }) }}
+        </span>
+      </div>
+
+      <!-- 第四行：标签 -->
+      <div class="flex items-center flex-wrap gap-2 text-sm text-foreground-secondary">
+        <span class="inline-flex items-center">
+          <Icon name="tabler:hash" class="w-5 h-5" />
+          <span
+            v-for="tag in displayTags"
+            :key="tag"
+            class="inline-flex items-center cursor-pointer mx-0.5 px-1 py-0.5 rounded hover:bg-background-secondary hover:text-accent transition-colors"
+            @click.prevent.stop="toArchiveTag(tag)"
+          >
+            {{ tag }}
+          </span>
+        </span>
+      </div>
+
+      <!-- 分隔线 -->
+      <hr class="my-6 border-border" />
+
+      <!-- 文章正文 -->
+      <div class="prose prose-lg dark:prose-invert max-w-none">
+        <ContentRenderer :value="post" />
+      </div>
+    </article>
+  </div>
 </template>
 
 <script setup lang="ts">
-import type { PostContent } from '~~/app/types'
-
 const route = useRoute()
 const { t, locale } = useI18n()
 const localePath = useLocalePath()
@@ -83,12 +107,9 @@ const formattedDate = computed(() => {
   )
 })
 
-const readingTimeText = computed(() => {
-  // Nuxt Content v3 body 是结构化 AST，用 description 长度估算阅读时间
-  const chars = (displayDescription.value || '').length
-  const minutes = Math.max(1, Math.ceil(chars / 800))
-  return t('post.readingTime', { minute: minutes })
-})
+function toArchiveTag(tag: string) {
+  navigateTo(localePath(`/archive?tag=${encodeURIComponent(tag)}`))
+}
 
 useHead(() => ({
   title: `${displayTitle.value}`,

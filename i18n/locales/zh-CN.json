@@ -36,7 +36,8 @@
     "tags": "标签",
     "previous": "上一篇",
     "next": "下一篇",
-    "backToArchive": "返回归档"
+    "backToArchive": "返回归档",
+    "toc": "目录"
   },
   "friends": {
     "title": "友链",

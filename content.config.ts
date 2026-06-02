@@ -17,6 +17,7 @@ export default defineContentConfig({
         coverImageAlt: z.string().optional(),
         featured: z.boolean().default(false),
         published: z.boolean().default(true),
+        rawbody: z.string(),
       }),
     }),
     content: defineCollection({
@@ -25,6 +26,7 @@ export default defineContentConfig({
       schema: z.object({
         title: z.string().optional(),
         titleEn: z.string().optional(),
+        rawbody: z.string(),
       }),
     }),
   },

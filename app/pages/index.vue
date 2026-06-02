@@ -2,7 +2,7 @@
   <div class="py-4  mx-auto">
     <div class="flex flex-col md:flex-row gap-4">
       <!-- 左侧: 作者卡片 -->
-      <aside class="md:w-65 shrink-0">
+      <aside class="md:w-70 shrink-0">
         <HeroSection />
       </aside>
 

@@ -38,6 +38,7 @@ export interface PostContent {
   featured?: boolean
   published?: boolean
   body?: string
+  rawbody?: string
   excerpt?: object
 }
 

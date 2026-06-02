@@ -2,21 +2,21 @@
   <ClientOnly>
     <aside
       v-if="headings.length > 0"
-      class="hidden lg:block w-56 shrink-0"
+      class="hidden lg:block md:w-70  shrink-0"
     >
-      <div class="sticky top-24 max-h-[calc(100vh-6rem)] overflow-y-auto">
-        <h3 class="text-sm font-semibold text-foreground-secondary mb-3 uppercase tracking-wider">
-          TOC
+      <div class="sticky top-24 bg-surface rounded-xl border border-border p-4">
+        <h3 class="text-sm font-semibold mb-3">
+          {{ t('post.toc') }}
         </h3>
-        <nav class="flex flex-col gap-1 text-sm">
+        <nav class="flex flex-col gap-0.5 text-sm max-h-[calc(100vh-12rem)] overflow-y-auto">
           <a
             v-for="h in headings"
             :key="h.id"
             :href="`#${h.id}`"
-            class="text-foreground-secondary hover:text-accent transition-colors py-0.5 border-l-2 border-transparent pl-3"
+            class="text-foreground-secondary hover:text-accent transition-colors py-1 rounded-md px-2"
             :class="{
-              'text-accent border-accent': activeId === h.id,
-              'pl-6': h.depth === 3,
+              'text-accent bg-accent/10': activeId === h.id,
+              'pl-5': h.depth === 3,
             }"
             @click.prevent="scrollTo(h.id)"
           >
@@ -29,6 +29,8 @@
 </template>
 
 <script setup lang="ts">
+const { t } = useI18n()
+
 const props = defineProps<{ content: any }>()
 
 interface Heading {
@@ -38,8 +40,8 @@ interface Heading {
 }
 
 const headings = computed<Heading[]>(() => {
-  // 从 MD 渲染内容中提取标题
-  const body = props.content?.body as string
+  // 从 rawbody（原始 markdown）中提取标题
+  const body = props.content?.rawbody
   if (!body) return []
 
   const headingRegex = /^(#{2,3})\s+(.+)$/gm

@@ -10,8 +10,9 @@ export async function usePosts(locale: string) {
   const localized = computed(() => {
     if (!posts.value) return []
     return posts.value.map((p: any) => {
-      // 估算字数：中文一个字符一字，英文按空格分词
-      const bodyText = typeof p.body === 'string' ? p.body : ''
+      // 估算字数：去除 frontmatter 头部后，中文一字一字符，英文按空格分词
+      const rawText = p.rawbody || ''
+      const bodyText = rawText.replace(/^---[\s\S]*?---\n*/, '')
       const wordCount = locale === 'en-US'
         ? bodyText.split(/\s+/).filter(Boolean).length
         : bodyText.replace(/\s/g, '').length

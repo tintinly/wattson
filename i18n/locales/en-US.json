@@ -36,7 +36,8 @@
     "tags": "Tags",
     "previous": "Previous",
     "next": "Next",
-    "backToArchive": "Back to Archive"
+    "backToArchive": "Back to Archive",
+    "toc": "Contents"
   },
   "friends": {
     "title": "Friends",
