@@ -1,6 +1,6 @@
 <template>
   <button
-    class="inline-flex items-center justify-center p-3 rounded-lg text-foreground hover:text-foreground hover:bg-background-secondary transition-colors"
+    class="inline-flex items-center justify-center p-2 sm:p-3 rounded-lg text-foreground hover:text-foreground hover:bg-background-secondary transition-colors"
     @click="toggleColorMode"
   >
     <Icon v-if="colorMode.preference === 'light'" name="tabler:sun" class="w-5 h-5" />

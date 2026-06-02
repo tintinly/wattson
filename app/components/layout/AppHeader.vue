@@ -1,14 +1,14 @@
 <template>
   <header class="sticky top-0 z-40 w-full  backdrop-blur-md">
-    <div class="max-w-wide mx-auto flex h-20 border border-border bg-surface rounded-b-xl items-center justify-between px-4 sm:px-6 lg:px-8">
+    <div class="max-w-wide mx-auto flex h-18 border border-border bg-surface rounded-b-xl items-center justify-between px-4 sm:px-6 lg:px-8">
       <!-- Logo -->
-      <NuxtLink :to="localePath('/')" class="flex items-center gap-2 font-bold text-xl tracking-tight">
+      <NuxtLink :to="localePath('/')" class="flex items-center gap-2 font-bold sm:text-xl tracking-tight">
         <span class="text-accent"></span>
-        <span class="hidden sm:inline">{{ siteTitle }}</span>
+        <span class="truncate">{{ siteTitle }}</span>
       </NuxtLink>
 
       <!-- Desktop Nav -->
-      <nav class="hidden md:flex items-center gap-1">
+      <nav class="hidden lg:flex items-center gap-1">
         <NuxtLink
           v-for="item in navItems"
           :key="item.key"
@@ -22,7 +22,7 @@
       </nav>
 
       <!-- Actions -->
-      <div class="flex items-center gap-1">
+      <div class="flex items-center gap-0 sm:gap-1">
         <SearchButton />
         <ThemeToggle />
         <LocaleSwitch />
