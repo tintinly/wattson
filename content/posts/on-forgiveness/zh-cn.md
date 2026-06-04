@@ -1,11 +1,8 @@
 ---
 title: 为什么原谅比憎恨更难
-titleEn: Why Forgiveness Is Harder Than Hatred
 date: 2735-09-15
 tags: [反思, 原谅, 成长]
-tagsEn: [Reflection, Forgiveness, Growth]
 description: 我原谅了加密者。我原谅了腐蚀。不是因为他们是好人——是因为我不想变成不会原谅的人。
-descriptionEn: I forgave Crypto. I forgave Caustic. Not because they're good people — but because I don't want to become someone who can't forgive.
 ---
 
 如果你期待一篇"原谅就是放过自己"的鸡汤——那你可能会失望。我的经验要更混乱一些。

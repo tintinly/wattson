@@ -29,22 +29,25 @@
 
     <!-- 第二行: 描述 -->
     <p class="text-base text-foreground-secondary mb-5">
-      {{ displayDescription }}
+        <span v-if="post._locale !== locale" class="inline-block px-1.5 py-0.5 border border-border text-xs rounded-md bg-background">
+          {{ post._locale }}
+        </span>
+        {{ displayDescription }}
     </p>
 
     <!-- 第三行: 日期 + 字数 + 阅读时间-->
-    <div class="flex items-center gap-5 text-sm text-foreground-secondary mb-3">
+    <div class="flex flex-wrap items-center gap-5 text-sm text-foreground-secondary mb-3">
       <span class="inline-flex items-center gap-1">
         <Icon name="tabler:calendar-month" class="w-5 h-5" />
-        <time>{{ formattedDate }}</time>
+        <span><time>{{ formattedDate }}</time></span>
       </span>
       <span class="inline-flex items-center gap-1">
         <Icon name="tabler:pencil" class="w-5 h-5" />
-        {{ t('post.wordCount', { count: post._wordCount }) }}
+        <span>{{ t('post.wordCount', { count: post._wordCount }) }}</span>
       </span>
       <span class="inline-flex items-center gap-1">
         <Icon name="tabler:clock" class="w-5 h-5" />
-        {{ t('post.minRead', { minute: post._readingTime }) }}
+        <span>{{ t('post.minRead', { minute: post._readingTime }) }}</span>
       </span>
     </div>
 
@@ -71,9 +74,9 @@ const props = defineProps<{ post: any }>()
 const { t, locale } = useI18n()
 const localePath = useLocalePath()
 
-const displayTitle = computed(() => props.post._title || '')
-const displayDescription = computed(() => props.post._description || '')
-const displayTags = computed(() => props.post._tags || [])
+const displayTitle = computed(() => props.post.title || '')
+const displayDescription = computed(() => props.post.description || '')
+const displayTags = computed(() => props.post.tags || [])
 const postSlug = computed(() => props.post._slug || '')
 
 const formattedDate = computed(() => {

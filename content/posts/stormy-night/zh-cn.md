@@ -1,11 +1,8 @@
 ---
 title: 那场改变一切的暴风雨
-titleEn: The Storm That Changed Everything
 date: 2732-03-14
 tags: [回忆, 事故, 闪电]
-tagsEn: [Memories, Accident, Lightning]
 description: 一个雷雨夜，一个鲁莽的实验，一道闪电——和那个在黑暗中救了我的"幽灵"。
-descriptionEn: A stormy night, a reckless experiment, a lightning bolt — and the "ghost" who saved me.
 ---
 
 那晚，我在自己的实验台上还原了我的围栏设计——缩小型版本。我想向爸爸证明这个系统真的能工作。

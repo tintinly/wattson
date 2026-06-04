@@ -61,7 +61,7 @@ interface TimelineItem {
 
 const timelineItems = computed<any[]>(() => {
   const filtered = props.selectedTag
-    ? props.posts.filter((p: any) => p._tags?.includes(props.selectedTag!))
+    ? props.posts.filter((p: any) => p.tags?.includes(props.selectedTag!))
     : props.posts
 
   const items: any[] = []
@@ -77,9 +77,9 @@ const timelineItems = computed<any[]>(() => {
     items.push({
       type: 'post',
       slug: post._slug,
-      title: post._title,
+      title: post.title,
       dateStr: date?.toLocaleDateString('zh-CN', { month: '2-digit', day: '2-digit' }),
-      tags: post._tags || [],
+      tags: post.tags || [],
     })
   }
 

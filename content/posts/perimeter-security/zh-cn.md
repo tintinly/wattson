@@ -1,11 +1,8 @@
 ---
 title: 周界防御系统：从理论到竞技场
-titleEn: "Perimeter Security: From Theory to Arena"
 date: 2731-12-30
 tags: [电气工程, 围栏, 教程]
-tagsEn: [Electrical Engineering, Fences, Tutorial]
 description: 我的电网围栏系统是如何工作的——从节点布局到电流陷阱，完整的防御工程入门。
-descriptionEn: How my perimeter security fence system works — from node placement to current traps.
 ---
 
 在竞技场里，每一秒都有人想从你背后偷袭。所以要学第一课：**控制空间。**

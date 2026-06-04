@@ -1,11 +1,8 @@
 ---
 title: 终极促进剂到底"促进"了什么？
-titleEn: What Do Ultimate Accelerants Actually Accelerate?
 date: 2733-04-28
 tags: [电气工程, 材料科学, 促进剂]
-tagsEn: [Electrical Engineering, Materials Science, Accelerants]
 description: 终极促进剂的化学成分和工作原理分析——以及为什么我一口就能灌下去。
-descriptionEn: Chemical composition and working principles of Ultimate Accelerants — and why I can down them in one gulp.
 ---
 
 首先，终极促进剂**不是能量饮料**。

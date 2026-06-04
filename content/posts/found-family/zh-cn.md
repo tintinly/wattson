@@ -1,11 +1,8 @@
 ---
 title: 家人，不只有血缘
-titleEn: Family Isn't Just Blood
 date: 2733-11-17
 tags: [家庭, 传奇, 感恩]
-tagsEn: [Family, Legends, Gratitude]
 description: 在我最黑暗的一天，四个陌生人藏在桌子底下找到我——从那天起，我就有了一个家。
-descriptionEn: On my darkest day, four strangers found me hiding under a table — and from that day on, I had a family.
 featured: true
 coverImage: /images/posts/2733-11-17.found-family.png
 coverImageAlt: 电力区合照

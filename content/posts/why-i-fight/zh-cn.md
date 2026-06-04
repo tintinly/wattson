@@ -1,11 +1,8 @@
 ---
 title: 我为什么战斗
-titleEn: Why I Fight
 date: 2735-03-08
 tags: [竞技场, 反思, 战斗]
-tagsEn: [Arena, Reflection, Combat]
 description: 我是电气工程师，不是士兵。但我还是走上了竞技场。这是我的理由。
-descriptionEn: I'm an electrical engineer, not a soldier. But I stepped into the arena anyway. This is why.
 ---
 
 很多人问我："你是一个工程师，一个女孩，一个从来没打过仗的人——你为什么选择成为传奇？"

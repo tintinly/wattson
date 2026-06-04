@@ -17,11 +17,11 @@ import { friends } from '~~/data/friends'
 
 const { t, locale } = useI18n()
 
-const { data: addFriendPage } = await useAsyncData('about', () => {
-  return queryCollection('content')
-    .where('path', '=', '/add-friend')
-    .first()
-})
+// const { data: makeFriendsPage } = await useAsyncData('make-frineds', () => {
+//   return queryCollection('specials')
+//     .where('path', '=', '/make-frineds')
+//     .first()
+// })
 
 useHead({
   title: `${t('friends.title')}`,

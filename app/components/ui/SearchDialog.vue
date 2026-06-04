@@ -57,10 +57,10 @@
                 @click="closeSearch"
               >
                 <span class="font-medium text-sm group-hover:text-accent transition-colors">
-                  {{ locale === 'en-US' ? item.titleEn : item.title }}
+                  {{ item.title }}
                 </span>
                 <span class="block text-xs text-foreground-secondary mt-0.5 line-clamp-1">
-                  {{ locale === 'en-US' ? item.descriptionEn : item.description }}
+                  {{ item.description }}
                 </span>
               </NuxtLink>
             </template>
@@ -77,11 +77,8 @@ import Fuse from 'fuse.js'
 interface SearchItem {
   slug: string
   title: string
-  titleEn: string
   description: string
-  descriptionEn: string
   tags: string[]
-  tagsEn: string[]
   date: string
   content: string
 }
@@ -115,11 +112,8 @@ watch(isSearchOpen, async (open) => {
     fuse = new Fuse(allItems, {
       keys: [
         { name: 'title', weight: 2 },
-        { name: 'titleEn', weight: 2 },
         { name: 'description', weight: 1.5 },
-        { name: 'descriptionEn', weight: 1.5 },
         { name: 'tags', weight: 1 },
-        { name: 'tagsEn', weight: 1 },
         { name: 'content', weight: 0.5 },
       ],
       threshold: 0.4,

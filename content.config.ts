@@ -7,12 +7,9 @@ export default defineContentConfig({
       source: 'posts/**/*.md',
       schema: z.object({
         title: z.string(),
-        titleEn: z.string(),
         date: z.string(),
         tags: z.array(z.string()).default([]),
-        tagsEn: z.array(z.string()).default([]),
         description: z.string(),
-        descriptionEn: z.string(),
         coverImage: z.string().optional(),
         coverImageAlt: z.string().optional(),
         featured: z.boolean().default(false),
@@ -20,12 +17,11 @@ export default defineContentConfig({
         rawbody: z.string(),
       }),
     }),
-    content: defineCollection({
+    specials: defineCollection({
       type: 'page',
-      source: '*.md',
+      source: 'specials/**/*.md',
       schema: z.object({
         title: z.string().optional(),
-        titleEn: z.string().optional(),
         rawbody: z.string(),
       }),
     }),

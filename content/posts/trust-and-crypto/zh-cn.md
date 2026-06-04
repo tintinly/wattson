@@ -1,11 +1,8 @@
 ---
 title: 加密者，信任与秘密
-titleEn: Crypto, Trust, and Secrets
 date: 2734-02-14
 tags: [信任, 加密者, 友谊]
-tagsEn: [Trust, Crypto, Friendship]
 description: 关于一个被全世界误解的人——以及我选择相信他。
-descriptionEn: About a man misunderstood by the whole world — and why I chose to trust him.
 ---
 
 他告诉我他的真名时，声音小得像怕被墙壁偷听。

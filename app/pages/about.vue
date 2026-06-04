@@ -10,12 +10,17 @@
 </template>
 
 <script setup lang="ts">
-const { t } = useI18n()
+const { t, locale } = useI18n()
 
-const { data: aboutPage } = await useAsyncData('about', () => {
-  return queryCollection('content')
-    .where('path', '=', '/about')
+// key 包含 locale，切换语言时 refresh 重新查询对应语言的内容
+const { data: aboutPage, refresh } = await useAsyncData(`about-${locale.value}`, () => {
+  return queryCollection('specials')
+    .path(`/specials/about/${locale.value.toLowerCase()}`)
     .first()
+})
+
+watch(locale, () => {
+  refresh()
 })
 
 useHead({

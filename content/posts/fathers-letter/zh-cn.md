@@ -1,11 +1,8 @@
 ---
 title: 父亲的信
-titleEn: A Father's Letter
 date: 2734-12-22
 tags: [回忆, 父亲, 信]
-tagsEn: [Memories, Father, Letter]
 description: 布里斯克把我叫到辛迪加大厦，递给我一封信。那是爸爸在我安全区实验成功那晚写的。
-descriptionEn: Blisk called me to Syndicate Tower and handed me a letter. Papa wrote it the night my Ring experiment succeeded.
 ---
 
 布里斯克（Kuben Blisk）不是一个会感伤的人。他说话的方式像硬派动作片里的台词。

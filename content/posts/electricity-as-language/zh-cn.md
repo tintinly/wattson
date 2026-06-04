@@ -1,11 +1,8 @@
 ---
 title: 电流——我第一个学会的"语言"
-titleEn: Electricity — The First "Language" I Learned
 date: 2731-07-22
 tags: [电气工程, 入门]
-tagsEn: [Electrical Engineering, Basics]
 description: 什么是电流、电压和电阻？用沃特森的方式来理解电的基础。
-descriptionEn: What are current, voltage, and resistance? Understanding electricity the Wattson way.
 ---
 
 爸爸曾经告诉我："在你能开口说话之前，你的眼睛就在追着示波器上的波形跑了。"

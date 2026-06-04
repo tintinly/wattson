@@ -27,6 +27,9 @@
       <div class="flex items-center gap-2 mb-3">
         <h1 class="text-xl font-semibold leading-snug">
           {{ displayTitle }}
+          <span v-if="post._isFallback" class="inline-block ml-2 px-2 py-0.5 text-xs font-normal rounded-full bg-accent/10 text-accent align-middle">
+            zh-CN
+          </span>
         </h1>
       </div>
 
@@ -92,9 +95,9 @@ const slug = computed(() => {
 const { posts } = await usePosts(locale.value)
 const post = computed(() => posts.value.find((p: any) => p._slug === slug.value))
 
-const displayTitle = computed(() => post.value?._title || '')
-const displayDescription = computed(() => post.value?._description || '')
-const displayTags = computed(() => post.value?._tags || [])
+const displayTitle = computed(() => post.value?.title || '')
+const displayDescription = computed(() => post.value?.description || '')
+const displayTags = computed(() => post.value?.tags || [])
 
 // 图片灯箱
 useImageZoom()

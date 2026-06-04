@@ -1,11 +1,8 @@
 ---
 title: 我最喜欢的 10 个电学双关语
-titleEn: My Top 10 Favorite Electrical Puns
 date: 2734-08-13
 tags: [双关语, 幽默, 电击合集]
-tagsEn: [Puns, Humor, Shock Collection]
 description: "你知道吗？电流是世界上最有趣的东西。"——实际上是我说的。哦，还有：我发现了更多电学双关语。
-descriptionEn: "You know what? Electricity is the funniest thing in the world." — Me. Also, I've found more puns.
 ---
 
 *你早就知道这一天会来的。*

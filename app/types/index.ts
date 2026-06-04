@@ -1,12 +1,9 @@
 // 文章类型
 export interface PostFrontmatter {
   title: string
-  titleEn: string
   date: string
   tags: string[]
-  tagsEn: string[]
   description: string
-  descriptionEn: string
   coverImage?: string
   coverImageAlt?: string
   featured?: boolean
@@ -27,12 +24,9 @@ export interface PostContent {
   id: string
   path: string
   title: string
-  titleEn: string
   date: string
   tags: string[]
-  tagsEn: string[]
   description: string
-  descriptionEn: string
   coverImage?: string
   coverImageAlt?: string
   featured?: boolean

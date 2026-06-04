@@ -1,11 +1,8 @@
 ---
 title: 我的猫：尼古拉
-titleEn: "My Cat: Nikola"
 date: 2732-09-25
 tags: [尼古拉, 猫, 生活]
-tagsEn: [Nikola, Cat, Lifestyle]
 description: 尼古拉是一只灰色虎斑猫，它的名字致敬尼古拉·特斯拉。它是我最好的室友——虽然它经常拔掉我的电线。
-descriptionEn: Nikola is a gray tabby cat named after Nikola Tesla. He's my best roommate — even if he unplugs my wires.
 ---
 
 我有两只猫。

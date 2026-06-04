@@ -1,11 +1,8 @@
 ---
 title: 在竞技场的一天
-titleEn: A Day in the Arena
 date: 2735-06-21
 tags: [竞技场, 生活, 日常]
-tagsEn: [Arena, Lifestyle, Daily]
 description: 从早上的羊角面包到晚上的焊接工作——我典型的一天（有比赛日和没比赛日）。
-descriptionEn: From morning croissants to late-night soldering — a typical day in my life (match day vs. off day).
 ---
 
 "你在竞技场的一天是什么样的？"

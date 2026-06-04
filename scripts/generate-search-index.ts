@@ -1,5 +1,5 @@
-import { readdirSync, readFileSync, writeFileSync } from 'node:fs'
-import { join, dirname } from 'node:path'
+import { readdirSync, readFileSync, writeFileSync, statSync } from 'node:fs'
+import { join, dirname, relative } from 'node:path'
 import { fileURLToPath } from 'node:url'
 import matter from 'gray-matter'
 
@@ -12,36 +12,47 @@ const outputPath = join(__dirname, '../public/search-index.json')
 interface SearchItem {
   slug: string
   title: string
-  titleEn: string
   description: string
-  descriptionEn: string
   tags: string[]
-  tagsEn: string[]
   date: string
   content: string
 }
 
+// 递归查找所有 .md 文件
+function findMdFiles(dir: string): string[] {
+  const results: string[] = []
+  const entries = readdirSync(dir)
+  for (const entry of entries) {
+    const fullPath = join(dir, entry)
+    if (statSync(fullPath).isDirectory()) {
+      results.push(...findMdFiles(fullPath))
+    } else if (entry.endsWith('.md')) {
+      results.push(fullPath)
+    }
+  }
+  return results
+}
+
 function buildIndex() {
   try {
-    const files = readdirSync(contentDir).filter(f => f.endsWith('.md'))
+    const files = findMdFiles(contentDir)
     const items: SearchItem[] = []
 
-    for (const file of files) {
-      const raw = readFileSync(join(contentDir, file), 'utf-8')
+    for (const filepath of files) {
+      const raw = readFileSync(filepath, 'utf-8')
       const { data, content } = matter(raw)
 
       if (data.published === false) continue
 
-      const slug = file.replace('.md', '')
+      // 计算 slug：相对路径去掉 /zh-cn 或 /en-us 后缀，再去掉扩展名
+      const relPath = relative(contentDir, filepath).replace(/\\/g, '/')
+      const slug = relPath.replace(/\.md$/, '').replace(/\/(zh-cn|en-us)$/, '')
 
       items.push({
         slug,
         title: data.title || '',
-        titleEn: data.titleEn || '',
         description: data.description || '',
-        descriptionEn: data.descriptionEn || '',
         tags: data.tags || [],
-        tagsEn: data.tagsEn || [],
         date: data.date || '',
         content: content.slice(0, 500),
       })

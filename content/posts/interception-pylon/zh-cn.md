@@ -1,11 +1,8 @@
 ---
 title: 拦截塔技术详解
-titleEn: "Interception Pylon: A Technical Deep Dive"
 date: 2733-01-11
 tags: [电气工程, 拦截塔, 防御系统]
-tagsEn: [Electrical Engineering, Pylon, Defense]
 description: 拦截塔是我的巅峰之作——它在空中编织了一张电磁网，拦截一切投掷物。
-descriptionEn: The Interception Pylon is my magnum opus — an electromagnetic web in the air that intercepts all projectiles.
 ---
 
 你知道有多少种东西可以被扔进你的窗户吗？

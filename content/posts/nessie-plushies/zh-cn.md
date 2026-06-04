@@ -1,11 +1,8 @@
 ---
 title: Nessie 们的秘密藏身处
-titleEn: The Secret Hideouts of the Nessies
 date: 2732-06-19
 tags: [Nessie, 竞技场, 彩蛋]
-tagsEn: [Nessie, Arena, Easter Eggs]
 description: 我在国王峡谷各处藏了几十只 Nessie 玩偶。它们是妈妈留给我的——我选择把它们分享给整个竞技场。
-descriptionEn: I've hidden dozens of Nessie plushies across Kings Canyon. They're from my mom — and I chose to share them with the entire arena.
 ---
 
 如果你在国王峡谷的某个角落发现了一只绿色的小恐龙玩偶——**那是我放的。**

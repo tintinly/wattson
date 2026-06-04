@@ -1,11 +1,8 @@
 ---
 title: 15岁那年，我设计了"安全区"
-titleEn: At 15, I Designed the Ring
 date: 2731-10-08
 tags: [围栏, 竞技场, 设计故事]
-tagsEn: [Ring, Arena, Design Story]
 description: 改良型围栏系统（安全区）的诞生故事——一个15岁女孩坐在图书馆里，画出了改变竞技场的设计。
-descriptionEn: The birth of the Modified Containment Ring — a 15-year-old girl in a library, sketching the design that changed the Arena.
 featured: true
 ---
 

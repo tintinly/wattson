@@ -1,11 +1,8 @@
 ---
 title: 恶灵——我最好的朋友
-titleEn: Wraith — My Best Friend
 date: 2733-08-05
 tags: [友谊, 恶灵, 幽灵]
-tagsEn: [Friendship, Wraith, Ghost]
 description: 她曾是我童年时一个看不见的"幽灵"。多年以后，她成了我最重要的人。
-descriptionEn: She was an invisible "ghost" in my childhood. Years later, she became the most important person in my life.
 ---
 
 我看过很多次恶灵在竞技场里的表现——她的相位转移快得像一道蓝色的闪电。但我想告诉你的，不是她作为传奇的战斗力。

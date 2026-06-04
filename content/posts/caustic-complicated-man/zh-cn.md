@@ -1,11 +1,8 @@
 ---
 title: 诺克斯博士——一个复杂的人
-titleEn: Dr. Nox — A Complicated Man
 date: 2734-05-30
 tags: [反思, 腐蚀, 原谅]
-tagsEn: [Reflection, Caustic, Forgiveness]
 description: "他甚至讨厌所有人。"但他是我父亲的朋友。关于亚历山大·诺克斯博士——那个我无法憎恨的人。
-descriptionEn: "He even hates everybody." But he was my father's friend. About Dr. Alexander Nox — the man I cannot hate.
 ---
 
 大家都怕腐蚀（Caustic）。有理由的。
