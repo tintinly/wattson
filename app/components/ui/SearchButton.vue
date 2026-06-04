@@ -1,6 +1,6 @@
 <template>
   <button
-    class="inline-flex items-center justify-center p-2 sm:p-3 rounded-lg text-foreground hover:bg-background-secondary transition-colors"
+    class="inline-flex items-center justify-center p-2 sm:p-3 rounded-lg text-foreground hover:bg-background-secondary active:bg-background-secondary transition-colors"
     :title="t('header.search')"
     @click="openSearch"
   >

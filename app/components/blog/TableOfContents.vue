@@ -1,31 +1,29 @@
 <template>
-  <ClientOnly>
-    <aside
-      v-if="headings.length > 0"
-      class="hidden lg:block md:w-70  shrink-0"
-    >
-      <div class="sticky top-24 bg-surface rounded-xl border border-border p-4">
-        <h3 class="text-sm font-semibold mb-3">
-          {{ t('post.toc') }}
-        </h3>
-        <nav class="flex flex-col gap-0.5 text-sm max-h-[calc(100vh-12rem)] overflow-y-auto">
-          <a
-            v-for="h in headings"
-            :key="h.id"
-            :href="`#${h.id}`"
-            class="text-foreground-secondary hover:text-accent transition-colors py-1 rounded-md px-2"
-            :class="{
-              'text-accent bg-accent/10': activeId === h.id,
-              'pl-5': h.depth === 3,
-            }"
-            @click.prevent="scrollTo(h.id)"
-          >
-            {{ h.text }}
-          </a>
-        </nav>
-      </div>
-    </aside>
-  </ClientOnly>
+  <aside
+    v-if="headings.length > 0"
+    class="hidden lg:block md:w-70  shrink-0"
+  >
+    <div class="sticky top-22 bg-surface rounded-xl border border-border p-4">
+      <h3 class="text-sm font-semibold mb-3">
+        {{ t('post.toc') }}
+      </h3>
+      <nav class="flex flex-col gap-0.5 text-sm max-h-[calc(100vh-12rem)] overflow-y-auto">
+        <a
+          v-for="h in headings"
+          :key="h.id"
+          :href="`#${h.id}`"
+          class="text-foreground-secondary hover:text-accent active:text-accent transition-colors py-1 rounded-md px-2"
+          :class="{
+            'text-accent bg-accent/10': activeId === h.id,
+            'pl-5': h.depth === 3,
+          }"
+          @click.prevent="scrollTo(h.id)"
+        >
+          {{ h.text }}
+        </a>
+      </nav>
+    </div>
+  </aside>
 </template>
 
 <script setup lang="ts">

@@ -15,13 +15,13 @@
       <NuxtLink
         v-else
         :to="localePath(`/posts/${item.slug}`)"
-        class="group flex items-start gap-4 py-4 border-b border-border/50 hover:bg-background-secondary/50 transition-colors -mx-4 px-4 rounded-lg"
+        class="group flex items-start gap-4 py-4 border-b border-border/50 hover:bg-background-secondary/50 active:bg-background-secondary/50 transition-colors -mx-4 px-4 rounded-lg"
       >
         <time class="shrink-0 text-sm text-foreground-secondary font-mono mt-1">
           {{ item.dateStr }}
         </time>
         <div class="flex-1 min-w-0">
-          <h3 class="text-base font-medium group-hover:text-accent transition-colors truncate">
+          <h3 class="text-base font-medium group-hover:text-accent group-active:text-accent transition-colors truncate">
             {{ item.title }}
           </h3>
           <div class="flex flex-wrap gap-1.5 mt-1.5">

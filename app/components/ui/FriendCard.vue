@@ -3,7 +3,7 @@
     :to="url"
     target="_blank"
     rel="noopener noreferrer"
-    class="group block p-4 rounded-xl border border-border bg-surface hover:border-accent/30 hover:shadow-lg transition-all duration-300"
+    class="group block p-4 rounded-xl border border-border bg-surface hover:border-accent/30 hover:shadow-lg active:border-accent/30 active:shadow-lg transition-all duration-300"
   >
     <div class="flex items-center gap-4">
       <!-- 头像 -->
@@ -16,7 +16,7 @@
       </div>
 
       <div class="flex-1 min-w-0">
-        <h3 class="font-semibold group-hover:text-accent transition-colors truncate">
+        <h3 class="font-semibold group-hover:text-accent group-active:text-accent transition-colors truncate">
           {{ displayName }}
         </h3>
         <p class="text-sm text-foreground-secondary line-clamp-2 mt-1">
@@ -26,7 +26,7 @@
 
       <Icon
         name="tabler:chevron-right"
-        class="w-6 h-6 text-accent shrink-0 opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300"
+        class="w-6 h-6 text-accent shrink-0 opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 group-active:opacity-100 group-active:translate-x-0 transition-all duration-300"
       />    
     </div>
   </NuxtLink>

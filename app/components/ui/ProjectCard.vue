@@ -3,14 +3,14 @@
     :href="project.url || project.github"
     target="_blank"
     rel="noopener noreferrer"
-    class="group block p-6 rounded-xl border border-border bg-surface hover:border-accent/30 hover:shadow-lg transition-all duration-300 hover:-translate-y-1"
+    class="group block p-6 rounded-xl border border-border bg-surface hover:border-accent/30 hover:shadow-lg active:border-accent/30 active:shadow-lg transition-all duration-300 hover:-translate-y-1 active:-translate-y-px"
   >
     <!-- 截图 -->
     <div v-if="project.image" class="aspect-video -mx-6 -mt-6 mb-4 overflow-hidden rounded-t-xl bg-background-secondary">
       <NuxtImg :src="project.image" :alt="displayName" class="w-full h-full object-cover" />
     </div>
 
-    <h3 class="text-lg font-semibold group-hover:text-accent transition-colors">
+    <h3 class="text-lg font-semibold group-hover:text-accent group-active:text-accent transition-colors">
       {{ displayName }}
     </h3>
     <p class="text-sm text-foreground-secondary mt-2 line-clamp-2">

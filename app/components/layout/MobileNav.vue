@@ -15,7 +15,7 @@
               v-for="item in navItems"
               :key="item.key"
               :to="localePath(item.path)"
-              class="px-4 py-3 rounded-lg text-base font-medium text-foreground-secondary hover:text-foreground hover:bg-background-secondary transition-colors flex items-center gap-2"
+              class="px-4 py-3 rounded-lg text-base font-medium text-foreground-secondary hover:text-foreground hover:bg-background-secondary active:text-foreground active:bg-background-secondary transition-colors flex items-center gap-2"
               active-class="text-accent bg-accent/10"
               @click="$emit('close')"
             >
@@ -26,7 +26,7 @@
 
           <!-- Close button -->
           <button
-            class="absolute top-4 right-4 p-2 rounded-lg text-foreground-secondary hover:text-foreground hover:bg-background-secondary transition-colors"
+            class="absolute top-4 right-4 p-2 rounded-lg text-foreground-secondary hover:text-foreground hover:bg-background-secondary active:text-foreground active:bg-background-secondary transition-colors"
             @click="$emit('close')"
             aria-label="Close menu"
           >

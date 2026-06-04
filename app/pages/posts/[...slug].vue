@@ -8,14 +8,14 @@
   </div>
 
   <!-- 文章卡片 + TOC -->
-  <div v-else class="max-w-wide mx-auto py-4 flex justify-center gap-4">
+  <div v-else class="max-w-wide mx-auto py-4 flex flex-col md:flex-row justify-center gap-4">
     <!-- TOC 侧边栏 -->
     <TableOfContents :content="post" />
 
     <!-- 文章卡片：与首页 PostCard 保持一致 -->
-    <article class="w-full min-w-0 bg-surface rounded-xl border border-border py-7 px-7">
+    <article class="w-full min-w-0 bg-surface rounded-xl border border-border py-5 px-5 sm:py-8 sm:px-8">
       <!-- 封面图：与 PostCard 完全一致 -->
-      <div v-if="post.coverImage" class="aspect-video -mx-7 -mt-7 mb-5 overflow-hidden rounded-t-xl">
+      <div v-if="post.coverImage" class="aspect-video -mx-5 -mt-5 sm:-mx-8 sm:-mt-8 mb-5 overflow-hidden rounded-t-xl">
         <NuxtImg
           :src="post.coverImage"
           :alt="post.coverImageAlt || displayTitle"
@@ -23,9 +23,25 @@
         />
       </div>
 
-      <!-- 第一行：标题 + 置顶标记 -->
+      <!-- 字数 + 阅读时间 -->
+      <div class="flex flex-wrap items-center gap-5 text-sm text-foreground-secondary/50 mb-3">
+        <span class="inline-flex items-center gap-1">
+          <div class="p-1 rounded-md bg-background-secondary">
+            <Icon name="tabler:pencil" class="w-4 h-4" />
+          </div>
+          {{ t('post.wordCount', { count: post._wordCount }) }}
+        </span>
+        <span class="inline-flex items-center gap-1">
+          <div class="p-1 rounded-md bg-background-secondary">
+            <Icon name="tabler:clock" class="w-4 h-4" />
+          </div>
+          {{ t('post.minRead', { minute: post._readingTime }) }}
+        </span>
+      </div>
+
+      <!-- 标题 -->
       <div class="flex items-center gap-2 mb-3">
-        <h1 class="text-xl font-semibold leading-snug">
+        <h1 class="text-2xl font-semibold leading-snug">
           {{ displayTitle }}
           <span v-if="post._isFallback" class="inline-block ml-2 px-2 py-0.5 text-xs font-normal rounded-full bg-accent/10 text-accent align-middle">
             zh-CN
@@ -33,31 +49,18 @@
         </h1>
       </div>
 
-      <!-- 第二行：描述 -->
-      <p class="text-base text-foreground-secondary mb-5">
-        {{ displayDescription }}
-      </p>
-
-      <!-- 第三行：日期 + 字数 + 阅读时间 -->
-      <div class="flex items-center gap-5 text-sm text-foreground-secondary mb-3">
+      <!-- 日期 + 分类 + 标签-->
+      <div class="flex flex-wrap items-center gap-5 text-sm text-foreground-secondary mb-3">
         <span class="inline-flex items-center gap-1">
-          <Icon name="tabler:calendar-month" class="w-5 h-5" />
-          <time :datetime="post.date">{{ formattedDate }}</time>
+          <div class="p-1.5 rounded-md bg-background-secondary">
+            <Icon name="tabler:calendar-month" class="w-4.5 h-4.5" />
+          </div>
+          <time>{{ formattedDate }}</time>
         </span>
-        <span class="inline-flex items-center gap-1">
-          <Icon name="tabler:pencil" class="w-5 h-5" />
-          {{ t('post.wordCount', { count: post._wordCount }) }}
-        </span>
-        <span class="inline-flex items-center gap-1">
-          <Icon name="tabler:clock" class="w-5 h-5" />
-          {{ t('post.minRead', { minute: post._readingTime }) }}
-        </span>
-      </div>
-
-      <!-- 第四行：标签 -->
-      <div class="flex items-center flex-wrap gap-2 text-sm text-foreground-secondary">
         <span class="inline-flex items-center">
-          <Icon name="tabler:hash" class="w-5 h-5" />
+          <div class="p-1.5 rounded-md bg-background-secondary">
+            <Icon name="tabler:hash" class="w-4.5 h-4.5" />
+          </div>
           <span
             v-for="tag in displayTags"
             :key="tag"

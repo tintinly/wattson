@@ -1,7 +1,7 @@
 <template>
   <div ref="containerRef" class="relative">
     <button
-      class="inline-flex items-center justify-center p-2 sm:p-3 rounded-lg text-sm font-medium text-foreground hover:text-foreground hover:bg-background-secondary transition-colors"
+      class="inline-flex items-center justify-center p-2 sm:p-3 rounded-lg text-sm font-medium text-foreground hover:text-foreground hover:bg-background-secondary active:bg-background-secondary transition-colors"
       @click="isOpen = !isOpen"
     >
       <Icon name="tabler:world" class="w-5 h-5" />
