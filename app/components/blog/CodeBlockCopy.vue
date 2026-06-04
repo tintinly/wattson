@@ -2,8 +2,8 @@
   <ClientOnly>
     <button
       ref="btnRef"
-      class="absolute top-2 right-2 p-1.5 rounded-md text-foreground-secondary bg-background/80 opacity-0 group-hover:opacity-100 hover:!opacity-100 hover:text-foreground hover:bg-background-secondary border border-border transition-all"
-      :class="{ '!opacity-100 text-accent': copied }"
+      class="absolute top-2 right-2 p-1.5 rounded-md text-foreground-secondary bg-background/80 opacity-0 group-hover:opacity-100 hover:opacity-100! hover:text-foreground hover:bg-background-secondary border border-border transition-all"
+      :class="{ 'opacity-100! text-accent': copied }"
       title="Copy code"
       @click="copy"
     >
