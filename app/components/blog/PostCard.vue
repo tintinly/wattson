@@ -48,7 +48,7 @@
       <span
         v-for="tag in displayTags.slice(0, 3)"
         :key="tag"
-        class="inline-flex items-center cursor-pointer mx-0.5 px-1 py-0.5 rounded bg-background-secondary hover:bg-background-secondary active:bg-background-secondary"
+        class="inline-flex items-center cursor-pointer mx-0.5 px-1 py-0.5 rounded bg-background-secondary hover:bg-background-tertiary active:bg-background-tertiary"
         @click.prevent.stop="toArchiveTag(tag)"
       >
         # {{ tag }}

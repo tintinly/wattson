@@ -10,17 +10,26 @@
 @custom-variant dark (&:where(.dark, .dark *));
 
 /* 主题设计令牌 */
+/** 
+* surface 用于卡片主题
+* background 用于背景 级别越高越明显
+* foreground 用于文字 级别越高越不明显
+* border 用于边框 级别越高越明显
+*/
 @theme {
   --font-sans: "LXGW WenKai Screen R", "Inter", "Noto Sans SC", system-ui, sans-serif;
   --font-mono: "JetBrains Mono", "Fira Code", monospace;
 
   --color-surface: #ffffff;
-  --color-background: #f3f4f6;
-  --color-background-secondary: #e5e7eb;
+  --color-background: #f5f6f7;
+  --color-background-secondary: #eaeaee;
+  --color-background-tertiary: #dcdcde;
   --color-foreground: #1a1a2e;
   --color-foreground-secondary: #6c757d;
-  --color-accent: #3b82f6;
   --color-border: #e5e7eb;
+  --color-border-secondary: #b8bbbe;
+
+  --color-accent: #3b82f6;
 
   --max-width-content: 840px;
   --max-width-wide: 1280px;
@@ -31,13 +40,17 @@
 
 /* 暗色模式 */
 .dark {
-  --color-surface: #1a1a1d;  
+  --color-surface: #161619;  
   --color-background: #0c0c0e;
   --color-background-secondary: #222225;
+  --color-background-tertiary: #333336;
   --color-foreground: #f5f5f5;
   --color-foreground-secondary: #a3a3a3;
-  --color-accent: #60a5fa;
   --color-border: #2a2a2e;
+  --color-border-secondary: #45454b;
+
+  --color-accent: #60a5fa;
+
 }
 
 /* 主题过渡 — 只应用于背景和边框变色，不涉及文字避免闪烁 */
