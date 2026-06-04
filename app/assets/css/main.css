@@ -1,12 +1,17 @@
 @import "tailwindcss";
 @plugin "@tailwindcss/typography";
 
+@font-face {
+  font-family: 'LXGW WenKai Screen R';
+  src: url('../fonts/LXGWWenKai-Medium.ttf') format('truetype');
+}
+
 /* 暗色模式：使用 class 策略（配合 @nuxtjs/color-mode） */
 @custom-variant dark (&:where(.dark, .dark *));
 
 /* 主题设计令牌 */
 @theme {
-  --font-sans: "Inter", "Noto Sans SC", system-ui, sans-serif;
+  --font-sans: "LXGW WenKai Screen R", "Inter", "Noto Sans SC", system-ui, sans-serif;
   --font-mono: "JetBrains Mono", "Fira Code", monospace;
 
   --color-background: #f3f4f6;
