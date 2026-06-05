@@ -1,10 +1,9 @@
 ---
-title: Markdown
-pubDate: 2025-09-21
-description: 测试Markdown的基本功能
-image: "./cover.jpg"
-draft: false
-slugId: momo/markdown
+title: Markdown Basic Examples
+date: 2026-06-03
+tags: [Markdown]
+description: This is a tutorial and example for Markdown basic features, including core syntax and common extensions (GFM).
+featured: true
 ---
 
 
