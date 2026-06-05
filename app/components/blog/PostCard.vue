@@ -12,7 +12,7 @@
     <!-- 置顶 + 标题 + 箭头 -->
     <NuxtLink 
       :to="localePath(`/posts/${postSlug}`)"
-      class="block group text-2xl font-semibold hover:text-accent active:text-accent transition-colors leading-snug gap-2 mb-3">
+      class="block group text-2xl font-semibold text-foreground transition-colors leading-snug gap-2 mb-3">
       <Icon
         v-if="post.featured"
         name="tabler:pin"

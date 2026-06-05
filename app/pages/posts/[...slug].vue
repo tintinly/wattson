@@ -2,7 +2,7 @@
   <!-- 文章未找到 -->
   <div v-if="!post" class="py-20 text-center">
     <h2 class="text-2xl font-bold mb-4">{{ t('notFound.title') }}</h2>
-    <NuxtLink :to="localePath('/')" class="text-accent hover:underline">
+    <NuxtLink :to="localePath('/')" class="hover:underline">
       ← {{ t('notFound.backHome') }}
     </NuxtLink>
   </div>
@@ -41,11 +41,11 @@
 
       <!-- 标题 -->
       <div class="flex items-center gap-2 mb-3">
+        <span v-if="post._locale !== locale" class="inline-block px-1.5 py-0.5 border border-border text-xs text-foreground-secondary rounded-md bg-background-secondary">
+          {{ post._locale }}
+        </span>
         <h1 class="text-2xl font-semibold leading-snug">
           {{ displayTitle }}
-          <span v-if="post._isFallback" class="inline-block ml-2 px-2 py-0.5 text-xs font-normal rounded-full bg-accent/10 text-accent align-middle">
-            zh-CN
-          </span>
         </h1>
       </div>
 
@@ -64,7 +64,7 @@
           <span
             v-for="tag in displayTags"
             :key="tag"
-            class="inline-flex items-center cursor-pointer mx-0.5 px-1 py-0.5 rounded hover:bg-background-secondary hover:text-accent transition-colors"
+            class="inline-flex items-center cursor-pointer mx-0.5 px-1 py-0.5 rounded hover:bg-background-secondary transition-colors"
             @click.prevent.stop="toArchiveTag(tag)"
           >
             {{ tag }}
