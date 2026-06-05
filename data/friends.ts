@@ -13,8 +13,8 @@ export const friends: Friend[] = [
     nameEn: 'Wattson',
     url: '',
     avatar: 'images/avatar.webp',
-    introduction: '这一切我都见过了。你已经死了。',
-    introductionEn: 'I\'ve seen this all before. You\'re already dead.',
+    introduction: '当你知道如何控制光明，就不会害怕黑暗。',
+    introductionEn: 'When you know how to control the light, you won\'t be afraid of the dark.',
   },
   {
     name: 'Nuxt.js',

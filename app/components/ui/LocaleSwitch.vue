@@ -16,7 +16,7 @@
           v-for="loc in availableLocales"
           :key="loc.code"
           class="w-full my-1 px-4 py-2 text-sm text-center hover:bg-background-secondary rounded-lg transition-colors flex items-center justify-between gap-1.5"
-          :class="{ 'text-accent font-medium bg-background-secondary': currentLocale === loc.code }"
+          :class="{ 'font-medium bg-background-secondary': currentLocale === loc.code }"
           @click="switchTo(loc.code)"
         >
           {{ loc.label }}
@@ -57,11 +57,6 @@ onMounted(() => window.addEventListener('keydown', onKeydown))
 onUnmounted(() => window.removeEventListener('keydown', onKeydown))
 
 async function switchTo(code: string) {
-  if (code === locale.value) {
-    isOpen.value = false
-    return
-  }
-  isOpen.value = false
   const path = switchLocalePath(code as 'zh-CN' | 'en-US')
   await navigateTo(path)
 }

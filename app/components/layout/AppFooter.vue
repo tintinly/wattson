@@ -2,13 +2,13 @@
   <footer class="bg-background mt-auto">    
     <div class="max-w-wide mx-auto px-4 sm:px-6 lg:px-8 py-4">
       <!-- 分割线-->
-      <div class="transition border-t border-foreground/15 my-4 border-dashed "></div>
+      <div class="transition border-t border-border-secondary my-4 border-dashed "></div>
 
       <div class="flex flex-col md:flex-row items-center justify-between gap-2 text-sm text-foreground-secondary">
 
         <!-- Left: Copyright + 备案 -->
         <p class="inline-flex flex-wrap items-center gap-x-2 gap-y-1 justify-center sm:justify-start">
-          <span>&copy; {{ copyrightYears }} <a href="https://home.wattson.dev" target="_blank" rel="noopener noreferrer" class="border-b border-dashed border-foreground-secondary hover:text-foreground hover:border-foreground transition-colors">{{ authorName }}</a></span>
+          <span>&copy; {{ copyrightYears }} <a href="https://home.wattson.dev" target="_blank" rel="noopener noreferrer" class="border-b border-dashed border-border-secondary hover:text-foreground transition-colors">{{ authorName }}</a></span>
           <template v-for="filing in icpFilings" :key="filing.type">
             <span>·</span>
             <a :href="filing.url" target="_blank" rel="noopener noreferrer" class="hover:text-foreground transition-colors">

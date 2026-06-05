@@ -21,15 +21,15 @@
   --font-mono: "JetBrains Mono", "Fira Code", monospace;
 
   --color-surface: #ffffff;
-  --color-background: #f5f6f7;
-  --color-background-secondary: #eaeaee;
-  --color-background-tertiary: #dcdcde;
+  --color-background: #f5f7f8;
+  --color-background-secondary: #f2f4f6;
+  --color-background-tertiary: #e7e9ea;
   --color-foreground: #1a1a2e;
   --color-foreground-secondary: #6c757d;
-  --color-border: #e5e7eb;
-  --color-border-secondary: #b8bbbe;
+  --color-border: #ebedef;
+  --color-border-secondary: #c9cacc;
 
-  --color-accent: #3b82f6;
+  --color-accent: #184bb2;
 
   --max-width-content: 840px;
   --max-width-wide: 1280px;
@@ -49,7 +49,7 @@
   --color-border: #2a2a2e;
   --color-border-secondary: #45454b;
 
-  --color-accent: #60a5fa;
+  --color-accent: #8caff5;
 
 }
 

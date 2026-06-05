@@ -3,7 +3,7 @@
     <Transition name="toast">
       <div
         v-if="visible"
-        class="fixed top-20 left-1/2 -translate-x-1/2 z-50 px-4 py-2 rounded-lg bg-foreground text-background text-sm shadow-lg"
+        class="fixed top-20 left-1/2 -translate-x-1/2 z-50 px-4 py-2 rounded-lg bg-background-secondary text-foreground text-sm shadow-lg"
       >
         {{ message }}
       </div>

@@ -44,11 +44,11 @@
     </p>
 
     <!-- 标签 -->
-    <div class="flex flex-wrap items-center gap-1 text-xs  text-foreground-secondary">
+    <div class="flex flex-wrap items-center gap-1 text-xs text-foreground-secondary">
       <span
         v-for="tag in displayTags.slice(0, 3)"
         :key="tag"
-        class="inline-flex items-center cursor-pointer mx-0.5 px-1 py-0.5 rounded bg-background-secondary hover:bg-background-tertiary active:bg-background-tertiary"
+        class="inline-flex items-center cursor-pointer mx-0.5 px-1 py-0.5 rounded  border border-border bg-background-secondary hover:bg-background-tertiary hover:border-border-secondary active:bg-background-tertiary active:border-border-secondary"
         @click.prevent.stop="toArchiveTag(tag)"
       >
         # {{ tag }}
