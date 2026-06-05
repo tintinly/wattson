@@ -6,6 +6,9 @@
 .cache
 dist
 
+public/robots.txt
+public/search-index.json
+
 # Node dependencies
 node_modules
 
