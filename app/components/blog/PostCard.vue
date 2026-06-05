@@ -37,7 +37,7 @@
 
     <!-- 描述 -->
     <p class="text-base text-foreground-secondary mb-3">
-        <span v-if="post._locale !== locale" class="inline-block px-1.5 py-0.5 border border-border text-xs rounded-md bg-background">
+        <span v-if="post._locale !== locale" class="inline-block px-1.5 py-0.5 border border-border text-xs rounded-md bg-background-secondary">
           {{ post._locale }}
         </span>
         {{ displayDescription }}

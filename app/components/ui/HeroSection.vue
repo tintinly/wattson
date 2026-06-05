@@ -22,7 +22,7 @@
         :href="siteConfig.social.github"
         target="_blank"
         rel="noopener noreferrer"
-        class="p-2 rounded-lg bg-background-secondary border border-border text-foreground-secondary hover:border-border-secondary hover:text-foreground active:border-border-secondary active:text-foreground transition-colors"
+        class="p-2 rounded-lg bg-background-secondary border border-border text-foreground-secondary hover:border-border-secondary active:border-border-secondary transition-colors duration-300"
         title="GitHub"
       >
         <Icon name="tabler:brand-github" class="w-6 h-6" />
@@ -32,14 +32,14 @@
         :href="siteConfig.social.bilibili"
         target="_blank"
         rel="noopener noreferrer"
-        class="p-2 rounded-lg bg-background-secondary border border-border text-foreground-secondary hover:border-border-secondary hover:text-foreground active:border-border-secondary active:text-foreground transition-colors"
+        class="p-2 rounded-lg bg-background-secondary border border-border text-foreground-secondary hover:border-border-secondary active:border-border-secondary transition-colors duration-300"
         title="Bilibili"
       >
         <Icon name="tabler:brand-bilibili" class="w-6 h-6" />
       </a>
       <button
         v-if="siteConfig.social.qq"
-        class="p-2 rounded-lg bg-background-secondary border border-border text-foreground-secondary hover:border-border-secondary hover:text-foreground active:border-border-secondary active:text-foreground transition-colors"
+        class="p-2 rounded-lg bg-background-secondary border border-border text-foreground-secondary hover:border-border-secondary active:border-border-secondary transition-colors cursor-pointer"
         title="QQ"
         @click="copyId(siteConfig.social.qq, 'QQ')"
       >
@@ -47,7 +47,7 @@
       </button>
       <button
         v-if="siteConfig.social.wechat"
-        class="p-2 rounded-lg bg-background-secondary border border-border text-foreground-secondary hover:text-foreground hover:border-border-secondary active:text-foreground active:border-border-secondary transition-colors"
+        class="p-2 rounded-lg bg-background-secondary border border-border text-foreground-secondary hover:border-border-secondary active:border-border-secondary transition-colors cursor-pointer"
         title="微信"
         @click="copyId(siteConfig.social.wechat, '微信')"
       >
@@ -56,7 +56,7 @@
       <a
         v-if="siteConfig.social.email"
         :href="siteConfig.social.email"
-        class="p-2 rounded-lg bg-background-secondary border border-border text-foreground-secondary hover:text-foreground hover:border-border-secondary active:text-foreground active:border-border-secondary transition-colors"
+        class="p-2 rounded-lg bg-background-secondary border border-border text-foreground-secondary hover:border-border-secondary active:border-border-secondary transition-colors"
         title="Email"
       >
         <Icon name="tabler:mail" class="w-6 h-6" />
