@@ -2,8 +2,10 @@
   <div class="py-4  mx-auto">
     <div class="flex flex-col md:flex-row gap-4">
       <!-- 左侧: 作者卡片 -->
-      <aside class="md:w-70 shrink-0">
-        <HeroSection />
+      <aside class="shrink-0">
+        <div class="md:w-70 md:sticky md:top-22 flex flex-col gap-4 ">
+          <HeroSection />
+        </div>
       </aside>
 
       <!-- 右侧: 文章列表 + 分页 -->
@@ -63,10 +65,15 @@
 <script setup lang="ts">
 const { t, locale } = useI18n()
 
-const PAGE_SIZE = 10
+const PAGE_SIZE = 6
 
 // 分页状态
 const currentPage = ref(1)
+
+// 页码变化时回到顶部
+watch(currentPage, () => {
+  window.scrollTo({ top: 0, behavior: 'smooth' })
+})
 
 // 使用 Nuxt Content v3 queryCollection 获取文章
 const { homePosts } = await usePosts(locale.value)
