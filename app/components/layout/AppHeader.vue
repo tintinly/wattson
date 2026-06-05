@@ -13,7 +13,7 @@
           v-for="item in navItems"
           :key="item.key"
           :to="localePath(item.path)"
-          class="px-4 py-3 rounded-lg text-base font-medium text-foreground hover:text-foreground hover:bg-background-secondary active:bg-background-secondary transition-colors flex items-center gap-1.5"
+          class="px-3.5 py-2 rounded-lg text-base font-medium text-foreground hover:text-foreground hover:bg-background-secondary active:bg-background-secondary transition-colors flex items-center gap-1.5"
           active-class="bg-background-secondary"
         >
           <Icon :name="item.icon" class="hidden lg:inline-block w-5 h-5" />
