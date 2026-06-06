@@ -3,7 +3,7 @@
     :to="url"
     target="_blank"
     rel="noopener noreferrer"
-    class="group block p-4 rounded-xl border border-border bg-surface hover:bg-background-secondary hover:border-border-secondary hover:shadow-lg active:border-border-secondary active:shadow-lg transition-all duration-300"
+    class="group block p-4 rounded-xl border border-border bg-surface hover:bg-background-secondary/70 hover:border-border-secondary hover:shadow-lg active:bg-background-secondary/70 active:border-border-secondary active:shadow-lg transition-all duration-300"
   >
     <div class="flex items-center gap-4">
       <!-- 头像 -->

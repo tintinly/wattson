@@ -22,7 +22,7 @@ export const friends: Friend[] = [
     url: 'https://nuxt.com/',
     avatar: 'https://avatars.githubusercontent.com/u/23360933',
     introduction: '一个全栈 Vue 框架。',
-    introductionEn: 'The Full-Stack Vue Framework',
+    introductionEn: 'The Full-Stack Vue Framework.',
   },{
     name: 'Tailwind CSS',
     nameEn: 'Tailwind CSS',
