@@ -1,5 +1,5 @@
 <template>
-  <div class="bg-surface rounded-xl border border-border p-6 md:sticky md:top-22 flex flex-col items-center text-center">
+  <div class="bg-surface rounded-xl border border-border p-6 flex flex-col items-center text-center">
     <!-- 头像 -->
     <div class="size-56 rounded-xl overflow-hidden mb-4 border border-border flex items-center justify-center relative shrink-0">
       <NuxtImg :src="siteConfig.author.avatar" :alt="siteConfig.author.name" class="inset-0 object-cover" />

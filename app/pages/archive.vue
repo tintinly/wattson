@@ -1,23 +1,25 @@
 <template>
-  <div class="py-12 max-w-content mx-auto">
-    <h1 class="text-3xl font-bold mb-2 text-center">{{ t('archive.title') }}</h1>
+  <div class="py-4 mx-auto">
+    <div class="flex flex-col md:flex-row gap-4">
+      <!-- 左侧: 分类筛选 标签筛选 -->
+      <aside class="shrink-0 ">
+        <div class="md:w-70 md:sticky md:top-22 flex flex-col gap-4">
+          <TagFilter :tags="allTags" :selected-tag="selectedTag" @select="selectedTag = $event" />
+        </div>
+      </aside>
+
+      <!-- 时间线 -->
+      <div class="flex-1 min-w-0">
+        <section>
+          <Timeline :posts="posts" :selected-tag="selectedTag" />
+        </section>
+      </div>
+    </div>
+    <!-- <h1 class="text-3xl font-bold mb-2 text-center">{{ t('archive.title') }}</h1>
     <p class="text-foreground-secondary mb-8 text-center">
       {{ t('archive.totalPosts', { count: posts.length }) }}
-    </p>
+    </p> -->
 
-    <!-- 标签筛选 -->
-    <div class="mb-8">
-      <p class="text-sm text-foreground-secondary mb-3">{{ t('archive.filterByTag') }}</p>
-      <TagFilter :tags="allTags" :selected-tag="selectedTag" @select="selectedTag = $event" />
-    </div>
-
-    <!-- 时间线 -->
-    <Timeline
-      v-if="posts.length"
-      :posts="posts"
-      :selected-tag="selectedTag"
-    />
-    <p v-else class="text-center text-foreground-secondary py-20">{{ t('archive.empty') }}</p>
   </div>
 </template>
 

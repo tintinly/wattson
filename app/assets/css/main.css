@@ -2,8 +2,8 @@
 @plugin "@tailwindcss/typography";
 
 @font-face {
-  font-family: 'LXGW WenKai Screen R';
-  src: url('../fonts/LXGWWenKai-Medium.ttf') format('truetype');
+  font-family: 'LXGW Bright';
+  src: url('../fonts/LXGWBright-Medium.ttf') format('truetype');
 }
 
 /* 暗色模式：使用 class 策略（配合 @nuxtjs/color-mode） */
@@ -17,13 +17,13 @@
 * border 用于边框 级别越高越明显
 */
 @theme {
-  --font-sans: "LXGW WenKai Screen R", "Inter", "Noto Sans SC", system-ui, sans-serif;
-  --font-mono: "JetBrains Mono", "Fira Code", monospace;
+  --font-sans: "LXGW Bright", "Noto Sans SC", system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", "Inter", "Fira Code", monospace;
 
   --color-surface: #fbfcfe;
-  --color-background: #f5f6f8;
-  --color-background-secondary: #f2f3f5;
-  --color-background-tertiary: #e7e9ed;
+  --color-background: #f1f1f3;
+  --color-background-secondary: #ecedef;
+  --color-background-tertiary: #dbdbdd;
   --color-foreground: #181c24;
   --color-foreground-secondary: #6d7179;
   --color-border: #ebecee;

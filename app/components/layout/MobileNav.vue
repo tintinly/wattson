@@ -15,8 +15,8 @@
               v-for="item in navItems"
               :key="item.key"
               :to="localePath(item.path)"
-              class="px-4 py-3 rounded-lg text-base font-medium text-foreground-secondary hover:text-foreground hover:bg-background-secondary active:text-foreground active:bg-background-secondary transition-colors flex items-center gap-2"
-              active-class="text-accent bg-accent/10"
+              class="px-4 py-3 rounded-lg text-base font-medium text-foreground hover:text-foreground hover:bg-background-secondary active:text-foreground active:bg-background-secondary transition-colors flex items-center gap-2"
+              active-class="bg-background-secondary"
               @click="$emit('close')"
             >
               <Icon :name="item.icon" class="w-6 h-6" />

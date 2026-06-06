@@ -12,11 +12,11 @@
           v-for="h in headings"
           :key="h.id"
           :href="`#${h.id}`"
-          class="text-foreground-secondary hover:text-accent active:text-accent transition-colors py-1 rounded-md px-2"
-          :class="{
-            'text-accent bg-accent/10': activeId === h.id,
-            'pl-5': h.depth === 3,
-          }"
+          class="hover:text-foreground active:text-foreground transition-colors py-1 rounded-md px-2"
+          :class="[
+            activeId === h.id ? 'text-foreground bg-background-secondary' : 'text-foreground-secondary',
+            h.depth === 3 ? 'pl-5': ''
+          ]"
           @click.prevent="scrollTo(h.id)"
         >
           {{ h.text }}

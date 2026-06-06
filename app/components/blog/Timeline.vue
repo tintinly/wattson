@@ -1,38 +1,55 @@
 <template>
-  <div class="space-y-0">
+  <div class="py-5 px-5 sm:py-8 sm:px-8 bg-surface rounded-xl border border-border flex flex-col">
+    <p v-if="!timelineItems.length" class="text-center text-foreground-secondary py-20">{{ t('archive.empty') }}</p>
     <div v-for="(item, index) in timelineItems" :key="index">
       <!-- 年份标题 -->
       <div
         v-if="item.type === 'year'"
-        class="sticky top-16 z-10 py-4 bg-background/95 backdrop-blur-sm"
+        class="flex flex-row h-12 items-center"
       >
-        <h2 class="text-3xl font-bold text-accent/30 select-none">
-          {{ item.label }}
-        </h2>
+        <div class="w-[15%] lg:w-[10%] text-right text-2xl font-bold select-none">
+            {{ item.label }}
+        </div>
+        <div class="w-[15%] lg:w-[10%] relative  h-full flex items-center">
+          <div class="mx-auto w-2 h-2 rounded-full group-hover:h-5
+                       outline outline-3">
+            </div>
+        </div>
       </div>
 
       <!-- 文章条目 -->
       <NuxtLink
         v-else
         :to="localePath(`/posts/${item.slug}`)"
-        class="group flex items-start gap-4 py-4 border-b border-border/50 hover:bg-background-secondary/50 active:bg-background-secondary/50 transition-colors -mx-4 px-4 rounded-lg"
+        class="group flex flex-row justify-start items-center h-10 rounded-lg text-base text-foreground-secondary  hover:bg-background-secondary active:bg-background-secondary"
       >
-        <time class="shrink-0 text-sm text-foreground-secondary font-mono mt-1">
-          {{ item.dateStr }}
-        </time>
-        <div class="flex-1 min-w-0">
-          <h3 class="text-base font-medium group-hover:text-accent group-active:text-accent transition-colors truncate">
+        <div class="w-[15%] lg:w-[10%] text-sm text-right">
+            {{ item.dateStr }}
+        </div>
+        <div class="w-[15%] lg:w-[10%] relative h-full flex items-center
+                    before:content-[''] before:w-full before:h-full before:left-[50%] before:translate-y-[-50%] before:border-l-2 before:border-dashed before:absolute">
+          <div class="mx-auto w-1 h-1 rounded-full group-hover:h-5
+                      bg-foreground-secondary transition-all duration-300">
+          </div>
+        </div>
+        <div class="w-[65%] lg:w-[60%] ">
+          <h3 class="text-foreground font-bold group-hover:translate-x-2 truncate transition-all duration-300 ">
+            <span v-if="item.locale !== locale" class="inline-block px-1.5 py-0.5 border border-border text-foreground-secondary font-normal text-xs rounded-md bg-background-secondary">
+              {{ item.locale }}
+            </span>
             {{ item.title }}
           </h3>
-          <div class="flex flex-wrap gap-1.5 mt-1.5">
-            <span
-              v-for="tag in item.tags"
-              :key="tag"
-              class="text-xs px-2 py-0.5 rounded-full bg-accent/10 text-accent"
-            >
-              {{ tag }}
-            </span>
-          </div>
+        </div>
+        <div class="hidden lg:block lg:w-[20%] text-sm text-right truncate px-2">
+          #
+          <span
+            v-for="tag in item.tags"
+            :key="tag"
+            class="ml-1 cursor-pointer"
+          >
+            {{ tag }}
+          </span>
+          
         </div>
       </NuxtLink>
     </div>
@@ -40,6 +57,7 @@
 </template>
 
 <script setup lang="ts">
+const { t, locale } = useI18n()
 import type { PostContent } from '~~/app/types'
 
 const props = defineProps<{
@@ -47,7 +65,6 @@ const props = defineProps<{
   selectedTag: string | null
 }>()
 
-const { locale } = useI18n()
 const localePath = useLocalePath()
 
 interface TimelineItem {
@@ -57,6 +74,7 @@ interface TimelineItem {
   title?: string
   dateStr?: string
   tags?: string[]
+  locale?: string
 }
 
 const timelineItems = computed<any[]>(() => {
@@ -78,8 +96,12 @@ const timelineItems = computed<any[]>(() => {
       type: 'post',
       slug: post._slug,
       title: post.title,
-      dateStr: date?.toLocaleDateString('zh-CN', { month: '2-digit', day: '2-digit' }),
+      dateStr: new Date(post._date).toLocaleDateString(
+        locale.value === 'zh-CN' ? 'zh-CN' : 'en-US',
+        { month: 'short', day: 'numeric' }
+      ),
       tags: post.tags || [],
+      locale: post._locale,
     })
   }
 

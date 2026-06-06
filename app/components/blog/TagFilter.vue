@@ -1,11 +1,11 @@
 <template>
-  <div class="flex flex-wrap gap-2">
+  <div class="p-6 flex flex-wrap gap-2 bg-surface rounded-xl border border-border">
     <button
-      class="text-sm px-3 py-1.5 rounded-full border transition-all"
+      class="text-sm px-2 py-1 rounded-lg border transition-all"
       :class="[
         selectedTag === null
-          ? 'border-accent bg-accent/10 text-accent'
-          : 'border-border text-foreground-secondary hover:border-accent/50'
+          ? 'border-border-secondary bg-background-secondary'
+          : 'border-border text-foreground-secondary hover:border-border-secondary'
       ]"
       @click="$emit('select', null)"
     >
@@ -14,16 +14,16 @@
     <button
       v-for="tag in tags"
       :key="tag.name"
-      class="text-sm px-3 py-1.5 rounded-full border transition-all"
+      class="text-sm px-2 py-1 rounded-lg border transition-all"
       :class="[
         selectedTag === tag.name
-          ? 'border-accent bg-accent/10 text-accent'
-          : 'border-border text-foreground-secondary hover:border-accent/50'
+          ? 'border-border-secondary bg-background-secondary'
+          : 'border-border text-foreground-secondary hover:border-border-secondary'
       ]"
       @click="$emit('select', tag.name)"
     >
       {{ tag.name }}
-      <span class="text-xs text-foreground-secondary ml-1">({{ tag.count }})</span>
+      <!-- <span class="text-xs text-foreground-secondary ml-1">({{ tag.count }})</span> -->
     </button>
   </div>
 </template>

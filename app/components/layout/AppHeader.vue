@@ -2,8 +2,7 @@
   <header class="sticky top-0 z-40 w-full">
     <div class="max-w-wide mx-auto flex h-18 border border-border bg-surface rounded-b-xl items-center justify-between px-4 sm:px-6 lg:px-8">
       <!-- Logo -->
-      <NuxtLink :to="localePath('/')" class="flex items-center gap-2 font-bold sm:text-xl tracking-tight">
-        <span class="text-accent"></span>
+      <NuxtLink :to="localePath('/')" class="flex items-center gap-2 font-semibold sm:text-xl tracking-tight">
         <span class="truncate">{{ siteTitle }}</span>
       </NuxtLink>
 
@@ -13,10 +12,10 @@
           v-for="item in navItems"
           :key="item.key"
           :to="localePath(item.path)"
-          class="px-3.5 py-2 rounded-lg text-base font-medium text-foreground hover:text-foreground hover:bg-background-secondary active:bg-background-secondary transition-colors flex items-center gap-1.5"
+          class="px-3.5 py-2 rounded-lg text-foreground/80 font-semibold hover:bg-background-secondary active:bg-background-secondary transition-colors flex items-center gap-1.5"
           active-class="bg-background-secondary"
         >
-          <Icon :name="item.icon" class="hidden lg:inline-block w-5 h-5" />
+          <Icon :name="item.icon" class="hidden lg:inline-block w-4 h-4" />
           <span>{{ t(`header.nav.${item.key}`) }}</span>
         </NuxtLink>
       </nav>
