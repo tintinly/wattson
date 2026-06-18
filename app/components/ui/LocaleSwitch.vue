@@ -10,12 +10,12 @@
     <Transition name="fade">
       <div
         v-if="isOpen"
-        class="absolute right-0 top-full w-32 rounded-xl bg-surface border border-border shadow-xl p-1 z-50"
+        class="absolute right-0 top-full w-32 mt-2 rounded-xl bg-surface border border-border shadow-xl p-2 z-50"
       >
         <button
           v-for="loc in availableLocales"
           :key="loc.code"
-          class="w-full my-1 px-4 py-2 text-sm text-center hover:bg-background-secondary rounded-lg transition-colors flex items-center justify-between gap-1.5"
+          class="w-full not-last-of-type:mb-1 px-4 py-2 text-sm text-center hover:bg-background-secondary rounded-lg transition-colors flex items-center justify-between gap-1.5"
           :class="{ 'font-medium bg-background-secondary': currentLocale === loc.code }"
           @click="switchTo(loc.code)"
         >
