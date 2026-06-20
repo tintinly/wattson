@@ -3,8 +3,11 @@
     class="group flex flex-col p-6 rounded-xl border border-border bg-surface hover:border-border-secondary hover:bg-background-secondary/70 hover:shadow-sm active:bg-background-secondary active:border-border-secondary active:shadow-sm transition-all duration-300 cursor-pointer"
     @click="openProjectUrl">
     <!-- 截图 -->
-    <div v-if="project.image" class="aspect-video -mx-6 -mt-6 mb-4 overflow-hidden rounded-t-xl">
-      <NuxtImg :src="project.image" :alt="displayName" class="w-full h-full object-cover bg-foreground-secondary" />
+    <div class="aspect-video -mx-6 -mt-6 mb-4 overflow-hidden rounded-t-xl">
+      <NuxtImg v-if="project.image" :src="project.image" :alt="displayName" class="w-full h-full object-cover bg-foreground-secondary" />
+      <!-- 默认为首字母 -->
+      <div v-else class="w-full h-full bg-foreground-secondary flex items-center justify-center"></div>
+      
     </div>
 
     <!-- 项目名称 -->
