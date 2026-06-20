@@ -8,7 +8,7 @@
 
         <!-- Left: Copyright + 备案 -->
         <p class="inline-flex flex-wrap items-center gap-x-2 gap-y-1 justify-center sm:justify-start">
-          <span>&copy; {{ copyrightYears }} <a href="https://home.wattson.dev" target="_blank" rel="noopener noreferrer" class="border-b border-dashed border-border-secondary hover:text-foreground transition-colors">{{ authorName }}</a></span>
+          <span>Copyright &copy; {{ copyrightYears }} <a href="https://home.wattson.dev" target="_blank" rel="noopener noreferrer" class="border-b border-dashed border-border-secondary hover:text-foreground transition-colors">{{ authorName }}</a></span>
           <template v-for="filing in icpFilings" :key="filing.type">
             <span>·</span>
             <a :href="filing.url" target="_blank" rel="noopener noreferrer" class="hover:text-foreground transition-colors">
