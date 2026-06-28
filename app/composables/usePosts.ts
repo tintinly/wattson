@@ -1,5 +1,20 @@
 // usePosts — Nuxt Content v3 文章查询 composable
 // 按 locale 筛选文章：zh-CN 取 zh-cn.md，en-US 取 en-us.md，无英文版时降级到中文
+
+/**
+ * 解析封面图相对路径为 /_content-media/ URL
+ * 绝对路径（以 / 或 http 开头）原样返回
+ */
+function resolveCoverImage(coverImage: string | undefined, path: string): string | undefined {
+  if (!coverImage) return undefined
+  if (coverImage.startsWith('/') || coverImage.startsWith('http://') || coverImage.startsWith('https://')) {
+    return coverImage
+  }
+  // path 格式: /posts/found-family/zh-cn → 目录: /posts/found-family
+  const dir = path.substring(0, path.lastIndexOf('/'))
+  return `/_content-media${dir}/${coverImage}`
+}
+
 export async function usePosts(locale: string = 'zh-CN') {
   const { data: posts } = await useAsyncData('posts', async () => {
     return await queryCollection('posts')
@@ -53,7 +68,9 @@ export async function usePosts(locale: string = 'zh-CN') {
         _date: new Date(match.date),
         _wordCount: wordCount,
         _readingTime: readingTime,
-        _locale: postLocale
+        _locale: postLocale,
+        // 封面图相对路径解析为 /_content-media/ URL
+        coverImage: resolveCoverImage(match.coverImage, match.path),
       })
     }
 
