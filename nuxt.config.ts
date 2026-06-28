@@ -1,5 +1,6 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 import tailwindcss from '@tailwindcss/vite'
+import contentImages from './app/remark/content-images'
 
 export default defineNuxtConfig({
   compatibilityDate: '2025-07-15',
@@ -30,11 +31,22 @@ export default defineNuxtConfig({
       },
       preload: ['ts', 'js', 'vue', 'html', 'css', 'json', 'bash', 'md', 'yaml'],
     },
-    markdown: {
-      remarkPlugins: [],
-      rehypePlugins: {
-        // KaTeX 数学公式支持
-        'rehype-katex': {},
+    build: {
+      markdown: {
+        remarkPlugins: {
+          // 相对路径图片支持（将 Markdown 中 assets/img.png → /_content-media/...）
+          'content-images': {
+            instance: contentImages,
+            src: '../app/remark/content-images',
+          },
+        },
+        rehypePlugins: {},
+      },
+    },
+    renderer: {
+      alias: {
+        // 自定义 prose-img 组件：/_content-media/ 路径跳过 IPX 处理
+        img: 'ContentProseImg',
       },
     },
   },
@@ -82,6 +94,7 @@ export default defineNuxtConfig({
     { path: '~/components/blog', pathPrefix: false },
     { path: '~/components/ui', pathPrefix: false },
     { path: '~/components/icons', pathPrefix: false },
+    { path: '~/components/content', pathPrefix: false },
   ],
 
   // Nuxt Content 需要启用文件监听

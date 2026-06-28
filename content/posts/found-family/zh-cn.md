@@ -8,6 +8,8 @@ coverImage: /images/posts/2733-11-17.found-family.png
 coverImageAlt: 电力区合照
 ---
 
+![alt text](assets/2733-11-17.found-family.png)
+
 爸爸走的那一天，正好是安全区公开展示的日子。
 
 他应该在台上看到那座安全区落成。但他没有。那天早上，辛迪加的卫生官通知我——他离开了。
