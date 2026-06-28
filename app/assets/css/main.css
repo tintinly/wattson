@@ -20,16 +20,16 @@
   --font-sans: "LXGW Bright", "Noto Sans SC", system-ui, sans-serif;
   --font-mono: "JetBrains Mono", "Inter", "Fira Code", monospace;
 
-  --color-surface: #fbfcfe;
-  --color-background: #f1f1f3;
-  --color-background-secondary: #ecedef;
-  --color-background-tertiary: #dbdbdd;
-  --color-foreground: #181c24;
-  --color-foreground-secondary: #6d7179;
+  --color-surface: #ffffff;
+  --color-background: #f7f7f7;
+  --color-background-secondary: #f1f1f1;
+  --color-background-tertiary: #e8e8e8;
+  --color-foreground: #252525;
+  --color-foreground-secondary: #767676;
   --color-border: #d9d9d9;
-  --color-border-secondary: #b4b4b4;
+  --color-border-secondary: #a8a8a8;
 
-  --color-accent: #184bb2;
+  --color-accent: #8caff5;
 
   --max-width-content: 840px;
   --max-width-wide: 1280px;
@@ -40,14 +40,14 @@
 
 /* 暗色模式 */
 .dark {
-  --color-surface: #151618;
-  --color-background: #0c0d0f;
-  --color-background-secondary: #222325;
-  --color-background-tertiary: #333436;
-  --color-foreground: #f5f6f8;
-  --color-foreground-secondary: #a1a2a4;
-  --color-border: #292a2c;
-  --color-border-secondary: #444547;
+  --color-surface: #171717;
+  --color-background: #121212;
+  --color-background-secondary: #282828;
+  --color-background-tertiary: #363636;
+  --color-foreground: #f8f8f8;
+  --color-foreground-secondary: #a7a7a7;
+  --color-border: #313131;
+  --color-border-secondary: #494949;
 
   --color-accent: #8caff5;
 

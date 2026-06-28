@@ -1,5 +1,5 @@
 <template>
-  <header class="sticky top-0 z-10 w-full">
+  <header class="sticky top-0 z-30 w-full">
     <div class="max-w-wide mx-auto flex h-18 border border-border bg-surface rounded-b-xl items-center justify-between px-4 sm:px-6 lg:px-8">
       <!-- Logo -->
       <NuxtLink :to="localePath('/')" class="flex items-center gap-2 font-semibold sm:text-xl tracking-tight">
