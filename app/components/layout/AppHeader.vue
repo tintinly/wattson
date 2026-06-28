@@ -22,7 +22,7 @@
     <!-- Desktop Nav -->
     <div class="fixed top-0 left-1/2 -translate-x-1/2 my-2 rounded-xl  border-border" 
       :class="isScrolled
-        ? 'backdrop-blur-xs shadow-md border-b-border border '
+        ? 'backdrop-blur-sm shadow-md border-b-border border '
         : 'bg-surface'
       "
     >
