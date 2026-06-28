@@ -3,7 +3,7 @@
     v-if="headings.length > 0"
     class="hidden lg:block md:w-70  shrink-0"
   >
-    <div class="sticky top-22 bg-surface rounded-xl border border-border p-4">
+    <div class="bg-surface rounded-xl border border-border p-4">
       <h3 class="text-sm font-semibold mb-3">
         {{ t('post.toc') }}
       </h3>

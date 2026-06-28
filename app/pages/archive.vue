@@ -1,9 +1,9 @@
 <template>
-  <div class="py-4 mx-auto">
-    <div class="flex flex-col md:flex-row gap-4">
+  <div class="mx-auto">
+    <div class="flex flex-col md:flex-row gap-2 sm:gap-4">
       <!-- 左侧: 分类筛选 标签筛选 -->
       <aside class="shrink-0 ">
-        <div class="md:w-70 md:sticky md:top-22 flex flex-col gap-4">
+        <div class="md:w-70 md:sticky md:top-4 flex flex-col gap-2 sm:gap-4">
           <TagFilter :tags="allTags" :selected-tag="selectedTag" @select="selectedTag = $event" />
         </div>
       </aside>

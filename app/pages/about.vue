@@ -1,5 +1,5 @@
 <template>
-  <div class="py-12 max-w-content mx-auto">
+  <div class="py-8 max-w-content mx-auto">
     <h1 class="text-3xl font-bold mb-8 text-center">{{ t('about.title') }}</h1>
 
     <div v-if="aboutPage" class="bg-surface rounded-2xl shadow-lg ring-1 ring-border p-6 sm:p-10 prose prose-lg dark:prose-invert max-w-none">

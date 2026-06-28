@@ -1,6 +1,6 @@
 <template>
   <footer class="bg-background mt-auto">    
-    <div class="max-w-wide mx-auto px-4 sm:px-6 lg:px-8 py-4">
+    <div class="max-w-wide mx-auto mt-8 px-4 sm:px-6 lg:px-8 py-4">
       <!-- 分割线-->
       <div class="transition border-t border-border-secondary my-4 border-dashed "></div>
 

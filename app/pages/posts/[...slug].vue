@@ -10,7 +10,12 @@
   <!-- 文章卡片 + TOC -->
   <div v-else class="max-w-wide mx-auto py-4 flex flex-col md:flex-row justify-center gap-4">
     <!-- TOC 侧边栏 -->
-    <TableOfContents :content="post" />
+      <aside class="shrink-0 ">
+        <div class="md:w-70 md:sticky md:top-4 flex flex-col gap-4">
+          <TableOfContents :content="post" />
+        </div>
+      </aside>
+    
 
     <!-- 文章卡片：与首页 PostCard 保持一致 -->
     <article class="w-full min-w-0 bg-surface rounded-xl border border-border py-5 px-5 sm:py-8 sm:px-8">

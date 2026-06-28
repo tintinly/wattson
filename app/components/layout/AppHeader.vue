@@ -1,13 +1,32 @@
 <template>
-  <header class="sticky top-0 z-30 w-full">
-    <div class="max-w-wide mx-auto flex h-18 border border-border bg-surface rounded-b-xl items-center justify-between px-4 sm:px-6 lg:px-8">
+  <header class="z-40 w-full mb-2 sm:mb-4">
+    <div
+      class="max-w-wide mx-auto flex h-18 border bg-surface border-border rounded-b-xl items-center justify-between px-4 sm:px-6 lg:px-8 transition-all duration-300" 
+    >
       <!-- Logo -->
       <NuxtLink :to="localePath('/')" class="flex items-center gap-2 font-semibold sm:text-xl tracking-tight">
         <span class="truncate">{{ siteTitle }}</span>
       </NuxtLink>
 
-      <!-- Desktop Nav -->
-      <nav class="hidden md:flex items-center gap-1">
+      
+      
+      <!-- Actions -->
+      <div class="flex items-center gap-0 sm:gap-1">
+        <SearchButton />
+        <ThemeToggle />
+        <LocaleSwitch />
+        <MobileMenuButton @click="isMobileNavOpen = true" />
+      </div>
+    </div>
+
+    <!-- Desktop Nav -->
+    <div class="fixed top-0 left-1/2 -translate-x-1/2 my-2 rounded-xl  border-border" 
+      :class="isScrolled
+          ? 'backdrop-blur-xs shadow-md border-b-border border '
+          : 'bg-surface'
+        "
+    >
+      <nav class="relative p-2 z-40 hidden md:flex items-center gap-1">
         <NuxtLink
           v-for="item in navItems"
           :key="item.key"
@@ -19,14 +38,6 @@
           <span>{{ t(`header.nav.${item.key}`) }}</span>
         </NuxtLink>
       </nav>
-
-      <!-- Actions -->
-      <div class="flex items-center gap-0 sm:gap-1">
-        <SearchButton />
-        <ThemeToggle />
-        <LocaleSwitch />
-        <MobileMenuButton @click="isMobileNavOpen = true" />
-      </div>
     </div>
 
     <!-- Mobile Nav -->
@@ -43,6 +54,14 @@ import { siteConfig } from '~~/data/site-config'
 import { useLocalePath } from '#i18n'
 
 const { t, locale } = useI18n()
+
+// 滚动毛玻璃效果：滚动超过 40px 后启用
+const isScrolled = ref(false)
+function onScroll() {
+  isScrolled.value = window.scrollY > 0
+}
+onMounted(() => window.addEventListener('scroll', onScroll, { passive: true }))
+onUnmounted(() => window.removeEventListener('scroll', onScroll))
 
 const siteTitle = computed(() =>
   locale.value.indexOf('zh') !== -1 ? siteConfig.site.title : siteConfig.site.titleEn

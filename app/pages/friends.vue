@@ -1,5 +1,5 @@
 <template>
-  <div class="max-w-content py-12 mx-auto">
+  <div class="max-w-content py-8 mx-auto">
     <h1 class="text-3xl font-bold mb-2 text-center">{{ t('friends.title') }}</h1>
     <p class="text-foreground-secondary mb-8 text-center">{{ t('friends.description') }}</p>
 
