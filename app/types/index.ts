@@ -4,6 +4,7 @@ export interface PostFrontmatter {
   date: string
   tags: string[]
   description: string
+  category: string
   coverImage?: string
   coverImageAlt?: string
   featured?: boolean
@@ -25,8 +26,9 @@ export interface PostContent {
   path: string
   title: string
   date: string
-  tags: string[]
+  tags: string[]/*  */
   description: string
+  category: string
   coverImage?: string
   coverImageAlt?: string
   featured?: boolean

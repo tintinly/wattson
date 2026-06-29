@@ -25,7 +25,9 @@
     "title": "归档",
     "totalPosts": "共 {count} 篇文章",
     "filterByTag": "按标签筛选",
+    "filterByCategory": "按分类筛选",
     "allTags": "全部",
+    "allCategories": "全部",
     "empty": "暂无归档文章"
   },
   "post": {

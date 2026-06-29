@@ -56,6 +56,7 @@ import type { PostContent } from '~~/app/types'
 const props = defineProps<{
   posts: PostContent[]
   selectedTag: string | null
+  selectedCategory: string | null
 }>()
 
 const localePath = useLocalePath()
@@ -71,9 +72,15 @@ interface TimelineItem {
 }
 
 const timelineItems = computed<any[]>(() => {
-  const filtered = props.selectedTag
-    ? props.posts.filter((p: any) => p.tags?.includes(props.selectedTag!))
-    : props.posts
+  let filtered = props.posts
+
+  if (props.selectedTag) {
+    filtered = filtered.filter((p: any) => p.tags?.includes(props.selectedTag!))
+  }
+
+  if (props.selectedCategory) {
+    filtered = filtered.filter((p: any) => p._category === props.selectedCategory)
+  }
 
   const items: any[] = []
   let lastYear = 0

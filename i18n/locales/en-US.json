@@ -25,7 +25,9 @@
     "title": "Archive",
     "totalPosts": "{count} posts in total",
     "filterByTag": "Filter by Tag",
+    "filterByCategory": "Filter by Category",
     "allTags": "All",
+    "allCategories": "All",
     "empty": "No posts in archive"
   },
   "post": {

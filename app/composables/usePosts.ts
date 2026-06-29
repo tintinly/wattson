@@ -64,6 +64,7 @@ export async function usePosts(locale: string = 'zh-CN') {
         _title: match.title,
         _description: match.description,
         _tags: match.tags || [],
+        _category: match.category || null,
         _slug: slug,
         _date: new Date(match.date),
         _wordCount: wordCount,
@@ -103,8 +104,25 @@ export async function usePosts(locale: string = 'zh-CN') {
       .sort((a, b) => b.count - a.count)
   })
 
+  const allCategories = computed(() => {
+    const catMap = new Map<string, number>()
+    for (const p of localized.value) {
+      const cat = p._category
+      if (cat) {
+        catMap.set(cat, (catMap.get(cat) || 0) + 1)
+      }
+    }
+    return Array.from(catMap.entries())
+      .map(([name, count]) => ({ name, count }))
+      .sort((a, b) => b.count - a.count)
+  })
+
   function byTag(tag: string) {
     return localized.value.filter((p: any) => p._tags.includes(tag))
+  }
+
+  function byCategory(category: string) {
+    return localized.value.filter((p: any) => p._category === category)
   }
 
   function bySlug(slug: string) {
@@ -117,7 +135,9 @@ export async function usePosts(locale: string = 'zh-CN') {
     homePosts,
     latestPosts,
     allTags,
+    allCategories,
     getPostsByTag: byTag,
+    getPostsByCategory: byCategory,
     getPostBySlug: bySlug,
   }
 }
