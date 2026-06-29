@@ -2,6 +2,7 @@
 title: 家人，不只有血缘
 date: 2733-11-17
 tags: [家庭, 传奇, 感恩]
+category: 回忆
 description: 在我最黑暗的一天，四个陌生人藏在桌子底下找到我——从那天起，我就有了一个家。
 featured: true
 coverImage: assets/2733-11-17.found-family.png

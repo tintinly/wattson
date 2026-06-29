@@ -2,6 +2,7 @@
 title: Nessie 们的秘密藏身处
 date: 2732-06-19
 tags: [Nessie, 竞技场, 彩蛋]
+category: 生活
 description: 我在国王峡谷各处藏了几十只 Nessie 玩偶。它们是妈妈留给我的——我选择把它们分享给整个竞技场。
 ---
 

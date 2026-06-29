@@ -2,6 +2,7 @@
 title: Bonjour，我是沃特森 ⚡
 date: 2731-04-15
 tags: [关于我, 个人]
+category: 生活
 description: 娜塔莉·帕奎特，电气工程师，Apex 竞技场的安全区设计者。这是我的第一篇博客。
 featured: true
 ---

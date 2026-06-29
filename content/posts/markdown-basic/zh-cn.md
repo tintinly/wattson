@@ -2,6 +2,7 @@
 title: Markdown基本示例
 date: 2026-06-03
 tags: [Markdown]
+category: 文章示例
 description: 这是一个展示如何编写 Markdown 文件的教程与示例，包括核心语法与常见扩展（GFM）。
 featured: true
 ---

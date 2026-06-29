@@ -2,6 +2,7 @@
 title: Markdown Basic Examples
 date: 2026-06-03
 tags: [Markdown]
+category: Post Examples
 description: This is a tutorial and example for Markdown basic features, including core syntax and common extensions (GFM).
 featured: true
 ---
