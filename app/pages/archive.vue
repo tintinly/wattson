@@ -27,6 +27,7 @@
 <script setup lang="ts">
 const { t, locale } = useI18n()
 const route = useRoute()
+const router = useRouter()
 const { posts, allTags, allCategories } = await usePosts(locale.value)
 const tag = Array.isArray(route.query.tag) ? route.query.tag : route.query.tag?.split(',') 
 // const category = Array.isArray(route.query.category) ? route.query.category : route.query.category?.split(',') 
@@ -34,7 +35,6 @@ const tag = Array.isArray(route.query.tag) ? route.query.tag : route.query.tag?.
 const selectedTags = ref<string[] | null>((tag as string[]) || null)
 const selectedCategory = ref<string | null>((route.query.category as string) || null)
 
-  console.log(selectedTags.value)
 const tagSelect = (tag: string | null) => {
   if (tag !== null) {
     if (selectedTags.value === null || selectedTags.value.length === 0) {
@@ -44,9 +44,20 @@ const tagSelect = (tag: string | null) => {
     } else {
       selectedTags.value = [...selectedTags.value, tag]
     }
-    console.log(tag)
-    console.log(selectedTags.value)
-    console.log(route)
+    router.replace({
+      query: {
+        ...route.query,
+        tag: selectedTags.value.join(','),
+      }
+    })
+  } else {
+    selectedTags.value = []
+  }
+  
+  if (!selectedTags.value?.length) {
+    router.replace({
+      path: route.path
+    })
   }
 }
 
