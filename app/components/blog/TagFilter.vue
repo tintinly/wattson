@@ -6,22 +6,11 @@
     </div>
     <div class="flex flex-wrap gap-2">
       <button
-        class="text-sm px-2 py-1 rounded-lg border transition-all"
-        :class="[
-          selectedTag === null
-            ? 'border-border-secondary bg-background-secondary'
-            : 'border-border text-foreground-secondary hover:border-border-secondary'
-        ]"
-        @click="$emit('select', null)"
-      >
-        {{ t('archive.allTags') }}
-      </button>
-      <button
         v-for="tag in tags"
         :key="tag.name"
         class="text-sm px-2 py-1 rounded-lg border transition-all"
         :class="[
-          selectedTag === tag.name
+          selectedTags?.includes(tag.name)
             ? 'border-border-secondary bg-background-secondary'
             : 'border-border text-foreground-secondary hover:border-border-secondary'
         ]"
@@ -40,7 +29,7 @@ import type { TagCount } from '~~/app/types'
 
 defineProps<{
   tags: TagCount[]
-  selectedTag: string | null
+  selectedTags: string[] | null
 }>()
 
 defineEmits<{

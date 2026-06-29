@@ -55,7 +55,7 @@ import type { PostContent } from '~~/app/types'
 
 const props = defineProps<{
   posts: PostContent[]
-  selectedTag: string | null
+  selectedTags: string[] | null
   selectedCategory: string | null
 }>()
 
@@ -74,8 +74,8 @@ interface TimelineItem {
 const timelineItems = computed<any[]>(() => {
   let filtered = props.posts
 
-  if (props.selectedTag) {
-    filtered = filtered.filter((p: any) => p.tags?.includes(props.selectedTag!))
+  if (props.selectedTags?.length) {
+    filtered = filtered.filter((p: any) => (p.tags.some((tag) => props.selectedTags?.includes(tag))))
   }
 
   if (props.selectedCategory) {

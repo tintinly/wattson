@@ -5,14 +5,14 @@
       <aside class="shrink-0">
         <div class="md:w-70 md:sticky md:top-4 flex flex-col gap-2 sm:gap-4">
           <CategoryFilter :categories="allCategories" :selected-category="selectedCategory" @select="selectedCategory = $event" />
-          <TagFilter :tags="allTags" :selected-tag="selectedTag" @select="selectedTag = $event" />
+          <TagFilter :tags="allTags" :selected-tags="selectedTags" @select="tagSelect($event)" />
         </div>
       </aside>
 
       <!-- 时间线 -->
       <div class="flex-1 min-w-0">
         <section>
-          <Timeline :posts="posts" :selected-tag="selectedTag" :selected-category="selectedCategory" />
+          <Timeline :posts="posts" :selected-tags="selectedTags" :selected-category="selectedCategory" />
         </section>
       </div>
     </div>
@@ -28,8 +28,28 @@
 const { t, locale } = useI18n()
 const route = useRoute()
 const { posts, allTags, allCategories } = await usePosts(locale.value)
-const selectedTag = ref<string | null>((route.query.tag as string) || null)
+const tag = Array.isArray(route.query.tag) ? route.query.tag : route.query.tag?.split(',') 
+// const category = Array.isArray(route.query.category) ? route.query.category : route.query.category?.split(',') 
+
+const selectedTags = ref<string[] | null>((tag as string[]) || null)
 const selectedCategory = ref<string | null>((route.query.category as string) || null)
+
+  console.log(selectedTags.value)
+const tagSelect = (tag: string | null) => {
+  if (tag !== null) {
+    if (selectedTags.value === null || selectedTags.value.length === 0) {
+      selectedTags.value = [tag]
+    } else if (selectedTags.value.includes(tag)) {
+      selectedTags.value = selectedTags.value.filter((t) => t !== tag) 
+    } else {
+      selectedTags.value = [...selectedTags.value, tag]
+    }
+    console.log(tag)
+    console.log(selectedTags.value)
+    console.log(route)
+  }
+}
+
 useHead({
   title: `${t('archive.title')}`,
 })
