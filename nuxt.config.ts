@@ -37,7 +37,7 @@ export default defineNuxtConfig({
           // 相对路径图片支持（将 Markdown 中 assets/img.png → /_content-media/...）
           'content-images': {
             instance: contentImages,
-            src: '../app/remark/content-images',
+            src: '~/remark/content-images',
           },
         },
         rehypePlugins: {},
