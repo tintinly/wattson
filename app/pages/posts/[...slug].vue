@@ -56,24 +56,36 @@
 
       <!-- 日期 + 分类 + 标签-->
       <div class="flex flex-wrap items-center gap-5 text-sm text-foreground-secondary mb-3">
-        <span class="inline-flex items-center gap-1">
+        <span class="inline-flex items-center gap-0.5">
           <div class="p-1.5 rounded-md bg-background-secondary">
-            <Icon name="tabler:calendar-month" class="w-4.5 h-4.5" />
+            <Icon name="tabler:calendar-month" class="w-5 h-5" />
           </div>
-          <time>{{ formattedDate }}</time>
+          <time class="p-1.5 rounded-md">{{ formattedDate }}</time>
         </span>
-        <span class="inline-flex items-center">
+        <span class="inline-flex items-center gap-0.5">
           <div class="p-1.5 rounded-md bg-background-secondary">
-            <Icon name="tabler:hash" class="w-4.5 h-4.5" />
+            <Icon name="tabler:category" class="w-5 h-5" />
           </div>
-          <span
-            v-for="tag in displayTags"
-            :key="tag"
-            class="inline-flex items-center cursor-pointer mx-0.5 px-1 py-0.5 rounded hover:bg-background-secondary transition-colors"
-            @click.prevent.stop="toArchiveTag(tag)"
-          >
-            {{ tag }}
-          </span>
+          <NuxtLink class="p-1.5 rounded-md hover:bg-background-secondary active:bg-background-secondary transition duration-300"
+            :to="localePath(`/archive?category=${encodeURIComponent(post._category)}`)">
+            {{ post._category }}
+          </NuxtLink>
+        </span>
+        <span class="inline-flex items-center gap-0.5">
+          <div class="p-1.5 rounded-md bg-background-secondary">
+            <Icon name="tabler:hash" class="w-5 h-5" />
+          </div>
+          <template v-for="tag in displayTags"
+            :key="tag">
+            <NuxtLink class="inline-flex items-center cursor-pointer p-1.5 rounded-md hover:bg-background-secondary active:bg-background-secondary transition duration-300"
+              :to="localePath(`/archive?tag=${encodeURIComponent(tag)}`)"
+            >
+              {{ tag }}
+            </NuxtLink>
+            <div v-if="tag !== displayTags[displayTags.length - 1]">
+              /
+            </div>
+          </template>
         </span>
       </div>
 
@@ -117,10 +129,6 @@ const formattedDate = computed(() => {
     { year: 'numeric', month: 'long', day: 'numeric' }
   )
 })
-
-function toArchiveTag(tag: string) {
-  navigateTo(localePath(`/archive?tag=${encodeURIComponent(tag)}`))
-}
 
 useHead(() => ({
   title: `${displayTitle.value}`,

@@ -25,13 +25,22 @@
       />
     </NuxtLink>
 
-    <!-- 日期-->
+    <!-- 日期 + 分类-->
     <div class="flex flex-wrap items-center gap-5 text-sm text-foreground-secondary mb-3">
-      <span class="inline-flex items-center gap-1">
+      <span class="inline-flex items-center gap-0.5">
         <div class="p-1.5 rounded-md bg-background-secondary">
-          <Icon name="tabler:calendar-month" class="w-4.5 h-4.5" />
+          <Icon name="tabler:calendar-month" class="w-5 h-5" />
         </div>
-        <time>{{ formattedDate }}</time>
+        <time class="p-1.5 rounded-md">{{ formattedDate }}</time>
+      </span>
+      <span v-if="post._category" class="inline-flex items-center gap-0.5">
+        <div class="p-1.5 rounded-md bg-background-secondary">
+          <Icon name="tabler:category" class="w-5 h-5" />
+        </div>
+        <NuxtLink class="p-1.5 rounded-md hover:bg-background-secondary active:bg-background-secondary transition duration-300"
+          :to="localePath(`/archive?category=${encodeURIComponent(post._category)}`)">
+          {{ post._category }}
+        </NuxtLink>
       </span>
     </div>
 
@@ -44,15 +53,15 @@
     </p>
 
     <!-- 标签 -->
-    <div class="flex flex-wrap items-center gap-1 text-xs text-foreground-secondary">
-      <span
+    <div class="flex flex-wrap items-center gap-2 text-xs text-foreground-secondary">
+      <NuxtLink
         v-for="tag in displayTags.slice(0, 3)"
         :key="tag"
-        class="inline-flex items-center cursor-pointer mx-0.5 px-1 py-0.5 rounded  border border-border bg-background-secondary hover:bg-background-tertiary hover:border-border-secondary active:bg-background-tertiary active:border-border-secondary"
-        @click.prevent.stop="toArchiveTag(tag)"
+        class="inline-flex items-center cursor-pointer px-1 py-0.5 rounded-md  border border-border bg-background-secondary hover:bg-background-tertiary hover:border-border-secondary active:bg-background-tertiary active:border-border-secondary transition duration-300"
+        :to="localePath(`/archive?tag=${encodeURIComponent(tag)}`)"
       >
         # {{ tag }}
-      </span>
+    </NuxtLink>
     </div>
   </div>
   
@@ -77,8 +86,4 @@ const formattedDate = computed(() => {
     { year: 'numeric', month: 'long', day: 'numeric' }
   )
 })
-
-function toArchiveTag(tag: string) {
-  navigateTo(localePath(`/archive?tag=${encodeURIComponent(tag)}`))
-}
 </script>
