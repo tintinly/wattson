@@ -24,6 +24,8 @@
   "archive": {
     "title": "归档",
     "totalPosts": "共 {count} 篇文章",
+    "tags": "标签",
+    "categories": "分类",
     "filterByTag": "按标签筛选",
     "filterByCategory": "按分类筛选",
     "allTags": "全部",

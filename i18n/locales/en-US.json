@@ -24,6 +24,8 @@
   "archive": {
     "title": "Archive",
     "totalPosts": "{count} posts in total",
+    "tags": "Tags",
+    "categories": "Categories",
     "filterByTag": "Filter by Tag",
     "filterByCategory": "Filter by Category",
     "allTags": "All",
