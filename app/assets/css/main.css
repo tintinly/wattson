@@ -69,6 +69,12 @@ body,
 }
 
 /* 基础样式 */
+
+/* 始终预留滚动条空间，避免页面切换时因有无滚动条导致的 x 轴偏移 */
+html {
+  scrollbar-gutter: stable;
+}
+
 body {
   background-color: var(--color-background);
   color: var(--color-foreground);
@@ -86,14 +92,6 @@ body {
 ::-webkit-scrollbar-thumb {
   background: var(--color-border);
   border-radius: 3px;
-}
-
-/* View Transitions — 仅淡入淡出，避免位移导致的页面震荡 */
-::view-transition-old(root) {
-  animation: fade-out 0.15s ease-out;
-}
-::view-transition-new(root) {
-  animation: fade-in 0.15s ease-out;
 }
 
 @keyframes fade-out {
