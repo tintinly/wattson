@@ -1,7 +1,8 @@
 <template>
-  <div class="py-4 px-4 sm:py-7 sm:px-7 bg-surface rounded-xl border border-border flex flex-col">
+  <div class="py-4 px-4 sm:py-7 sm:px-7 bg-surface rounded-xl border border-border flex flex-col relative">
     <p v-if="!timelineItems.length" class="text-center text-foreground-secondary py-20">{{ t('archive.empty') }}</p>
-    <div v-for="(item, index) in timelineItems" :key="index">
+    <TransitionGroup name="timeline">
+    <div v-for="item in timelineItems" :key="item.type === 'year' ? `year-${item.label}` : `post-${item.slug}`">
       <!-- 年份标题 -->
       <div v-if="item.type === 'year'" class="flex flex-row h-15 items-center text-foreground">
         <div class="w-[20%] lg:w-[10%] text-right text-2xl font-bold select-none">
@@ -22,7 +23,7 @@
         </div>
         <div
           class="w-[15%] lg:w-[10%] relative h-full flex items-center
-                    before:content-[''] before:w-full before:h-full before:left-[50%] before:translate-y-[-50%] before:translate-x-[-1px] before:border-l-2 before:border-dashed before:absolute before:border-foreground-secondary/25">
+                    before:content-[''] before:w-full before:h-full before:left-[50%] before:translate-y-[-50%] before:-translate-x-px before:border-l-2 before:border-dashed before:absolute before:border-foreground-secondary/25">
           <div class="mx-auto w-1 h-1 rounded-full group-hover:h-5
                       bg-foreground-secondary ring-4 ring-surface group-hover:ring-background-secondary
                       relative z-10 transition-all duration-300">
@@ -42,10 +43,10 @@
           <span v-for="tag in item.tags" :key="tag" class="ml-1 cursor-pointer">
             {{ tag }}
           </span>
-
         </div>
       </NuxtLink>
     </div>
+    </TransitionGroup>
   </div>
 </template>
 
@@ -108,3 +109,36 @@ const timelineItems = computed<any[]>(() => {
   return items
 })
 </script>
+
+<style scoped>
+/* Timeline 列表过渡动效
+   使用 max-height 过渡替代 position:absolute，
+   让父容器高度随条目增减而平滑过渡 */
+.timeline-enter-active {
+  transition: all 0.5s ease-out;
+  overflow: hidden;
+}
+.timeline-leave-active {
+  transition: all 0.3s ease-in;
+  overflow: hidden;
+}
+.timeline-enter-from {
+  opacity: 0;
+  max-height: 0;
+  transform: translateX(-16px);
+}
+.timeline-enter-to {
+  max-height: 100px;
+}
+.timeline-leave-from {
+  max-height: 100px;
+}
+.timeline-leave-to {
+  opacity: 0;
+  max-height: 0;
+  transform: translateX(-16px);
+}
+.timeline-move {
+  transition: transform 0.25s ease;
+}
+</style>
