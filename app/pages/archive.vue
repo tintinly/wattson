@@ -4,7 +4,7 @@
       <!-- 左侧: 分类筛选 + 标签筛选 -->
       <aside class="shrink-0">
         <div class="md:w-70 md:sticky md:top-4 flex flex-col gap-2 sm:gap-4">
-          <CategoryFilter :categories="allCategories" :selected-category="selectedCategory" @select="categorySelect($event)" />
+          <CategoryFilter :categories="allCategories"/>
           <TagFilter :tags="filteredTags" :selected-tags="selectedTags" @select="tagSelect($event)" />
         </div>
       </aside>
@@ -65,27 +65,6 @@ const tagSelect = (tag: string | null) => {
     })
   }
 }
-
-const categorySelect = (category: string | null) => {
-
-  selectedCategory.value = category
-
-  let newQuery = { ...route.query };
-  delete newQuery.tag;
-
-  if (selectedCategory.value !== null) {
-    newQuery.category = selectedCategory.value;
-  } else {
-    delete newQuery.category;
-  }
-
-  router.push({
-    path: route.path, 
-    query: newQuery
-  })
-}
-
-
 
 useHead({
   title: `${t('archive.title')}`,

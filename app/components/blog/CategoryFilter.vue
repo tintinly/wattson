@@ -5,13 +5,8 @@
         {{ t('archive.categories') }}
     </div>
     <div class="flex flex-col gap-0.5">
-      <button
-        class="group flex flex-row justify-between text-foreground text-md p-2 rounded-lg transition-all duration-300  cursor-pointer"
-        :class="[
-          selectedCategory === null
-            ? 'bg-background-secondary'
-            : 'hover:bg-background-secondary'
-        ]"
+      <NuxtLink :to="localePath('/archive')"
+        class="group flex flex-row justify-between text-center text-foreground text-md p-2 rounded-lg hover:bg-background-secondary transition-all duration-300  cursor-pointer"
         @click="$emit('select', null)"
       >
         <div class="group-hover:translate-x-2 transition-normal duration-300">
@@ -20,16 +15,11 @@
         <div class="bg-foreground-secondary text-background-secondary w-7 rounded-lg">
           {{ categories.reduce((acc, cur) => acc + cur.count, 0) }}
         </div>
-      </button>
-      <button
+      </NuxtLink>
+      <NuxtLink :to="localePath(`/archive?category=${encodeURIComponent(cat.name)}`)"
         v-for="cat in categories"
         :key="cat.name"
-        class="group flex flex-row justify-between text-foreground text-md p-2 rounded-lg transition-all duration-300 cursor-pointer "
-        :class="[
-          selectedCategory === cat.name
-            ? 'bg-background-secondary'
-            : 'hover:bg-background-secondary'
-        ]"
+        class="group flex flex-row justify-between text-center text-foreground text-md p-2 rounded-lg hover:bg-background-secondary transition-all duration-300 cursor-pointer "
         @click="$emit('select', cat.name)"
       >
       <div class="group-hover:translate-x-2 transition-normal duration-300" >
@@ -38,21 +28,17 @@
       <div class="bg-foreground-secondary text-background-secondary w-7 rounded-lg">
         {{ cat.count }}
       </div>
-      </button>
+      </NuxtLink>
     </div>
   </div>
 </template>
 
 <script setup lang="ts">
 import type { TagCount } from '~~/app/types'
+const localePath = useLocalePath()
 
 defineProps<{
   categories: TagCount[]
-  selectedCategory: string | null
-}>()
-
-defineEmits<{
-  select: [category: string | null]
 }>()
 
 const { t } = useI18n()
