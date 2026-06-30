@@ -97,8 +97,16 @@ export default defineNuxtConfig({
     { path: '~/components/content', pathPrefix: false },
   ],
 
-  // Nuxt Content 需要启用文件监听
+  // 页面过渡动画
+  app: {
+    pageTransition: {
+      name: 'page',
+      mode: 'out-in',
+    },
+  },
+
+  // Nuxt Content 是否使用 view transition 特性
   experimental: {
-    viewTransition: true,
+    viewTransition: false,
   },
 })

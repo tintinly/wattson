@@ -1,14 +1,15 @@
 <template>
-  <!-- 文章未找到 -->
-  <div v-if="!post" class="py-20 text-center">
-    <h2 class="text-2xl font-bold mb-4">{{ t('notFound.title') }}</h2>
-    <NuxtLink :to="localePath('/')" class="hover:underline">
-      ← {{ t('notFound.backHome') }}
-    </NuxtLink>
-  </div>
+  <div>
+    <!-- 文章未找到 -->
+    <div v-if="!post" class="py-20 text-center">
+      <h2 class="text-2xl font-bold mb-4">{{ t('notFound.title') }}</h2>
+      <NuxtLink :to="localePath('/')" class="hover:underline">
+        ← {{ t('notFound.backHome') }}
+      </NuxtLink>
+    </div>
 
-  <!-- 文章卡片 + TOC -->
-  <div v-else class="max-w-wide mx-auto py-4 flex flex-col md:flex-row justify-center gap-4">
+    <!-- 文章卡片 + TOC -->
+    <div v-else class="max-w-wide mx-auto py-4 flex flex-col md:flex-row justify-center gap-4">
     <!-- TOC 侧边栏 -->
       <aside class="shrink-0 ">
         <div class="md:w-70 md:sticky md:top-4 flex flex-col gap-4">
@@ -97,6 +98,7 @@
         <ContentRenderer :value="post" />
       </div>
     </article>
+  </div>
   </div>
 </template>
 
