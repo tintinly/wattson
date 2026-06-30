@@ -1,6 +1,6 @@
 <template>
   <div class="p-5 bg-surface rounded-xl border border-border">
-    <div class="flex flex-row gap-2 justify-start ml-4 text-md font-bold mb-4 ">
+    <div class="flex flex-row gap-2 justify-start ml-4 text-md font-bold mb-3 ">
       <div class="relative before:w-1 before:h-5 before:rounded-md before:bg-background-tertiary
           before:absolute before:-left-4 before:top-px before:hidden md:before:block">
           {{ t('archive.tags') }}
@@ -16,7 +16,7 @@
       <button
         v-for="tag in tags"
         :key="tag.name"
-        class="text-sm px-2 py-1 rounded-lg border transition-all"
+        class="text-sm px-2 py-1 rounded-lg border transition-all duration-300 cursor-pointer"
         :class="[
           selectedTags?.includes(tag.name)
             ? 'border-border-secondary bg-background-secondary'

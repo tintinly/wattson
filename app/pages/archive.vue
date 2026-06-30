@@ -4,7 +4,7 @@
       <!-- 左侧: 分类筛选 + 标签筛选 -->
       <aside class="shrink-0">
         <div class="md:w-70 md:sticky md:top-4 flex flex-col gap-2 sm:gap-4">
-          <CategoryFilter :categories="allCategories" :selected-category="selectedCategory" @select="selectedCategory = $event" />
+          <CategoryFilter :categories="allCategories" :selected-category="selectedCategory" @select="categorySelect($event)" />
           <TagFilter :tags="allTags" :selected-tags="selectedTags" @select="tagSelect($event)" />
         </div>
       </aside>
@@ -28,12 +28,13 @@
 const { t, locale } = useI18n()
 const route = useRoute()
 const router = useRouter()
-const { posts, allTags, allCategories } = await usePosts(locale.value)
 const tag = Array.isArray(route.query.tag) ? route.query.tag : route.query.tag?.split(',') 
 // const category = Array.isArray(route.query.category) ? route.query.category : route.query.category?.split(',') 
 
 const selectedTags = ref<string[] | null>((tag as string[]) || null)
 const selectedCategory = ref<string | null>((route.query.category as string) || null)
+
+const { posts, allTags, allCategories } = await usePosts(locale.value, selectedCategory.value)
 
 const tagSelect = (tag: string | null) => {
   if (tag !== null) {
@@ -55,11 +56,32 @@ const tagSelect = (tag: string | null) => {
   }
   
   if (!selectedTags.value?.length) {
+    const { tag, ...restQuery } = route.query; 
     router.replace({
-      path: route.path
+      query: restQuery
     })
   }
 }
+
+const categorySelect = (category: string | null) => {
+
+  selectedCategory.value = category
+
+  let newQuery = { ...route.query };
+
+  if (selectedCategory.value !== null) {
+    newQuery.category = selectedCategory.value;
+  } else {
+    delete newQuery.category;
+  }
+
+  router.push({
+    path: route.path, 
+    query: newQuery
+  })
+}
+
+
 
 useHead({
   title: `${t('archive.title')}`,

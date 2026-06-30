@@ -15,12 +15,15 @@ function resolveCoverImage(coverImage: string | undefined, path: string): string
   return `/_content-media${dir}/${coverImage}`
 }
 
-export async function usePosts(locale: string = 'zh-CN') {
+export async function usePosts(locale: string = 'zh-CN', category: string | null = null) {
   const { data: posts } = await useAsyncData('posts', async () => {
     return await queryCollection('posts')
       .order('date', 'DESC')
       .all()
   })
+  if (category !== null) {
+    posts.value = posts.value?.filter((p) => p.category === category) || []
+  }
 
   const localized = computed(() => {
     if (!posts.value) return []
