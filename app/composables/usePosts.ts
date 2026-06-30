@@ -16,7 +16,7 @@ function resolveCoverImage(coverImage: string | undefined, path: string): string
 }
 
 export async function usePosts(locale: string = 'zh-CN', category: string | null = null) {
-  const { data: posts } = await useAsyncData('posts', async () => {
+  const { data: posts } = await useAsyncData(`posts-${locale}-${category || ''}`, async () => {
     return await queryCollection('posts')
       .order('date', 'DESC')
       .all()
