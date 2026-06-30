@@ -4,6 +4,7 @@
 @font-face {
   font-family: 'LXGW Bright';
   src: url('../fonts/LXGWBright-Medium.ttf') format('truetype');
+  font-display: swap;
 }
 
 /* 暗色模式：使用 class 策略（配合 @nuxtjs/color-mode） */
