@@ -110,8 +110,31 @@ body {
 }
 
 /* Markdown 排版（typography）相关 */
-/* prose 内容段落间距调小 */
+/* 段落 */
 .prose p {
   margin-top: 0.5em;
   margin-bottom: 0.5em;
+}
+
+/* 链接 */
+.prose a {
+  color: var(--color-foreground);
+  transition: color 0.2s;
+  padding: 0.1em 0.2em;
+  text-decoration: underline dashed 1px;
+  text-underline-offset: 3px;
+}
+
+.prose a:hover {
+  background-color: var(--color-background-secondary);
+  text-decoration: none;
+}
+
+/* 列表 */
+.prose ul,
+.prose li,
+.prose ol,
+.prose li {
+  margin-bottom: 0.3em;
+  margin-top: 0.3em;
 }
