@@ -22,7 +22,7 @@
     <article class="w-full min-w-0 bg-surface rounded-xl border border-border py-5 px-5 sm:py-8 sm:px-8">
       <!-- 封面图：与 PostCard 完全一致 -->
       <div v-if="post.coverImage" class="aspect-video -mx-5 -mt-5 sm:-mx-8 sm:-mt-8 mb-5 overflow-hidden rounded-t-xl">
-        <ContentProseImg
+        <ProseImg
           :src="post.coverImage"
           :alt="post.coverImageAlt || displayTitle"
           class="w-full h-full object-cover"

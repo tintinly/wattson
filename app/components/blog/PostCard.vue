@@ -2,7 +2,7 @@
   <div class="block py-5 px-5 sm:py-8 sm:px-8 rounded-xl border border-border bg-surface">
     <!-- 封面图（可点击进入文章） -->
     <NuxtLink v-if="post.coverImage" :to="localePath(`/posts/${postSlug}`)" class="block h-54 -mx-5 -mt-5 sm:-mx-8 sm:-mt-8 mb-5 overflow-hidden rounded-t-xl">
-      <ContentProseImg
+      <ProseImg
         :src="post.coverImage"
         :alt="displayTitle"
         class="w-full h-full object-cover object-center hover:scale-105 active:scale-105 transition-transform duration-500"
