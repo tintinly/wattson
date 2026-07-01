@@ -8,7 +8,7 @@
     :height="props.height"
   />
   <!-- 其他图片走 NuxtImg IPX 优化 -->
-  <NuxtImg
+  <img
     v-else
     :src="refinedSrc"
     :alt="props.alt"
