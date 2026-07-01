@@ -47,6 +47,13 @@ export default defineNuxtConfig({
       alias: {
         // 自定义 prose-img 组件：/_content-media/ 路径跳过 IPX 处理
         img: 'ContentProseImg',
+        // 自定义 prose-a 组件：外部链接默认新标签页打开
+        a: 'ProseA',
+        // 自定义 prose 标题组件：去掉下划线，hover 显示链接图标
+        h1: 'ProseH1',
+        h2: 'ProseH2',
+        h3: 'ProseH3',
+        h4: 'ProseH4',
       },
     },
   },

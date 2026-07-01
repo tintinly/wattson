@@ -1,5 +1,5 @@
 @import "tailwindcss";
-@plugin "@tailwindcss/typography";
+@plugin "@tailwindcss/typography"; /* Tailwindcss 提供一套 prose 类来快速添加排版，用于美化 Markdown 内容 */
 
 @font-face {
   font-family: 'LXGW Bright';
@@ -109,16 +109,9 @@ body {
   100% { opacity: 1; transform: translateY(0); }
 }
 
-/* 页面过渡动画（Nuxt pageTransition） */
-.page-enter-active,
-.page-leave-active {
-  transition: all 0.3s ease;
-}
-.page-enter-from {
-  opacity: 0;
-  transform: translateY(25px);
-}
-.page-leave-to {
-  opacity: 0;
-  transform: translateY(25px);
+/* Markdown 排版（typography）相关 */
+/* prose 内容段落间距调小 */
+.prose p {
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
 }
