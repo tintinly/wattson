@@ -594,7 +594,7 @@ $(document).ready(function () {
 ![typora](assets/markdown.webp "markdown")
 
 网络图片（图床图片）
-![typora](https://raw.githubusercontent.com/tintinly/md-notes/refs/heads/main/Markdonw%E6%95%99%E7%A8%8B/assets/markdown.webp)
+![typora](https://raw.githubusercontent.com/tintinly/wattson/refs/heads/main/content/posts/markdown-basic/assets/markdown.webp)
 ```
 
 本地图片
@@ -603,17 +603,17 @@ $(document).ready(function () {
 
 网络图片（图床图片）
 
-![typora](https://github.com/tintinly/md-notes/blob/main/markdown/markdown%E5%9F%BA%E7%A1%80/assets/markdown.webp?raw=true)
+![typora](https://raw.githubusercontent.com/tintinly/wattson/refs/heads/main/content/posts/markdown-basic/assets/markdown.webp)
 
 ### 指定图片属性
 
 Markdown 还没有办法指定图片的属性，如果你需要的话，你可以使用 HTML 的 `<img>` 标签。
 
 ```markdown
-<img src="https://github.com/tintinly/md-notes/blob/main/markdown/markdown%E5%9F%BA%E7%A1%80/assets/markdown.webp?raw=true" style="zoom:33%;" >
+<img src="https://raw.githubusercontent.com/tintinly/wattson/refs/heads/main/content/posts/markdown-basic/assets/markdown.webp" style="zoom:33%;" >
 ```
 
-<img src="https://github.com/tintinly/md-notes/blob/main/markdown/markdown%E5%9F%BA%E7%A1%80/assets/markdown.webp?raw=true" style="zoom:33%;" >
+<img src="https://raw.githubusercontent.com/tintinly/wattson/refs/heads/main/content/posts/markdown-basic/assets/markdown.webp" style="zoom:33%;" >
 
 ## 表格
 

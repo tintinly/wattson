@@ -7,7 +7,7 @@
       <h3 class="text-sm font-semibold mb-3">
         {{ t('post.toc') }}
       </h3>
-      <nav class="flex flex-col gap-0.5 text-sm max-h-[calc(100vh-12rem)] overflow-y-auto">
+      <nav class="flex flex-col gap-0.5 text-sm max-h-[60vh] overflow-y-auto">
         <a
           v-for="h in headings"
           :key="h.id"

@@ -23,7 +23,7 @@
 
   --color-surface: #ffffff;
   --color-background: #f7f7f7;
-  --color-background-secondary: #ededed;
+  --color-background-secondary: #eeeeee;
   --color-background-tertiary: #e1e1e1;
   --color-foreground: #252525;
   --color-foreground-secondary: #767676;
@@ -132,9 +132,22 @@ body {
 
 /* 列表 */
 .prose ul,
-.prose li,
-.prose ol,
+.prose ol {
+  margin-top: 0;
+  margin-bottom: 0.8em;
+}
 .prose li {
-  margin-bottom: 0.3em;
-  margin-top: 0.3em;
+  margin-top: 0.25em;
+  margin-bottom: 0.25em;
+}
+
+.prose blockquote {
+  background-color: var(--color-background-secondary);
+  padding-top: 2px;
+  padding-bottom: 2px;
+}
+
+.prose pre {
+  margin-top: 1em;
+  margin-bottom: 1em;
 }
