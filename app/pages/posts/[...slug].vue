@@ -9,7 +9,7 @@
     </div>
 
     <!-- 文章卡片 + TOC -->
-    <div v-else class="max-w-wide mx-auto py-4 flex flex-col md:flex-row justify-center gap-4">
+    <div v-else class="max-w-wide mx-auto flex flex-col md:flex-row justify-center gap-4">
     <!-- TOC 侧边栏 -->
       <aside class="shrink-0 ">
         <div class="md:w-70 md:sticky md:top-4 flex flex-col gap-4">

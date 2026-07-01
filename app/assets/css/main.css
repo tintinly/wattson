@@ -1,5 +1,5 @@
 @import "tailwindcss";
-@plugin "@tailwindcss/typography"; /* Tailwindcss 提供一套 prose 类来快速添加排版，用于美化 Markdown 内容 */
+@plugin "@tailwindcss/typography"; /* Tailwindcss typography 提供一套 prose 类来快速添加排版，用于美化 Markdown 内容 */
 
 @font-face {
   font-family: 'LXGW Bright';
@@ -164,9 +164,9 @@ body {
 
 /* 行内代码*/
 .prose :not(pre) > code {
-  background-color: rgba(0, 0, 0, 0.05);
   padding: 0.2rem 0.4rem;
   border-radius: 4px;
+  background-color: var(--color-background-secondary);
 }
 .prose code::before,
 .prose code::after {

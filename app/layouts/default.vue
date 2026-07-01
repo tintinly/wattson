@@ -16,19 +16,3 @@
 // View Transition 和布局由 Nuxt 内置支持
 // Header/Footer 固定，<NuxtPage /> 内容自动应用 view transition
 </script>
-
-<style scoped>
-/* 页面过渡动画（Nuxt pageTransition） */
-.page-enter-active,
-.page-leave-active {
-  transition: all 0.3s ease;
-}
-.page-enter-from {
-  opacity: 0;
-  transform: translateY(25px);
-}
-.page-leave-to {
-  opacity: 0;
-  transform: translateY(25px);
-}
-</style>
