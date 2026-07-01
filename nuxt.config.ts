@@ -1,6 +1,7 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 import tailwindcss from '@tailwindcss/vite'
-import contentImages from './app/remark/content-images'
+import contentImages from './app/plugins/remark/content-images'
+import tocPlaceholder from './app/plugins/remark/toc-placeholder'
 
 export default defineNuxtConfig({
   compatibilityDate: '2025-07-15',
@@ -37,7 +38,12 @@ export default defineNuxtConfig({
           // 相对路径图片支持（将 Markdown 中 assets/img.png → /_content-media/...）
           'content-images': {
             instance: contentImages,
-            src: '~/remark/content-images',
+            src: '~/plugins/remark/content-images',
+          },
+          // 文章目录插件（将 [TOC] 替换为目录 HTML）
+          'toc-placeholder': {
+            instance: tocPlaceholder,
+            src: '~/plugins/remark/toc-placeholder',
           },
         },
         rehypePlugins: {},
