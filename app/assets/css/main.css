@@ -23,7 +23,7 @@
 
   --color-surface: #ffffff;
   --color-background: #f7f7f7;
-  --color-background-secondary: #eeeeee;
+  --color-background-secondary: #efefef;
   --color-background-tertiary: #e1e1e1;
   --color-foreground: #252525;
   --color-foreground-secondary: #767676;
@@ -143,8 +143,26 @@ body {
 
 .prose blockquote {
   background-color: var(--color-background-secondary);
+  margin-top: 1em;
+  margin-bottom: 1em;
   padding-top: 2px;
   padding-bottom: 2px;
+  padding-left: 1em;
+  padding-right: 1em;
+}
+
+/* 嵌套引用块交替背景色：二层更深，三层切回 */
+.prose blockquote blockquote {
+  background-color: var(--color-background-tertiary);
+}
+.prose blockquote blockquote blockquote {
+  background-color: var(--color-background-secondary);
+}
+
+/* 去掉引用块双引号（typography 默认装饰） */
+.prose blockquote p::before,
+.prose blockquote p::after {
+  content: none;
 }
 
 .prose pre {
