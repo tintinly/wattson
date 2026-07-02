@@ -2,6 +2,7 @@
 import tailwindcss from '@tailwindcss/vite'
 import contentImages from './app/plugins/remark/content-images'
 import tocPlaceholder from './app/plugins/remark/toc-placeholder'
+import restoreBrackets from './app/plugins/rehype/restore-brackets'
 
 export default defineNuxtConfig({
   compatibilityDate: '2025-07-15',
@@ -46,7 +47,13 @@ export default defineNuxtConfig({
             src: '~/plugins/remark/toc-placeholder',
           },
         },
-        rehypePlugins: {},
+        rehypePlugins: {
+          // MDC 无属性 <span> 还原为 [原文]（CommonMark 标准行为）
+          'restore-brackets': {
+            instance: restoreBrackets,
+            src: '~/plugins/rehype/restore-brackets',
+          },
+        },
       },
     },
     renderer: {

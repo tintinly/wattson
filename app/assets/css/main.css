@@ -186,6 +186,9 @@ body {
   border-radius: var(--radius-md);
   background-color: var(--color-background-secondary);
 }
+.prose blockquote code {
+  background-color: var(--color-background-tertiary);
+}
 .prose code::before,
 .prose code::after {
   content: none;

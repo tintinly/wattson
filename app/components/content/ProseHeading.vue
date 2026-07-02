@@ -8,7 +8,7 @@
       :aria-label="`链接到此${'#' + level}标题`"
     >
       <div class="group p-1.5 rounded-md text-foreground-secondary hover:bg-background-secondary hover:text-foreground transition-colors">
-        <Icon name="tabler:link" :class="[sizeClasses[level]]" />
+        <Icon name="tabler:link" :class="sizeClasses[level]" />
       </div>
     </a>
   </component>
