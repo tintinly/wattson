@@ -1,8 +1,11 @@
 <template>
   <!-- /_content-media/ 路径的图片不使用 NuxtImg（IPX 无法访问 content 目录） -->
   <img
-    :src="refinedSrc"
-    v-bind="extraAttrs"
+    :src="props.src"
+    :alt="props.alt"
+    :width="props.width"
+    :height="props.height"
+    v-bind="$attrs"
     class="cursor-zoom-in"
     @click="open"
   />
@@ -21,7 +24,7 @@
         <img
           :src="props.src"
           :alt="props.alt"
-          class="relative max-w-[90vw] max-h-[90vh] object-contain rounded-lg shadow-2xl animate-fade-in"
+          class="relative max-w-[90vw] max-h-[90vh] object-contain shadow-2xl animate-fade-in"
         />
       </div>
     </Transition>
@@ -31,19 +34,12 @@
 <script setup lang="ts">
 import { withTrailingSlash, withLeadingSlash, joinURL } from 'ufo'
 
+/* $attrs 是所有非 props 的外部属性 */
 const props = defineProps({
   src: { type: String, default: '' },
   alt: { type: String, default: '' },
   width: { type: [String, Number], default: undefined },
   height: { type: [String, Number], default: undefined },
-})
-
-const attrs = useAttrs()
-
-/** 透传非 props 的外部属性（如 style、class 等） */
-const extraAttrs = computed(() => {
-  const { src, alt, width, height, ...rest } = attrs
-  return rest
 })
 
 const lightboxOpen = ref(false)
@@ -73,16 +69,6 @@ watch(lightboxOpen, (val) => {
 onUnmounted(() => {
   document.removeEventListener('keydown', onKeydown)
   document.body.style.overflow = ''
-})
-
-const refinedSrc = computed(() => {
-  if (props.src?.startsWith('/') && !props.src.startsWith('//')) {
-    const _base = withLeadingSlash(withTrailingSlash(useRuntimeConfig().app.baseURL))
-    if (_base !== '/' && !props.src.startsWith(_base)) {
-      return joinURL(_base, props.src)
-    }
-  }
-  return props.src
 })
 </script>
 

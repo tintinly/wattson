@@ -3,13 +3,14 @@
   <a
     v-if="isExternal"
     :href="props.href"
+    :id="props.id"
     target="_blank"
     rel="noopener noreferrer"
   >
     <slot />
   </a>
   <!-- 站内链接：锚点链接转小写以匹配 github-slugger 生成的 id -->
-  <a v-else :href="normalizedHref">
+  <a v-else :href="normalizedHref" :id="props.id">
     <slot />
   </a>
 </template>
@@ -17,6 +18,7 @@
 <script setup lang="ts">
 const props = defineProps({
   href: { type: String, default: '' },
+  id: { type: String, default: '' },
 })
 
 /** 判断是否外部链接（以 http:// 或 https:// 开头） */
