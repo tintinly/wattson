@@ -13,7 +13,7 @@
     <!-- TOC 侧边栏 -->
       <aside class="shrink-0 ">
         <div class="md:w-70 md:sticky md:top-4 flex flex-col gap-4">
-          <TableOfContents :content="post" />
+          <TableOfContents :toc="post.body.toc" />
         </div>
       </aside>
     

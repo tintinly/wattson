@@ -70,9 +70,10 @@ body,
 
 /* 基础样式 */
 
-/* 始终预留滚动条空间，避免页面切换时因有无滚动条导致的 x 轴偏移 */
+
 html {
-  scrollbar-gutter: stable;
+  scrollbar-gutter: stable; /* 始终预留滚动条空间，避免页面切换时因有无滚动条导致的 x 轴偏移 */
+  scroll-behavior: smooth; /* 平滑滚动 */
 }
 
 body {

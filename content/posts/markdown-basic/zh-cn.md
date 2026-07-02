@@ -518,30 +518,25 @@ $(document).ready(function () {
 [g]: http://www.google.com/
 [baidu]: https://www.baidu.com/
 
-### 锚点链接{#custom-anchor1}
+### 锚点链接
 
 锚点链接用于在同一文档内跳转，特别适合长文档的导航。<span id="custom-anchor"> </span >
 
 ```markdown
-### 锚点链接 {#custom-anchor1}
-<span id="custom-anchor2"> </span >
+<span id="custom-anchor"></span >
 
 跳转到标题 [Markdown概述](#Markdown概述)
 
-跳转到[自定义位置](#custom-anchor1)
-
-跳转到[自定义位置](#custom-anchor2)
+跳转到[自定义位置](#custom-anchor)
 
 [回到顶部](#)
 ```
 
-<span id="custom-anchor2"> </span >
+<span id="custom-anchor"></span >
 
 跳转到标题 [Markdown概述](#Markdown概述)
 
-跳转到[自定义位置1](#custom-anchor1)
-
-跳转到[自定义位置2](#custom-anchor2)
+跳转到[自定义位置](#custom-anchor)
 
 [回到顶部](#)
 

@@ -1,5 +1,5 @@
 <template>
-  <component :is="`h${level}`" :id="id" class="group flex items-center gap-0.5 scroll-mt-20">
+  <component :is="`h${level}`" :id="id" class="group flex items-center gap-0.5 scroll-mt-5">
     <slot />
     <a
       v-if="id"

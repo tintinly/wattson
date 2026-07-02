@@ -28,8 +28,7 @@
 
 <script setup lang="ts">
 const { t } = useI18n()
-
-const props = defineProps<{ content: any }>()
+const props = defineProps<{ toc: any }>()
 
 interface Heading {
   id: string
@@ -38,24 +37,26 @@ interface Heading {
 }
 
 const headings = computed<Heading[]>(() => {
-  // 从 rawbody（原始 markdown）中提取标题
-  const body = props.content?.rawbody
-  if (!body) return []
+  const links = props.toc?.links || []
+  if (!links) return []
 
-  const headingRegex = /^(#{2,3})\s+(.+)$/gm
   const result: Heading[] = []
-  let match: RegExpExecArray | null
-
-  while ((match = headingRegex.exec(body)) !== null) {
-    const depth = match[1].length
-    const text = match[2].trim()
-    const id = text
-      .toLowerCase()
-      .replace(/[^\w一-鿿\s-]/g, '')
-      .replace(/\s+/g, '-')
-    result.push({ id, text, depth })
+  function handleLinksTree(tree: any[], list: any[]) {
+    tree.forEach((item) => {
+      list.push(item)
+      // 如果存在 children 下一层，则递归遍历并赋值
+      if (item?.children?.length) {
+        handleLinksTree(item.children, data);
+      }
+    });
+    return data;
   }
+  const data = [] as any[];
+  var linkList = handleLinksTree(links, data)
 
+  for (const item of linkList) {
+    result.push({ id: item.id, text: item.text, depth: item.depth })
+  }
   return result
 })
 
@@ -77,9 +78,10 @@ function onScroll() {
 function scrollTo(id: string) {
   const el = document.getElementById(id)
   if (el) {
-    el.scrollIntoView({ behavior: 'smooth', block: 'start' })
+    el.scrollIntoView()
     activeId.value = id
   }
+  // history.replaceState(null, '', `#${id}`)
 }
 
 onMounted(() => window.addEventListener('scroll', onScroll, { passive: true }))
