@@ -2,7 +2,8 @@
   <ClientOnly>
     <div class="group relative">
       <pre
-        class="rounded-xl bg-[#23303f] dark:bg-[#151B23]  after:content-[attr(data-language)] after:absolute after:top-1 after:right-2 after:p-1 after:text-sm after:transition-all after:duration-300 group-hover:after:opacity-0"
+        :class="props.class"
+        class="rounded-xl bg-[#1c272f] dark:bg-[#0D1117] after:content-[attr(data-language)] after:absolute after:top-1 after:right-2 after:p-1 after:text-sm after:transition-all after:duration-300 group-hover:after:opacity-0"
         :data-language="langLabel"><slot /></pre>
       <button
         class="absolute top-2 right-2 p-1.5 rounded-md text-[#e5e5e5] bg-[#5c5c5c] dark:bg-[#282828] opacity-0 group-hover:opacity-100 transition-all hover:text-white hover:bg-[#7b7b7b] dark:hover:bg-[#383838] duration-300 cursor-pointer"
@@ -17,7 +18,12 @@
 </template>
 
 <script setup lang="ts">
-const attrs = useAttrs()
+const props = defineProps({
+  class: {
+    type: String,
+    default: '',
+  },
+})
 const copied = ref(false)
 let timer: ReturnType<typeof setTimeout> | null = null
 
@@ -35,7 +41,7 @@ function copyCode(e: MouseEvent) {
 
 /** 从 class 中提取语言名称 */
 const langLabel = computed(() => {
-  const cls = (attrs.class as string) || ''
+  const cls = (props.class as string) || ''
   const match = cls.match(/language-(\S+)/)
   return match ? match[1] : 'text'
 })

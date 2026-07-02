@@ -26,15 +26,14 @@ export default defineNuxtConfig({
 
   // @nuxt/content 配置
   content: {
-    highlight: {
-      theme: {
-        default: 'github-light',
-        dark: 'github-dark',
-      },
-      preload: ['ts', 'js', 'vue', 'html', 'css', 'json', 'bash', 'md', 'yaml'],
-    },
     build: {
       markdown: {
+        highlight: {
+          theme: 'github-dark',
+          langs: ['json','http', 'js', 'javascript', 'ts', 'typescript', 'html', 'css', 'vue', 
+            'shell', 'bash', 'cmd', 'mdc', 'md', 'markdown', 'yml', 'yaml', 'xml', 'ini', 'nginx', 
+            'c', 'cpp', 'java', 'python', 'go', 'php', 'sql' ],
+        },
         remarkPlugins: {
           // 相对路径图片支持（将 Markdown 中 assets/img.png → /_content-media/...）
           'content-images': {
@@ -71,7 +70,6 @@ export default defineNuxtConfig({
       { code: 'zh-CN', name: '简体中文', iso: 'zh-CN', file: 'zh-CN.json' },
       { code: 'en-US', name: 'English', iso: 'en-US', file: 'en-US.json' },
     ],
-    lazy: true,
     detectBrowserLanguage: {
       useCookie: true,
       cookieKey: 'wattson-locale',

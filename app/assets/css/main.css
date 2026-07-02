@@ -184,6 +184,7 @@ body {
 .prose :not(pre) > code {
   padding: 0.2rem 0.4rem;
   border-radius: var(--radius-md);
+  border: 1px dashed var(--color-border-secondary);
   background-color: var(--color-background-secondary);
 }
 .prose blockquote code {

@@ -32,8 +32,6 @@
 </template>
 
 <script setup lang="ts">
-import { withTrailingSlash, withLeadingSlash, joinURL } from 'ufo'
-
 /* $attrs 是所有非 props 的外部属性 */
 const props = defineProps({
   src: { type: String, default: '' },
