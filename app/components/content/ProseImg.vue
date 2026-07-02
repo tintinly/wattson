@@ -6,6 +6,7 @@
     :alt="props.alt"
     :width="props.width"
     :height="props.height"
+    v-bind="extraAttrs"
   />
   <!-- 其他图片走 NuxtImg IPX 优化 -->
   <img
@@ -14,6 +15,7 @@
     :alt="props.alt"
     :width="props.width"
     :height="props.height"
+    v-bind="extraAttrs"
   />
 </template>
 
@@ -25,6 +27,14 @@ const props = defineProps({
   alt: { type: String, default: '' },
   width: { type: [String, Number], default: undefined },
   height: { type: [String, Number], default: undefined },
+})
+
+const attrs = useAttrs()
+
+/** 透传非 props 的外部属性（如 style、class 等） */
+const extraAttrs = computed(() => {
+  const { src, alt, width, height, ...rest } = attrs
+  return rest
 })
 
 const isContentMedia = computed(() => props.src?.startsWith('/_content-media/'))
