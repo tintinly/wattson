@@ -76,7 +76,6 @@ onUnmounted(() => {
 })
 
 const refinedSrc = computed(() => {
-  console.log(props.src)
   if (props.src?.startsWith('/') && !props.src.startsWith('//')) {
     const _base = withLeadingSlash(withTrailingSlash(useRuntimeConfig().app.baseURL))
     if (_base !== '/' && !props.src.startsWith(_base)) {
