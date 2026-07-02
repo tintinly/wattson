@@ -94,12 +94,6 @@ body {
   border-radius: 3px;
 }
 
-/* medium-zoom 图片灯箱 — 确保在 header（z-10）之上 */
-.medium-zoom-overlay,
-.medium-zoom-image--opened {
-  z-index: 50 !important;
-}
-
 @keyframes fadeIn {
   0% { opacity: 0; }
   100% { opacity: 1; }

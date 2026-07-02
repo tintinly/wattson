@@ -22,9 +22,10 @@
     <article class="w-full min-w-0 bg-surface rounded-xl border border-border py-5 px-5 sm:py-8 sm:px-8">
       <!-- 封面图：与 PostCard 完全一致 -->
       <div v-if="post.coverImage" class="aspect-video -mx-5 -mt-5 sm:-mx-8 sm:-mt-8 mb-5 overflow-hidden rounded-t-xl">
-        <ProseImg
+        <img
           :src="post.coverImage"
           :alt="post.coverImageAlt || displayTitle"
+          draggable="false"
           class="w-full h-full object-cover"
         />
       </div>
@@ -120,9 +121,6 @@ const post = computed(() => posts.value.find((p: any) => p._slug === slug.value)
 const displayTitle = computed(() => post.value?.title || '')
 const displayDescription = computed(() => post.value?.description || '')
 const displayTags = computed(() => post.value?.tags || [])
-
-// 图片灯箱
-useImageZoom()
 
 const formattedDate = computed(() => {
   if (!post.value) return ''
