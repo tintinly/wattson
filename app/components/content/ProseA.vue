@@ -4,13 +4,14 @@
     v-if="isExternal"
     :href="props.href"
     :id="props.id"
+    v-bind="$attrs"
     target="_blank"
     rel="noopener noreferrer"
   >
     <slot />
   </a>
   <!-- 站内链接：锚点链接转小写以匹配 github-slugger 生成的 id -->
-  <a v-else :href="normalizedHref" :id="props.id">
+  <a v-else :href="normalizedHref" :id="props.id" v-bind="$attrs">
     <slot />
   </a>
 </template>
