@@ -5,6 +5,7 @@ import tocPlaceholder from './app/plugins/remark/toc-placeholder'
 import customContainer from './app/plugins/remark/custom-container'
 import restoreBrackets from './app/plugins/rehype/restore-brackets'
 import { rehypeGithubAlerts } from 'rehype-github-alerts'
+import remarkSupSub from './app/plugins/remark/sup-sub'
 
 export default defineNuxtConfig({
   compatibilityDate: '2025-07-15',
@@ -50,6 +51,11 @@ export default defineNuxtConfig({
           'toc-placeholder': {
             instance: tocPlaceholder,
             src: '~/plugins/remark/toc-placeholder',
+          },
+          // 上/下标插件（19^th^ → <sup>、H~2~O → <sub>）
+          'sup-sub': {
+            instance: remarkSupSub,
+            src: '~/plugins/remark/sup-sub',
           },
           // 自定义容器插件（::: info / ::: warning 等 VitePress 风格）
           'custom-container': {
