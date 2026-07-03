@@ -1,5 +1,8 @@
 <template>
-  <ClientOnly>
+  <!-- Mermaid 图表渲染 -->
+  <MermaidDiagram v-if="isMermaid" :code="code" />
+  <!-- 普通代码块 -->
+  <ClientOnly v-else>
     <div class="group relative">
       <pre
         :class="props.class"
@@ -23,16 +26,27 @@ const props = defineProps({
     type: String,
     default: '',
   },
+  code: {
+    type: String,
+    default: '',
+  },
+  language: {
+    type: String,
+    default: '',
+  },
 })
 const copied = ref(false)
 let timer: ReturnType<typeof setTimeout> | null = null
+
+/** 是否为 mermaid 图表代码块 */
+const isMermaid = computed(() => (props.language as string)?.toLowerCase() === 'mermaid')
 
 function copyCode(e: MouseEvent) {
   const btn = e.currentTarget as HTMLElement
   const pre = btn.closest('.group')?.querySelector('pre')
   if (!pre) return
-  const code = pre.querySelector('code')?.textContent || pre.textContent || ''
-  navigator.clipboard.writeText(code.trim()).then(() => {
+  const codeEl = pre.querySelector('code')?.textContent || pre.textContent || ''
+  navigator.clipboard.writeText(codeEl.trim()).then(() => {
     copied.value = true
     if (timer) clearTimeout(timer)
     timer = setTimeout(() => { copied.value = false }, 2000)
