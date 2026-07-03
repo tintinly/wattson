@@ -7,7 +7,7 @@ description: 这是一个展示 Markdown 文件扩展语法（GFM）的示例。
 featured: true
 ---
 
-这是一个展示 Markdown 文件扩展语法（GFM）的示例。
+这是一个展示 Markdown 文件扩展语法（GFM）及自定义样式的示例。
 
 # Markdown 扩展
 

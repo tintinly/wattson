@@ -3,15 +3,15 @@ title: Markdown基本示例
 date: 2026-06-03
 tags: [Markdown]
 category: 文章示例
-description: 这是一个展示如何编写 Markdown 文件的教程与示例，包括核心语法与常见扩展（GFM）。
+description: 这是一个展示如何编写 Markdown 文件的教程与示例。
 featured: true
 ---
 
-这是一个展示如何编写 Markdown 文件的教程与示例，包括核心语法与常见扩展（GFM）。
+这是一个展示如何编写 Markdown 文件的教程与示例。
 
 # Markdown
 
-## Markdown概述
+## Markdown 概述
 
 ### Markdown
 
@@ -525,7 +525,7 @@ $(document).ready(function () {
 ```markdown
 <span id="custom-anchor"></span >
 
-跳转到标题 [Markdown概述](#Markdown概述)
+跳转到标题 [Markdown 概述](#Markdown-概述)
 
 跳转到[自定义位置](#custom-anchor)
 
@@ -534,7 +534,7 @@ $(document).ready(function () {
 
 <span id="custom-anchor"></span >
 
-跳转到标题 [Markdown概述](#Markdown概述)
+跳转到标题 [Markdown 概述](#Markdown-概述)
 
 跳转到[自定义位置](#custom-anchor)
 

@@ -200,3 +200,83 @@ body {
   margin-top: 1em;
   margin-bottom: 1em;
 }
+
+/* ========== 自定义容器（VitePress 风格 ::: info / ::: warning 等） ========== */
+.custom-container {
+  margin-block: 1em;
+  padding: 0.75em 1em;
+  border-radius: var(--radius-xl);
+  /* border: 1px solid var(--color-border);
+  border-left-width: 4px;
+  border-left-style: solid; */
+}
+
+.custom-container .custom-container-title {
+  font-weight: 700;
+  font-size: 0.9em;
+  margin-top: 0;
+}
+
+/* --- 信息框 --- */
+.custom-container.info {
+  background-color: color-mix(in srgb, var(--color-accent) 10%, transparent);
+  border-left-color: var(--color-accent);
+}
+.custom-container.info .custom-container-title {
+  color: var(--color-accent);
+}
+
+/* --- 提示框 --- */
+.custom-container.tip {
+  background-color: color-mix(in srgb, #22c55e 10%, transparent);
+  border-left-color: #22c55e;
+}
+.custom-container.tip .custom-container-title {
+  color: #16a34a;
+}
+
+/* --- 警告框 --- */
+.custom-container.warning {
+  background-color: color-mix(in srgb, #eab308 10%, transparent);
+  border-left-color: #eab308;
+}
+.custom-container.warning .custom-container-title {
+  color: #ca8a04;
+}
+
+/* --- 危险警告 --- */
+.custom-container.danger {
+  background-color: color-mix(in srgb, #ef4444 10%, transparent);
+  border-left-color: #ef4444;
+}
+.custom-container.danger .custom-container-title {
+  color: #dc2626;
+}
+
+/* --- 可折叠详情块 --- */
+.custom-container.details {
+  background-color: var(--color-background-secondary);
+  border-left-color: var(--color-border-secondary);
+  padding: 0.5em 1em;
+}
+.custom-container.details .custom-container-title {
+  color: var(--color-foreground);
+  cursor: pointer;
+  user-select: none;
+}
+.custom-container.details .custom-container-title::-webkit-details-marker {
+  color: var(--color-foreground-secondary);
+}
+
+/* 暗色模式细节微调 */
+.dark .custom-container.details {
+  background-color: var(--color-background);
+}
+
+/* 容器内首尾元素边距调整 */
+.custom-container > :last-child {
+  margin-bottom: 0;
+}
+.custom-container > :first-child {
+  margin-top: 0;
+}

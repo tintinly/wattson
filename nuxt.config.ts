@@ -2,6 +2,7 @@
 import tailwindcss from '@tailwindcss/vite'
 import contentImages from './app/plugins/remark/content-images'
 import tocPlaceholder from './app/plugins/remark/toc-placeholder'
+import customContainer from './app/plugins/remark/custom-container'
 import restoreBrackets from './app/plugins/rehype/restore-brackets'
 
 export default defineNuxtConfig({
@@ -44,6 +45,11 @@ export default defineNuxtConfig({
           'toc-placeholder': {
             instance: tocPlaceholder,
             src: '~/plugins/remark/toc-placeholder',
+          },
+          // 自定义容器插件（::: info / ::: warning 等 VitePress 风格）
+          'custom-container': {
+            instance: customContainer,
+            src: '~/plugins/remark/custom-container',
           },
         },
         rehypePlugins: {
