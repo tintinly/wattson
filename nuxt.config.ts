@@ -6,6 +6,8 @@ import customContainer from './app/plugins/remark/custom-container'
 import restoreBrackets from './app/plugins/rehype/restore-brackets'
 import { rehypeGithubAlerts } from 'rehype-github-alerts'
 import remarkSupSub from './app/plugins/remark/sup-sub'
+import remarkMath from 'remark-math'
+import rehypeKatex from 'rehype-katex'
 
 export default defineNuxtConfig({
   compatibilityDate: '2025-07-15',
@@ -57,6 +59,13 @@ export default defineNuxtConfig({
             instance: remarkSupSub,
             src: '~/plugins/remark/sup-sub',
           },
+          // LaTeX 数学公式（$...$ 行内 / $$...$$ 块级）
+          'remark-math': {
+            instance: remarkMath,
+            options: {
+              singleDollarTextMath: true,   // $...$ → 行内公式
+            },
+          },
           // 自定义容器插件（::: info / ::: warning 等 VitePress 风格）
           'custom-container': {
             instance: customContainer,
@@ -71,6 +80,10 @@ export default defineNuxtConfig({
           },
           'rehype-github-alerts': {
             instance: rehypeGithubAlerts,
+          },
+          // KaTeX 公式渲染
+          'rehype-katex': {
+            instance: rehypeKatex,
           },
         },
       },
@@ -113,6 +126,7 @@ export default defineNuxtConfig({
 
   css: [ 
     'rehype-github-alerts/styling/css/index.css',
+    'katex/dist/katex.min.css',
     '~/assets/css/main.css',
   ],
 
