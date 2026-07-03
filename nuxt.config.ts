@@ -4,6 +4,7 @@ import contentImages from './app/plugins/remark/content-images'
 import tocPlaceholder from './app/plugins/remark/toc-placeholder'
 import customContainer from './app/plugins/remark/custom-container'
 import restoreBrackets from './app/plugins/rehype/restore-brackets'
+import { rehypeGithubAlerts } from 'rehype-github-alerts'
 
 export default defineNuxtConfig({
   compatibilityDate: '2025-07-15',
@@ -58,6 +59,9 @@ export default defineNuxtConfig({
             instance: restoreBrackets,
             src: '~/plugins/rehype/restore-brackets',
           },
+          'rehype-github-alerts': {
+            instance: rehypeGithubAlerts,
+          },
         },
       },
     },
@@ -97,7 +101,10 @@ export default defineNuxtConfig({
     plugins: [tailwindcss()],
   },
 
-  css: ['~/assets/css/main.css'],
+  css: [ 
+    'rehype-github-alerts/styling/css/index.css',
+    '~/assets/css/main.css',
+  ],
 
   // @nuxt/icon 配置：CSS 模式避免 SVG 基线偏移
   icon: {
