@@ -121,7 +121,7 @@ console.log('Hello, VitePress!')
 
 ### 语法高亮
 
-````md
+````markdown
 ```js{4}
 export default {
   data () {
