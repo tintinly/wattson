@@ -42,7 +42,7 @@
 </template>
 
 <script setup lang="ts">
-import type { Project } from '~~/app/types'
+import type { Project } from '~/types'
 
 const props = defineProps<{ project: Project }>()
 const { locale, t } = useI18n()

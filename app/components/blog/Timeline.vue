@@ -52,7 +52,7 @@
 
 <script setup lang="ts">
 const { t, locale } = useI18n()
-import type { PostContent } from '~~/app/types'
+import type { PostContent } from '~/types'
 
 const props = defineProps<{
   posts: PostContent[]

@@ -1,7 +1,7 @@
 import { readdirSync, readFileSync, existsSync, statSync } from 'node:fs'
 import { join } from 'node:path'
 import matter from 'gray-matter'
-import { siteConfig } from '../../data/site-config'
+import { siteConfig } from '../../app/data/site-config'
 
 export default defineEventHandler(async (event) => {
   const contentDir = join(process.cwd(), 'content/posts')

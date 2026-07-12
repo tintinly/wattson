@@ -33,7 +33,7 @@
 </template>
 
 <script setup lang="ts">
-import type { TagCount } from '~~/app/types'
+import type { TagCount } from '~/types'
 
 defineProps<{
   tags: TagCount[]

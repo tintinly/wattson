@@ -33,7 +33,7 @@
 </template>
 
 <script setup lang="ts">
-import type { Friend } from '~~/app/types'
+import type { Friend } from '~/types'
 
 const props = defineProps<{ friend: Friend }>()
 const { locale } = useI18n()

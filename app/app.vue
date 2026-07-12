@@ -4,7 +4,7 @@
   </NuxtLayout>
 </template>
 <script setup lang="ts">
-import { siteConfig } from '~~/data/site-config'
+import { siteConfig } from '~/data/site-config'
 const { locale } = useI18n()
 
 const siteTitle = computed(() =>

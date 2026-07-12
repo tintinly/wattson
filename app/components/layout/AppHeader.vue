@@ -58,7 +58,7 @@
 </template>
 
 <script setup lang="ts">
-import { siteConfig } from '~~/data/site-config'
+import { siteConfig } from '~/data/site-config'
 import { useLocalePath } from '#i18n'
 
 const { t, locale } = useI18n()

@@ -13,7 +13,7 @@
 </template>
 
 <script setup lang="ts">
-import { friends } from '~~/data/friends'
+import { friends } from '~/data/friends'
 
 const { t, locale } = useI18n()
 
