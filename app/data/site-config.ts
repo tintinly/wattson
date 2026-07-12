@@ -37,12 +37,13 @@ export const siteConfig = {
     { name: 'Vue 3', url: 'https://vuejs.org' },
   ],
 
-  social: {
-    github: 'https://github.com',
-    bilibili: 'https://www.bilibili.com',
-    qq: '00000000',
-    wechat: '00000000',
-    email: 'mailto:wattson@example.com',
-    rss: '/feed.xml',
-  },
+  social: [
+    { type: 'link', name: 'github', url: 'https://github.com', icon: 'tabler:brand-github' },
+    { type: 'link', name: 'bilibili', url: 'https://www.bilibili.com', icon: 'tabler:brand-bilibili' },
+    { type: 'account', name: 'qq', number: '00000000', icon: 'ri:qq-line' },
+    { type: 'account', name: 'wechat', number: '000000000', icon: 'tabler:brand-wechat' },
+    { type: 'link', name: 'email', url: 'mailto:wattson@example.com', icon: 'tabler:mail' },
+  ],
+
+  rss: '/feed.xml',
 }

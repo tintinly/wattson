@@ -33,7 +33,7 @@
             <Icon name="tabler:brand-typescript" class="w-4 h-4"/>
           </a>
           |
-          <a :href="siteConfig.social.rss" target="_blank" rel="noopener noreferrer" title="RSS" class="rounded p-0.5 hover:bg-background hover:text-[#FF6600] transition-colors">
+          <a :href="siteConfig.rss" target="_blank" rel="noopener noreferrer" title="RSS" class="rounded p-0.5 hover:bg-background hover:text-[#FF6600] transition-colors">
             <Icon name="tabler:rss" class="w-4 h-4"/>
           </a>
         </p>
