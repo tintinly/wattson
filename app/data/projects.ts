@@ -15,10 +15,10 @@ export const projects: Project[] = [
     nameEn: 'Wattson',
     description: '基于 Nuxt 4 的现代化个人技术博客。',
     descriptionEn: 'A modern personal tech blog built with Nuxt 4.',
-    url: '',
+    url: 'https://github.com/tintinly/wattson',
     github: 'https://github.com/tintinly/wattson',
     techStack: ['Nuxt 4', 'Vue 3', 'TypeScript', 'Tailwind CSS'],
-    image: '',
+    image: '/images/project.png',
   },
   {
     name: 'Nuxt.js',

@@ -28,52 +28,6 @@
           </button>
         </template>
      </div>
-    <!-- <div class="flex flex-wrap justify-center gap-1.5">
-      <a
-        v-if="siteConfig.social.github"
-        :href="siteConfig.social.github"
-        target="_blank"
-        rel="noopener noreferrer"
-        class="p-2 rounded-lg bg-background-secondary border border-border text-foreground-secondary hover:border-border-secondary hover:bg-background-tertiary active:border-border-secondary active:bg-background-tertiary transition-colors duration-300"
-        title="GitHub"
-      >
-        <Icon name="tabler:brand-github" class="w-6 h-6" />
-      </a>
-      <a
-        v-if="siteConfig.social.bilibili"
-        :href="siteConfig.social.bilibili"
-        target="_blank"
-        rel="noopener noreferrer"
-        class="p-2 rounded-lg bg-background-secondary border border-border text-foreground-secondary hover:border-border-secondary hover:bg-background-tertiary active:border-border-secondary active:bg-background-tertiary transition-colors duration-300"
-        title="Bilibili"
-      >
-        <Icon name="tabler:brand-bilibili" class="w-6 h-6" />
-      </a>
-      <button
-        v-if="siteConfig.social.qq"
-        class="p-2 rounded-lg bg-background-secondary border border-border text-foreground-secondary hover:border-border-secondary hover:bg-background-tertiary active:border-border-secondary active:bg-background-tertiary transition-colors cursor-pointer"
-        title="QQ"
-        @click="copyId(siteConfig.social.qq, 'QQ')"
-      >
-        <Icon name="ri:qq-line" class="w-6 h-6" />
-      </button>
-      <button
-        v-if="siteConfig.social.wechat"
-        class="p-2 rounded-lg bg-background-secondary border border-border text-foreground-secondary hover:border-border-secondary hover:bg-background-tertiary active:border-border-secondary active:bg-background-tertiary transition-colors cursor-pointer"
-        title="微信"
-        @click="copyId(siteConfig.social.wechat, '微信')"
-      >
-        <Icon name="tabler:brand-wechat" class="w-6 h-6" />
-      </button>
-      <a
-        v-if="siteConfig.social.email"
-        :href="siteConfig.social.email"
-        class="p-2 rounded-lg bg-background-secondary border border-border text-foreground-secondary hover:border-border-secondary hover:bg-background-tertiary active:border-border-secondary active:bg-background-tertiary transition-colors"
-        title="Email"
-      >
-        <Icon name="tabler:mail" class="w-6 h-6" />
-      </a>
-    </div> -->
   </div>
 </template>
 
