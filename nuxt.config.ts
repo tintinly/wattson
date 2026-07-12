@@ -1,11 +1,11 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 import tailwindcss from '@tailwindcss/vite'
-import contentImages from './app/plugins/remark/content-images'
-import tocPlaceholder from './app/plugins/remark/toc-placeholder'
-import customContainer from './app/plugins/remark/custom-container'
-import restoreBrackets from './app/plugins/rehype/restore-brackets'
+import contentImages from './app/remark/content-images'
+import tocPlaceholder from './app/remark/toc-placeholder'
+import customContainer from './app/remark/custom-container'
+import restoreBrackets from './app/rehype/restore-brackets'
 import { rehypeGithubAlerts } from 'rehype-github-alerts'
-import remarkSupSub from './app/plugins/remark/sup-sub'
+import remarkSupSub from './app/remark/sup-sub'
 import remarkMath from 'remark-math'
 import rehypeKatex from 'rehype-katex'
 
@@ -47,17 +47,17 @@ export default defineNuxtConfig({
           // 相对路径图片支持（将 Markdown 中 assets/img.png → /_content-media/...）
           'content-images': {
             instance: contentImages,
-            src: '~/plugins/remark/content-images',
+            src: '~/remark/content-images',
           },
           // 文章目录插件（将 [TOC] 替换为目录 HTML）
           'toc-placeholder': {
             instance: tocPlaceholder,
-            src: '~/plugins/remark/toc-placeholder',
+            src: '~/remark/toc-placeholder',
           },
           // 上/下标插件（19^th^ → <sup>、H~2~O → <sub>）
           'sup-sub': {
             instance: remarkSupSub,
-            src: '~/plugins/remark/sup-sub',
+            src: '~/remark/sup-sub',
           },
           // LaTeX 数学公式（$...$ 行内 / $$...$$ 块级）
           'remark-math': {
@@ -69,14 +69,14 @@ export default defineNuxtConfig({
           // 自定义容器插件（::: info / ::: warning 等 VitePress 风格）
           'custom-container': {
             instance: customContainer,
-            src: '~/plugins/remark/custom-container',
+            src: '~/remark/custom-container',
           },
         },
         rehypePlugins: {
           // MDC 无属性 <span> 还原为 [原文]（CommonMark 标准行为）
           'restore-brackets': {
             instance: restoreBrackets,
-            src: '~/plugins/rehype/restore-brackets',
+            src: '~/rehype/restore-brackets',
           },
           'rehype-github-alerts': {
             instance: rehypeGithubAlerts,
