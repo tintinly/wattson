@@ -50,4 +50,5 @@ jobs:
         ARGS: "-rlgoDzvc -i --delete"
         SCRIPT_BEFORE: whoami
         SCRIPT_AFTER: |
+          ls -l
           pm2 start server/index.mjs --name tintin-blog
