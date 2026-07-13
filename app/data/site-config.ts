@@ -5,6 +5,7 @@ export const siteConfig = {
     avatar: '/images/avatar.webp',
     bio: '当你知道如何控制光明，就不会害怕黑暗',
     bioEn: "You can't be afraid of the dark when you know how to control the light",
+    url: 'https://home.wattson.dev',
   },
 
   site: {
