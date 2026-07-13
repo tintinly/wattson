@@ -22,6 +22,7 @@ jobs:
       uses: actions/checkout@v3
       with:
         repository: tintinly/md-notes
+        token: ${{ secrets.REPO_ACCESS_TOKEN }}
         path: md-notes-repo
         sparse-checkout: configs/ 
     - name: Copy config and data to current working directory
