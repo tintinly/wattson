@@ -37,7 +37,7 @@ jobs:
         cache: 'npm'
     - run: npm install
     - run: npm run build
-    - run: ls -l
+    - run: ls -la
     - name: Deploy to Server
       uses: easingthemes/ssh-deploy@main
       with:
