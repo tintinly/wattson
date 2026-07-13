@@ -1,6 +1,18 @@
 <template>
-  <!-- /_content-media/ 路径的图片不使用 NuxtImg（IPX 无法访问 content 目录） -->
+  <!-- 内容图片（/posts/**/assets/**）：使用原生 img 跳过 IPX，IPX 无法访问 content/ 目录 -->
   <img
+    v-if="isContentImage"
+    :src="props.src"
+    :alt="props.alt"
+    :width="props.width"
+    :height="props.height"
+    v-bind="$attrs"
+    class="cursor-zoom-in"
+    @click="open"
+  />
+  <!-- 其他图片：走 NuxtImg + IPX 优化 -->
+  <NuxtImg
+    v-else
     :src="props.src"
     :alt="props.alt"
     :width="props.width"
@@ -39,6 +51,9 @@ const props = defineProps({
   width: { type: [String, Number], default: undefined },
   height: { type: [String, Number], default: undefined },
 })
+
+/** 内容图片（/posts/**\/assets/**）：IPX 无法访问 content/ 目录，需跳过优化 */
+const isContentImage = computed(() => /^\/posts\/.+\/assets\//.test(props.src))
 
 const lightboxOpen = ref(false)
 

@@ -8,6 +8,9 @@ import { rehypeGithubAlerts } from 'rehype-github-alerts'
 import remarkSupSub from './app/remark/sup-sub'
 import remarkMath from 'remark-math'
 import rehypeKatex from 'rehype-katex'
+import { globby } from 'globby'
+import fs from 'node:fs'
+import path from 'node:path'
 
 export default defineNuxtConfig({
   compatibilityDate: '2025-07-15',
@@ -44,11 +47,6 @@ export default defineNuxtConfig({
             'c', 'cpp', 'java', 'python', 'go', 'php', 'sql' ],
         },
         remarkPlugins: {
-          // 相对路径图片支持（将 Markdown 中 assets/img.png → /_content-media/...）
-          'content-images': {
-            instance: contentImages,
-            src: '~/remark/content-images',
-          },
           // 文章目录插件（将 [TOC] 替换为目录 HTML）
           'toc-placeholder': {
             instance: tocPlaceholder,
@@ -70,6 +68,11 @@ export default defineNuxtConfig({
           'custom-container': {
             instance: customContainer,
             src: '~/remark/custom-container',
+          },
+          // 文章图片路径重写：相对路径 → 根路径绝对路径 /posts/slug/assets/img.png
+          'content-images': {
+            instance: contentImages,
+            src: '~/remark/content-images',
           },
         },
         rehypePlugins: {
@@ -156,4 +159,34 @@ export default defineNuxtConfig({
   experimental: {
     viewTransition: false,
   },
+
+  hooks: {
+    close: async () => {
+      // 1. 找到所有符合条件的图片
+      const imagePaths = await globby([
+        'content/posts/**/assets/**/*', // 匹配所有 assets 下的文件
+        '!content/posts/**/assets/**/*.md' // 排除 markdown 文件（如有需要）
+      ])
+
+      // 2. 确保目标目录存在
+      const publicDir = path.resolve('.output/public')
+      if (!fs.existsSync(publicDir)) {
+        fs.mkdirSync(publicDir, { recursive: true })
+      }
+
+      // 3. 复制每个文件到 .output/public
+      for (const imagePath of imagePaths) {
+        // 保持原有目录结构，例如 content/posts/hello/assets/1.png -> public/posts/hello/assets/1.png
+        const relativePath = path.relative('content', imagePath)
+        const destPath = path.join(publicDir, relativePath)
+        
+        // 确保目标子目录存在
+        fs.mkdirSync(path.dirname(destPath), { recursive: true })
+        
+        // 复制文件
+        fs.copyFileSync(imagePath, destPath)
+        console.log(`Copied: ${imagePath} -> ${destPath}`)
+      }
+    }
+  }
 })

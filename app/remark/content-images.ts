@@ -2,10 +2,14 @@ import { visit } from 'unist-util-visit'
 import { resolve, relative, normalize } from 'node:path'
 
 /**
- * Remark 插件：将 Markdown 中的相对路径图片 URL 重写为 /_content-media/ 路径
+ * Remark 插件：将 Markdown 中的相对路径图片 URL 重写为根路径绝对路径
  *
  * 只处理相对路径（不以 http://、https://、/、data:、# 开头），
  * 使用 VFile 中的 file.dirname 来解析图片的相对路径。
+ *
+ * 转换示例：
+ *   content/posts/hello/zh-cn.md 中的 assets/img.png
+ *   → /posts/hello/assets/img.png
  */
 export default function contentImages() {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -37,15 +41,15 @@ export default function contentImages() {
       // 解析相对路径 → 绝对文件系统路径
       const absolutePath = resolve(normalizedFileDir, node.url)
 
-      // 安全检查：确保解析后的路径仍在 content/ 目录内
+      // 安全检查：确保解析后的路径仍在 content/ 目录内（排除 ../ 绕过）
       const normalizedAbsPath = normalize(absolutePath)
       if (!normalizedAbsPath.startsWith(contentDir)) return
 
       // 计算相对于 content/ 目录的路径，并转换为 URL 格式
       const relativePath = relative(contentDir, normalizedAbsPath).replace(/\\/g, '/')
 
-      // 重写为 /_content-media/ URL
-      node.url = `/_content-media/${relativePath}`
+      // 重写为根路径绝对路径（如 /posts/hello/assets/img.png）
+      node.url = `/${relativePath}`
     })
   }
 }

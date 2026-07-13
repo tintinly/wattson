@@ -1,20 +1,6 @@
 // usePosts — Nuxt Content v3 文章查询 composable
 // 按 locale 筛选文章：zh-CN 取 zh-cn.md，en-US 取 en-us.md，无英文版时降级到中文
 
-/**
- * 解析封面图相对路径为 /_content-media/ URL
- * 绝对路径（以 / 或 http 开头）原样返回
- */
-function resolveCoverImage(coverImage: string | undefined, path: string): string | undefined {
-  if (!coverImage) return undefined
-  if (coverImage.startsWith('/') || coverImage.startsWith('http://') || coverImage.startsWith('https://')) {
-    return coverImage
-  }
-  // path 格式: /posts/found-family/zh-cn → 目录: /posts/found-family
-  const dir = path.substring(0, path.lastIndexOf('/'))
-  return `/_content-media${dir}/${coverImage}`
-}
-
 export async function usePosts(locale: string = 'zh-CN', category: string | null = null) {
   const { data: posts } = await useAsyncData(`posts-${locale}-${category || ''}`, async () => {
     return await queryCollection('posts')
@@ -62,6 +48,14 @@ export async function usePosts(locale: string = 'zh-CN', category: string | null
         : bodyText.split(/\s+/).filter(Boolean).length
       const readingTime = Math.max(1, Math.ceil(wordCount / (isChinese ? 300 : 200)))
 
+      // 解析封面图路径：从 match.path 提取目录 → 拼接相对路径
+      // 例：/posts/hello/zh-cn + assets/img.png → /posts/hello/assets/img.png
+      // 已有完整 URL（http/https）或已是根路径（/）则保持不变
+      if (match.coverImage && !/^(https?:|\/|data:|#)/.test(match.coverImage)) {
+        const postDir = match.path.replace(/\/(zh-cn|en-us)$/, '')
+        match.coverImage = postDir + '/' + match.coverImage.replace(/^\.\/?/, '')
+      }
+
       selected.push({
         ...match,
         _title: match.title,
@@ -73,8 +67,6 @@ export async function usePosts(locale: string = 'zh-CN', category: string | null
         _wordCount: wordCount,
         _readingTime: readingTime,
         _locale: postLocale,
-        // 封面图相对路径解析为 /_content-media/ URL
-        coverImage: resolveCoverImage(match.coverImage, match.path),
       })
     }
 

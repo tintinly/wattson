@@ -104,6 +104,8 @@
 </template>
 
 <script setup lang="ts">
+import { siteConfig } from '~/data/site-config'
+
 const route = useRoute()
 const { t, locale } = useI18n()
 const localePath = useLocalePath()
@@ -130,10 +132,25 @@ const formattedDate = computed(() => {
   )
 })
 
-useHead(() => ({
-  title: `${displayTitle.value}`,
-  meta: [
+useHead(() => {
+  const meta: any[] = [
     { name: 'description', content: displayDescription.value },
-  ],
-}))
+  ]
+
+  // Open Graph / Twitter 卡片图片（拼接完整 URL）
+  if (post.value?.coverImage) {
+    const ogImage = siteConfig.site.url + post.value.coverImage
+    meta.push(
+      { property: 'og:image', content: ogImage },
+      { property: 'og:image:alt', content: post.value.coverImageAlt || displayTitle.value },
+      { name: 'twitter:card', content: 'summary_large_image' },
+      { name: 'twitter:image', content: ogImage },
+    )
+  }
+
+  return {
+    title: `${displayTitle.value}`,
+    meta,
+  }
+})
 </script>
