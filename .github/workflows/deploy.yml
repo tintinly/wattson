@@ -19,7 +19,7 @@ jobs:
     - name: Delete examples posts
       run: rm -rf content/examples 
     - name: Checkout blog config and data from md-notes
-      uses: actions/checkout@v4
+      uses: actions/checkout@v3
       with:
         repository: tintinly/md-notes
         path: md-notes-repo
