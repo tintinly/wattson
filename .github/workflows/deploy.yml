@@ -1,0 +1,52 @@
+# This workflow will do a clean installation of node dependencies, cache/restore them, build the source code and run tests across different versions of node
+# For more information see: https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-nodejs
+
+name: ssh deploy
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "mian" ]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v3
+    - name: Delete examples posts
+      run: rm -rf content/examples 
+    - name: Checkout blog config and data from md-notes
+      uses: actions/checkout@v4
+      with:
+        repository: tintinly/md-notes
+        path: md-notes-repo
+        sparse-checkout: configs/ 
+    - name: Copy config and data to current working directory
+      run: |
+        cp -r md-notes-repo/博客/public/* public/
+        cp -r md-notes-repo/博客/content/* content/
+        cp -r md-notes-repo/博客/data/* app/data/
+    - name: Use Node.js Build
+      uses: actions/setup-node@v3
+      with:
+        node-version: 24.15.0
+        cache: 'npm'
+    - run: npm install
+    - run: npm run build
+    - run: ls -l
+    - name: Deploy to Server
+      uses: easingthemes/ssh-deploy@main
+      with:
+        REMOTE_HOST: ${{ secrets.YHY_SSH_HOST }}
+        REMOTE_PORT : ${{ secrets.YHY_SSH_PORT }}
+        REMOTE_USER: ${{ secrets.YHY_SSH_USER }}
+        SSH_PRIVATE_KEY: ${{ secrets.YHY_SSH_KEY }}
+        SOURCE: .output
+        TARGET:  ${{ secrets.YHY_MD_NOTES_PATH }}
+        ARGS: "-rlgoDzvc -i --delete"
+        SCRIPT_BEFORE: whoami
+        SCRIPT_AFTER: |
+          pm2 start server/index.mjs --name tintin-blog
