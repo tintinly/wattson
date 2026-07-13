@@ -45,7 +45,7 @@ jobs:
         REMOTE_PORT : ${{ secrets.YHY_SSH_PORT }}
         REMOTE_USER: ${{ secrets.YHY_SSH_USER }}
         SSH_PRIVATE_KEY: ${{ secrets.YHY_SSH_KEY }}
-        SOURCE: .output
+        SOURCE: .output/
         TARGET:  ${{ secrets.YHY_TINTIN_BLOG_PATH }}
         ARGS: "-rlgoDzvc -i --delete"
         SCRIPT_BEFORE: whoami
