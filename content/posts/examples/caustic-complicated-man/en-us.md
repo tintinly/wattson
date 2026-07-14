@@ -3,7 +3,7 @@ title: Dr. Nox — A Complicated Man
 date: 2734-05-30
 tags: [Reflection, Caustic, Forgiveness]
 category: Thoughts
-description: '"I even hate everyone." But he was my father's friend. About Dr. Alexander Nox — the man I can't bring myself to hate.'
+description: "\"I even hate everyone.\" But he was my father's friend. About Dr. Alexander Nox — the man I can't bring myself to hate."
 ---
 
 Everyone fears Caustic. For good reason.

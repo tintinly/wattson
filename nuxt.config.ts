@@ -159,8 +159,10 @@ export default defineNuxtConfig({
   },
 
   hooks: {
-    // 构建前：生成字体子集（减小字体文件体积）
+    // 构建前：生成搜索索引 + 字体子集
     'build:before': () => {
+      console.log('[搜索索引] 构建前开始生成搜索索引...')
+      execSync('npx tsx scripts/generate-search-index.ts', { stdio: 'inherit' })
       console.log('[字体子集化] 构建前开始生成字体子集...')
       execSync('npx tsx scripts/subset-font.ts', { stdio: 'inherit' })
     },

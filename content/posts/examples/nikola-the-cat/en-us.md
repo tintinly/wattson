@@ -1,5 +1,5 @@
 ---
-title: My Cat: Nikola
+title: 'My Cat: Nikola'
 date: 2732-09-25
 tags: [Nikola, Cat, Life]
 category: Life
