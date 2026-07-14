@@ -51,4 +51,9 @@ jobs:
         SCRIPT_BEFORE: whoami
         SCRIPT_AFTER: |
           ls -l
-          pm2 start server/index.mjs --name tintin-blog
+          cd ${{ secrets.YHY_TINTIN_BLOG_PATH }}
+          if pm2 describe tintin-blog > /dev/null 2>&1; then
+            pm2 reload tintin-blog   # 或 pm2 restart tintin-blog
+          else
+            pm2 start server/index.mjs --name tintin-blog
+          fi
