@@ -8,11 +8,7 @@ import { rehypeGithubAlerts } from 'rehype-github-alerts'
 import remarkSupSub from './app/remark/sup-sub'
 import remarkMath from 'remark-math'
 import rehypeKatex from 'rehype-katex'
-import { globby } from 'globby'
-import fs from 'node:fs'
-import path from 'node:path'
 import { execSync } from 'node:child_process'
-import { fileURLToPath } from 'node:url'
 
 export default defineNuxtConfig({
   compatibilityDate: '2025-07-15',
@@ -165,41 +161,14 @@ export default defineNuxtConfig({
   hooks: {
     // 构建前：生成字体子集（减小字体文件体积）
     'build:before': () => {
-      const projectRoot = path.dirname(fileURLToPath(import.meta.url))
       console.log('[字体子集化] 构建前开始生成字体子集...')
-      execSync('npx tsx scripts/subset-font.ts', {
-        cwd: projectRoot,
-        stdio: 'inherit',
-      })
+      execSync('npx tsx scripts/subset-font.ts', { stdio: 'inherit' })
     },
 
     // 构建后：复制文章配图到输出目录
-    close: async () => {
-      // 1. 找到所有符合条件的图片
-      const imagePaths = await globby([
-        'content/posts/**/assets/**/*', // 匹配所有 assets 下的文件
-        '!content/posts/**/assets/**/*.md' // 排除 markdown 文件（如有需要）
-      ])
-
-      // 2. 确保目标目录存在
-      const publicDir = path.resolve('.output/public')
-      if (!fs.existsSync(publicDir)) {
-        fs.mkdirSync(publicDir, { recursive: true })
-      }
-
-      // 3. 复制每个文件到 .output/public
-      for (const imagePath of imagePaths) {
-        // 保持原有目录结构，例如 content/posts/hello/assets/1.png -> public/posts/hello/assets/1.png
-        const relativePath = path.relative('content', imagePath)
-        const destPath = path.join(publicDir, relativePath)
-        
-        // 确保目标子目录存在
-        fs.mkdirSync(path.dirname(destPath), { recursive: true })
-        
-        // 复制文件
-        fs.copyFileSync(imagePath, destPath)
-        console.log(`Copied: ${imagePath} -> ${destPath}`)
-      }
+    'close': async () => {
+      console.log('[文章配图复制] 构建后开始复制文章配图...')
+      execSync('npx tsx scripts/copy-post-assets.ts', { stdio: 'inherit' })
     }
   }
 })

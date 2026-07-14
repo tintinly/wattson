@@ -7,6 +7,7 @@
 dist
 
 public/robots.txt
+# 构建生成的搜索索引
 public/search-index.json
 
 # 构建生成的字体子集（原始 TTF 保留）
