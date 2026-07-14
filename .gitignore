@@ -9,6 +9,9 @@ dist
 public/robots.txt
 public/search-index.json
 
+# 构建生成的字体子集（原始 TTF 保留）
+app/assets/fonts/*.subset.woff2
+
 # Node dependencies
 node_modules
 

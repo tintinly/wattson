@@ -3,8 +3,14 @@
 
 @font-face {
   font-family: 'LXGW Bright';
-  src: url('../fonts/LXGWBright-Medium.ttf') format('truetype');
-  font-display: swap;
+  src:
+    /* 子集化 WOFF2（基础字符 + 源文件扫描） */
+    url('../fonts/LXGWBright-Medium.subset.woff2') format('woff2');
+    /* 原始 TTF */
+    /* url('../fonts/LXGWBright-Medium.ttf') format('truetype'); */
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap; /* 先使用系统字体渲染，字体加载后切换，避免白屏 */
 }
 
 /* ========== Tailwindcss 主题设计 ========== */

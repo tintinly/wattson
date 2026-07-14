@@ -11,6 +11,8 @@ import rehypeKatex from 'rehype-katex'
 import { globby } from 'globby'
 import fs from 'node:fs'
 import path from 'node:path'
+import { execSync } from 'node:child_process'
+import { fileURLToPath } from 'node:url'
 
 export default defineNuxtConfig({
   compatibilityDate: '2025-07-15',
@@ -161,6 +163,17 @@ export default defineNuxtConfig({
   },
 
   hooks: {
+    // 构建前：生成字体子集（减小字体文件体积）
+    'build:before': () => {
+      const projectRoot = path.dirname(fileURLToPath(import.meta.url))
+      console.log('[字体子集化] 构建前开始生成字体子集...')
+      execSync('npx tsx scripts/subset-font.ts', {
+        cwd: projectRoot,
+        stdio: 'inherit',
+      })
+    },
+
+    // 构建后：复制文章配图到输出目录
     close: async () => {
       // 1. 找到所有符合条件的图片
       const imagePaths = await globby([
