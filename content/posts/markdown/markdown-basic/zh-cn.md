@@ -1,13 +1,13 @@
 ---
 title: Markdown基本示例
-date: 2026-06-03
+date: 2026-03-08
 tags: [Markdown]
 category: 文章示例
 description: 这是一个展示如何编写 Markdown 文件的教程与示例。
 featured: true
 ---
 
-这是一个展示如何编写 Markdown 文件的教程与示例。
+这是一个展示如何编写 Markdown 文件的教程与示例，包括核心语法与常见扩展（GFM）。
 
 # Markdown
 
@@ -195,7 +195,7 @@ Markdown 没有内置的下划线语法，但可以通过 html 标签 `<u>` 实�
 
 这是 ==高亮文本==
 
-这是 <mark>高亮文本</mark>
+这是 <mark> 高亮文本 </mark>
 
 ## 列表
 
@@ -259,8 +259,8 @@ Markdown 会从开头数字开始，自动修正数字顺序。
 ```
 
 4. 第四项
-6. 第六项（实际显示为5）
-8. 第八项（实际显示为6）
+6. 第六项（实际显示为 5）
+8. 第八项（实际显示为 6）
 
 ### 列表嵌套
 
@@ -525,18 +525,18 @@ $(document).ready(function () {
 ```markdown
 <span id="custom-anchor"></span >
 
-跳转到标题 [Markdown 概述](#Markdown-概述)
+跳转到标题 [Markdown概述](#Markdown概述)
 
 跳转到[自定义位置](#custom-anchor)
 
 [回到顶部](#)
 ```
 
-<span id="custom-anchor"></span >
+<span id="custom-anchor"> </span >
 
 跳转到标题 [Markdown 概述](#Markdown-概述)
 
-跳转到[自定义位置](#custom-anchor)
+跳转到 [自定义位置](#custom-anchor)
 
 [回到顶部](#)
 
@@ -589,7 +589,7 @@ $(document).ready(function () {
 ![typora](assets/markdown.webp "markdown")
 
 网络图片（图床图片）
-![typora](https://raw.githubusercontent.com/tintinly/wattson/refs/heads/main/content/posts/markdown-basic/assets/markdown.webp)
+![typora](https://raw.githubusercontent.com/tintinly/md-notes/refs/heads/main/Markdonw%E6%95%99%E7%A8%8B/assets/markdown.webp)
 ```
 
 本地图片
@@ -598,17 +598,17 @@ $(document).ready(function () {
 
 网络图片（图床图片）
 
-![typora](https://raw.githubusercontent.com/tintinly/wattson/refs/heads/main/content/posts/markdown-basic/assets/markdown.webp)
+![typora](https://github.com/tintinly/md-notes/blob/main/markdown/markdown%E5%9F%BA%E7%A1%80/assets/markdown.webp?raw=true)
 
 ### 指定图片属性
 
 Markdown 还没有办法指定图片的属性，如果你需要的话，你可以使用 HTML 的 `<img>` 标签。
 
 ```markdown
-<img src="https://raw.githubusercontent.com/tintinly/wattson/refs/heads/main/content/posts/markdown-basic/assets/markdown.webp" style="zoom:33%;" >
+<img src="https://github.com/tintinly/md-notes/blob/main/markdown/markdown%E5%9F%BA%E7%A1%80/assets/markdown.webp?raw=true" style="zoom:33%;" >
 ```
 
-<img src="https://raw.githubusercontent.com/tintinly/wattson/refs/heads/main/content/posts/markdown-basic/assets/markdown.webp" style="zoom:33%;" >
+<img src="https://github.com/tintinly/md-notes/blob/main/markdown/markdown%E5%9F%BA%E7%A1%80/assets/markdown.webp?raw=true" style="zoom:33%;" >
 
 ## 表格
 
@@ -703,11 +703,11 @@ HTML 的行级內联标签如 `<span>`、`<cite>`、`<del>` 不受限制，可�
 ```
 
 表示按键组合：<kbd> Ctrl </kbd>+<kbd> Alt </kbd>+<kbd> Del </kbd>  
-表示粗体：<b>加粗文本</b>  
-表示斜体：<i>斜体文本</i>  
-表示语义强调：<em>被强调的文本</em>  
-添加上标和下标：<sup>上标</sup><sub>下标</sub>  
-表示链接：<a href="http://www.example.com" target="_blank" rel="noreferrer">example</a>  
+表示粗体：<b> 加粗文本 </b>  
+表示斜体：<i> 斜体文本 </i>  
+表示语义强调：<em> 被强调的文本 </em>  
+添加上标和下标：<sup> 上标 </sup> <sub> 下标 </sub>  
+表示链接：<a href="http://www.example.com" target="_blank" rel="noreferrer"> example </a>  
 表示换行：第一行<br>第二行
 
 ### 区块标签
@@ -739,7 +739,7 @@ HTML 的行级內联标签如 `<span>`、`<cite>`、`<del>` 不受限制，可�
 </table>
 这是另一个正常段落。
 
-### HTML实体
+### HTML 实体
 
 Markdown 不能直接插入特殊符号，但可以复制粘贴，或者使用 HTML 实体：
 
@@ -847,4 +847,4 @@ Markdown 不能直接插入特殊符号，但可以复制粘贴，或者使用 H
 
 [Markdown 教程 | 菜鸟教程](https://www.runoob.com/markdown/md-tutorial.html)
 
-[Markdown教程 — 最简明的Markdown语法入门指南](https://markdown.com.cn/)
+[Markdown 教程 — 最简明的 Markdown 语法入门指南](https://markdown.com.cn/)

@@ -1,13 +1,11 @@
 ---
 title: Markdown扩展示例
-date: 2026-06-03
+date: 2026-03-09
 tags: [Markdown]
 category: 文章示例
 description: 这是一个展示 Markdown 文件扩展语法（GFM）的示例。
 featured: true
 ---
-
-这是一个展示 Markdown 文件扩展语法（GFM）及自定义样式的示例。
 
 # Markdown 扩展
 
@@ -65,11 +63,12 @@ This is a details block.
 ::: danger STOP
 危险区域，请勿继续
 :::
+```
 
 ::: details 点我查看代码
 ```js
 console.log('Hello, VitePress!')
-```
+
 :::
 ~~~
 
@@ -121,7 +120,7 @@ console.log('Hello, VitePress!')
 
 ### 语法高亮
 
-````markdown
+````md
 ```js{4}
 export default {
   data () {
@@ -205,9 +204,7 @@ LaTeX 是一个强大的排版系统，特别适用于包含复杂数学公式�
 行内公式：文本中的变量 $x = 5$ 和函数 $f(x) = x^2 + 2x + 1$。
 
 块级公式：
-$$
-E = mc^2
-$$
+$$E = mc^2$$
 
 多行公式：
 $$
@@ -223,9 +220,7 @@ $$
 行内公式：文本中的变量 $x = 5$ 和函数 $f(x) = x^2 + 2x + 1$。
 
 块级公式：
-$$
-E = mc^2
-$$
+$$E = mc^2$$
 
 多行公式：
 $$
