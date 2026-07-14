@@ -9,8 +9,12 @@ on:
     types: [update_blog]
   push:
     branches: [ "main" ]
+    paths-ignore:
+      - '.github/**'
   pull_request:
     branches: [ "mian" ]
+    paths-ignore:
+      - '.github/**'
 
 jobs:
   build:
