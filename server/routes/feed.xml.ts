@@ -1,50 +1,37 @@
-import { readdirSync, readFileSync, existsSync, statSync } from 'node:fs'
-import { join } from 'node:path'
-import matter from 'gray-matter'
 import { siteConfig } from '../../app/data/site-config'
+// queryCollection 由 @nuxt/content 在 Nitro 端自动导入，签名 (event, collection)
 
 export default defineEventHandler(async (event) => {
-  const contentDir = join(process.cwd(), 'content/posts')
   const siteUrl = siteConfig.site.url
 
-  setHeader(event, 'Content-Type', 'application/rss+xml; charset=utf-8')
+  setHeader(event, 'Content-Type', 'application/xml; charset=utf-8')
 
-  // 递归查找子目录中的 .md 文件，以父目录名作为 slug
-  const files: { path: string; slug: string }[] = []
-  if (existsSync(contentDir)) {
-    const entries = readdirSync(contentDir)
-    for (const entry of entries) {
-      const entryPath = join(contentDir, entry)
-      if (statSync(entryPath).isDirectory()) {
-        const mdFiles = readdirSync(entryPath).filter(f => f.endsWith('.md'))
-        // 取第一个 .md 文件（通常是 zh-cn.md），用目录名作为 slug
-        const firstMd = mdFiles[0]
-        if (firstMd) {
-          files.push({ path: join(entryPath, firstMd), slug: entry })
-        }
-      } else if (entry.endsWith('.md')) {
-        // 兼容扁平结构：content/posts/xxx.md
-        files.push({ path: entryPath, slug: entry.replace('.md', '') })
-      }
+  // 通过 queryCollection 获取文章（与 usePosts 同一数据源，共享 Content 层缓存）
+  const allPosts = await queryCollection(event, 'posts')
+    .order('date', 'DESC')
+    .all()
+
+  // 按 slug 分组：每篇文章目录下可能有 zh-cn.md / en-us.md，优先取中文版
+  const groups = new Map<string, any>()
+  for (const p of allPosts) {
+    if (p.published === false) continue
+    const slug = (p.path || '').replace('/posts/', '').replace(/\/(zh-cn|en-us)$/, '')
+    const existing = groups.get(slug)
+    if (!existing || p.path.endsWith('/zh-cn')) {
+      groups.set(slug, { ...p, _slug: slug })
     }
   }
 
-  const posts = files
-    .map(f => {
-      const raw = readFileSync(f.path, 'utf-8')
-      const { data } = matter(raw)
-      return { ...data, slug: f.slug }
-    })
-    .filter((p: any) => p.published !== false)
-    .sort((a: any, b: any) => new Date(b.date).getTime() - new Date(a.date).getTime())
+  const posts = Array.from(groups.values())
+    .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())
 
-  const items = posts.map((p: any) => 
+  const items = posts.map((p: any) =>
     `<item>
       <title>${escapeXml(p.title)}</title>
-      <link>${siteUrl}/posts/${escapeXml(p.slug)}</link>
+      <link>${siteUrl}/posts/${escapeXml(p._slug)}</link>
       <description>${escapeXml(p.description || '')}</description>
       <pubDate>${new Date(p.date).toUTCString()}</pubDate>
-      <guid isPermaLink="true">${siteUrl}/posts/${escapeXml(p.slug)}</guid>
+      <guid isPermaLink="true">${siteUrl}/posts/${escapeXml(p._slug)}</guid>
     </item>
     `).join('')
 
