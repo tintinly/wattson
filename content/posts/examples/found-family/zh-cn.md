@@ -5,11 +5,11 @@ tags: [家庭, 传奇, 感恩]
 category: 回忆
 description: 在我最黑暗的一天，四个陌生人藏在桌子底下找到我——从那天起，我就有了一个家。
 featured: true
-coverImage: assets/2733-11-17.found-family.png
+coverImage: assets/2733-11-17.found-family.webp
 coverImageAlt: 电力区合照
 ---
 
-![alt text](assets/2733-11-17.found-family.png)
+![alt text](assets/2733-11-17.found-family.webp)
 
 爸爸走的那一天，正好是安全区公开展示的日子。
 

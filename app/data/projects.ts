@@ -18,7 +18,7 @@ export const projects: Project[] = [
     url: 'https://github.com/tintinly/wattson',
     github: 'https://github.com/tintinly/wattson',
     techStack: ['Nuxt 4', 'Vue 3', 'TypeScript', 'Tailwind CSS'],
-    image: '/images/project.png',
+    image: '/images/watsson_icon.png',
   },
   {
     name: 'Nuxt.js',
@@ -28,6 +28,6 @@ export const projects: Project[] = [
     url: 'https://nuxt.com/',
     github: 'https://github.com/nuxt/nuxt',
     techStack: ['TypeScript'],
-    image: 'https://github.com/nuxt/nuxt/raw/main/.github/assets/banner.svg',
+    image: '/images/vert_banner.webp',
   }
 ]
