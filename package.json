@@ -34,6 +34,7 @@
   },
   "devDependencies": {
     "@types/node": "^22.0.0",
+    "fonteditor-core": "^2.6.3",
     "tsx": "^4.22.3",
     "typescript": "^5.8.0"
   }

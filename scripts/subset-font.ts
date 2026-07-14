@@ -1,9 +1,8 @@
-import { readFileSync, writeFileSync, statSync, unlinkSync, existsSync } from 'node:fs'
+import { readFileSync, writeFileSync, statSync, existsSync } from 'node:fs'
 import { join, dirname } from 'node:path'
 import { fileURLToPath } from 'node:url'
-import { execSync } from 'node:child_process'
+import { createFont, woff2 } from 'fonteditor-core'
 import { globby } from 'globby'
-import os from 'node:os'
 
 const __filename = fileURLToPath(import.meta.url)
 const __dirname = dirname(__filename)
@@ -81,31 +80,25 @@ async function main() {
   const chars = await collectChars()
   console.log(`[字体子集化] 收集到 ${chars.size} 个不同字符`)
 
-  // 2. 将字符写入临时文件（避免命令行转义问题）
-  const tempFile = join(os.tmpdir(), 'wattson-font-chars.txt')
-  writeFileSync(tempFile, Array.from(chars).join(''), 'utf-8')
+  // 2. 初始化 WOFF2 WASM 模块
+  console.log('[字体子集化] 初始化 WOFF2 引擎...')
+  await woff2.init()
 
-  // 3. 调用 pyftsubset 生成子集 WOFF2
-  console.log('[字体子集化] 运行 pyftsubset 生成子集...')
-  try {
-    execSync(
-      [
-        'pyftsubset',
-        `"${inputFont}"`,
-        `--text-file="${tempFile}"`,
-        `--output-file="${outputFont}"`,
-        '--flavor=woff2',
-        '--layout-features=*',        // 保留所有 OpenType 布局特性
-        '--no-hinting',               // 去除 hinting（Web 不需要）
-      ].join(' '),
-      { stdio: 'inherit' }
-    )
-  } finally {
-    // 清理临时文件
-    if (existsSync(tempFile)) {
-      unlinkSync(tempFile)
-    }
-  }
+  // 3. 读取 TTF、按字符子集化、输出 WOFF2
+  console.log('[字体子集化] 生成子集 WOFF2...')
+  const fontBuffer = readFileSync(inputFont)
+  const font = createFont(fontBuffer, {
+    type: 'ttf',
+    subset: Array.from(chars).map(c => c.codePointAt(0)!),
+  })
+
+  const woff2Buffer = font.write({
+    type: 'woff2',
+    hinting: false,   // 去除 hinting（Web 不需要）
+    toBuffer: true,   // 直接返回 Node.js Buffer
+  })
+
+  writeFileSync(outputFont, woff2Buffer)
 
   // 4. 输出体积对比
   const originalSize = statSync(inputFont).size

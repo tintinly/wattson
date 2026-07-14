@@ -35,7 +35,6 @@ jobs:
       with:
         node-version: 24.15.0
         cache: 'npm'
-    - run: pip install fonttools
     - run: npm install
     - run: npm run build
     - run: ls -la
