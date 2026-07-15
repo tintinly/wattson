@@ -15,7 +15,7 @@ on:
       - '.gitignore'
       - 'LICENSE'
   pull_request:
-    branches: [ "mian" ]
+    branches: [ "main" ]
     paths-ignore:
       - '.github/**'
       - 'readme.md'
