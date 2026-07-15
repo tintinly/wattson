@@ -11,10 +11,16 @@ on:
     branches: [ "main" ]
     paths-ignore:
       - '.github/**'
+      - 'readme.md'
+      - '.gitignore'
+      - 'LICENSE'
   pull_request:
     branches: [ "mian" ]
     paths-ignore:
       - '.github/**'
+      - 'readme.md'
+      - '.gitignore'
+      - 'LICENSE'
 
 jobs:
   build:
