@@ -1,11 +1,4 @@
-export interface Friend {
-  name: string
-  nameEn: string
-  url: string
-  avatar: string
-  introduction: string
-  introductionEn: string
-}
+import type { Friend } from '~/types'
 
 export const friends: Friend[] = [
   {
