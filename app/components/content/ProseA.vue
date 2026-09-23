@@ -33,3 +33,27 @@ const normalizedHref = computed(() => {
   return props.href
 })
 </script>
+<style>
+/* ========== About 页面定制相关 ========== */
+.stack a {
+  padding: 0;
+  transition: color 0.2s;
+  padding: 0;
+  text-decoration: none;
+}
+
+.stack a:hover {
+  background-color: transparent;
+}
+
+.contact a {
+  padding: 0;
+  transition: color 0.2s;
+  padding: 0;
+  text-decoration: none;
+}
+
+.contact a:hover {
+  background-color: transparent;
+}
+</style>

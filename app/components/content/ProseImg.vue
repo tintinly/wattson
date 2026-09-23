@@ -94,4 +94,21 @@ onUnmounted(() => {
 .lightbox-leave-to {
   opacity: 0;
 }
+
+/* ========== About 页面定制相关 ========== */
+
+.stack img{
+  display: inline;
+  margin: 0;
+  height: 36px;
+  width: 36px;
+  cursor: pointer;
+}
+
+.contact img {
+  display: inline;
+  margin: 0 4px;
+  height: 24px;
+  cursor: pointer;
+}
 </style>
