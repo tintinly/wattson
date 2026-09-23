@@ -28,11 +28,11 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v3
+    - uses: actions/checkout@v5
     - name: Delete examples posts
       run: rm -rf content/posts/examples 
     - name: Checkout blog config and data from md-notes
-      uses: actions/checkout@v3
+      uses: actions/checkout@v5
       with:
         repository: tintinly/md-notes
         token: ${{ secrets.REPO_ACCESS_TOKEN }}
